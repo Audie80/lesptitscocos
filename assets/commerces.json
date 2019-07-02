@@ -1,0 +1,32 @@
+[
+    {
+        "category": "boulangerie",
+        "shops": [
+            {
+            "name": "La fournée",
+            "img": "",
+            "district": "Centre-ville",
+            "city": "Brest",
+            "resume": "Excellente boulangerie-pâtisserie. Tout y est travaillé avec des produits frais."
+        },
+        {
+            "name": "Le Fournil de Pauline",
+            "img": "",
+            "district": "Saint-Luc",
+            "city": "Brest",
+            "resume": "Une très belle boulangerie avec de beaux produits le pain est très bon et des gâteaux aussi."
+        },
+        {
+            "name": "Le Four De Babel",
+            "img": "",
+            "district": "Kérinou",
+            "city": "Brest",
+            "resume": "Boulangerie attachante, atypique, qui met en scène ses produits."
+        }
+        ]
+    },
+    {
+        "category": "boucherie",
+        "shops": []
+    }
+]
