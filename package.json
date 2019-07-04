@@ -2,18 +2,29 @@
   "name": "ptitco",
   "version": "1.0.0",
   "description": "Mon petit commerce de proximité avec Nuxt.js",
-  "author": "Les ptits cocos",
+  "author": "Les Ptits Cocos",
   "private": true,
   "scripts": {
+    "test": "jest",
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate"
   },
   "dependencies": {
-    "nuxt": "^2.0.0"
+    "@nuxtjs/vuetify": "~0.5.5",
+    "express": "~4.16.4",
+    "nuxt": "~2.0.0"
   },
   "devDependencies": {
-    "nodemon": "^1.18.9"
+    "@vue/test-utils": "~1.0.0-beta.27",
+    "babel-core": "~7.0.0-bridge.0",
+    "babel-eslint": "~10.0.1",
+    "babel-jest": "~24.1.0",
+    "jest": "~24.1.0",
+    "nodemon": "~1.18.9",
+    "stylus": "~0.54.5",
+    "stylus-loader": "~3.0.2",
+    "vue-jest": "~3.0.3"
   }
 }
