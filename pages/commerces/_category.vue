@@ -1,23 +1,30 @@
 <template>
     <div>
-        <v-container grid-list-md>
-            <v-layout row>
-                <v-flex xs12>
+        <v-container container fluid grid-list>
+            <v-layout row wrap>
+                <v-flex d-flex xs12>
                     <h2>{{ shopCategory.category }}</h2>
                 </v-flex>
-                <br>
-                <div
-                v-for="(shop, index) of shopCategory.shops" :key="index">
-                    <h3>{{ shop.name }}</h3>
-                    <img :src="shop.img" :alt="shop.name" />
-                    <p>{{ category }} - {{ shop.district }} - {{ shop.city }}</p>
-                    <p>{{ shop.resume }}</p>
-                    <br>
-                </div>
-                <br><hr><br>
-                <div>
-                    <p>{{ shopCategory.content }}</p>
-                </div>
+
+                <v-flex d-flex xs12>
+                    <v-container fluid grid-list-xl>
+                        <v-layout row wrap>
+                            <v-flex
+                            v-for="(shop, index) of shopCategory.shops" :key="index" xs4>
+                                <h3>{{ shop.name }}</h3>
+                                <img :src="shop.img" :alt="shop.name" width="60%" height="60%" />
+                                <p>{{ category }} - {{ shop.district }} - {{ shop.city }}</p>
+                                <p>{{ shop.resume }}</p>
+                            </v-flex>
+                        </v-layout>
+                    </v-container>
+                </v-flex>
+
+                <v-flex d-flex xs12>
+                    <div>
+                        <p>{{ shopCategory.content }}</p>
+                    </div>
+                </v-flex>
             </v-layout>
         </v-container>
     </div>
@@ -36,21 +43,21 @@
                         "shops": [
                             {
                             "name": "La fournée",
-                            "img": "",
+                            "img": "https://www.vitrines-brest.fr/images/Image/customers_images/79//57591bad74c3c.jpg",
                             "district": "Centre-ville",
                             "city": "Brest",
                             "resume": "Excellente boulangerie-pâtisserie. Tout y est travaillé avec des produits frais."
                         },
                         {
                             "name": "Le Fournil de Pauline",
-                            "img": "",
+                            "img": "https://www.letelegramme.fr/images/2019/05/24/l-equipe-de-la-boulangerie-la-fournee-a-brest_4594751_660x370.jpg?v=1",
                             "district": "Saint-Luc",
                             "city": "Brest",
                             "resume": "Une très belle boulangerie avec de beaux produits le pain est très bon et des gâteaux aussi."
                         },
                         {
                             "name": "Le Four De Babel",
-                            "img": "",
+                            "img": "https://www.letelegramme.fr/ar/imgproxy.php/images/2017/10/18/la-boulangerie-mel-rue-jean-jaures_3651871.jpg?article=20171018-1011706542&aaaammjj=20171018",
                             "district": "Kérinou",
                             "city": "Brest",
                             "resume": "Boulangerie attachante, atypique, qui met en scène ses produits."
