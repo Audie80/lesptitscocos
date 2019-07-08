@@ -3,11 +3,7 @@
 
 ## Technos
 
-Nuxt.js
-Vuetify
-MongoDB
-Node.JS
-Express
+Nuxt.js - Vuetify - MongoDB - Node.JS - Express
 
 
 ## Pour démarrer l'application
