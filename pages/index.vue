@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <v-container fluid>
     <div>
       <logo />
       <h1 class="title">
@@ -10,7 +10,7 @@
       </h2>
       <div class="links">
         <a
-          href="https://github.com/Audie80/lesptitscocos/README.md"
+          href="https://github.com/Audie80/lesptitscocos/blob/master/README.md"
           target="_blank"
           class="button--green"
         >
@@ -23,9 +23,11 @@
         >
           GitHub
         </a>
+        <nuxt-link class="button--grey" to="/commerces/Boulangerie">Liste des boulangeries</nuxt-link>
+        <nuxt-link class="button--grey" to="/commerces/Boucherie">Liste des boucheries</nuxt-link>
       </div>
     </div>
-  </div>
+  </v-container>
 </template>
 
 <script>
