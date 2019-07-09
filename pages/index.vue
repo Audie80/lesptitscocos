@@ -23,8 +23,8 @@
         >
           GitHub
         </a>
-        <nuxt-link class="button--grey" to="/commerces/Boulangerie">Liste des boulangeries</nuxt-link>
-        <nuxt-link class="button--grey" to="/commerces/Boucherie">Liste des boucheries</nuxt-link>
+        <nuxt-link class="button--grey" to="/commerces/boulangerie">Liste des boulangeries</nuxt-link>
+        <nuxt-link class="button--grey" to="/commerces/boucherie">Liste des boucheries</nuxt-link>
       </div>
     </div>
   </v-container>
