@@ -31,11 +31,9 @@
                                         {{ shop.resume }}
                                     </v-card-text>
                                     <v-card-actions>
-                                        <!-- lien vers la page descriptive du commerce, fichier pages\commerces\_category\_commerce\index.vue -->
-                                        <v-btn flat color="orange" :href="shop.slug">boutique</v-btn>
                                         <v-spacer></v-spacer>
-                                        <!-- lien vers la page listant les produits du commerce, fichier pages\commerces\_category\_commerce\produits.vue -->
-                                        <v-btn flat color="orange" :href="shop.slug + '/produits'">tous les produits</v-btn>
+                                        <!-- lien vers la page listant les produits du commerce, fichier pages\commerces\_category\_commerce -->
+                                        <v-btn flat color="orange" :href="category + '/' + shop.slug">Voir la boutique</v-btn>
                                     </v-card-actions>
                                 </v-card>
                             </v-flex>
@@ -54,7 +52,7 @@
 
         <!-- Affichage de la page enfant, quand on clique sur un commerce ou sur un produit > voir le dossier _commerce ou _product -->
         <div
-        v-else-if="$route.name=='commerces-category-commerce' || $route.name=='commerces-category-commerce-produits' || $route.name=='commerces-category-commerce-product'">
+        v-else-if="$route.name=='commerces-category-commerce' || $route.name=='commerces-category-commerce-product'">
             <nuxt-child/>
         </div>
     </v-container>
