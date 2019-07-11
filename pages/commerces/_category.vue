@@ -24,7 +24,7 @@
                                     </v-card-title>
                                     <v-img :src="shop.img" :alt="shop.name" aspect-ratio="2.75"></v-img>
                                     <v-card-text>
-                                        <!-- tableau à parcourir pour afficher les catégories du commerce (ex: boulangerie ET pâtisserie) -->
+                                        <!-- A FAIRE tableau à parcourir pour afficher les catégories du commerce (ex: boulangerie ET pâtisserie) -->
                                         <span class="caption">{{ shop.mainCategory }} {{ shop.othersCategories[0]}} - {{ shop.district }} - {{ shop.city }}</span>
                                     </v-card-text>
                                     <v-card-text style="height: 100px; overflow-Y: auto;">
@@ -50,10 +50,10 @@
             </v-layout>
         </div>
 
-        <!-- Affichage de la page enfant, quand on clique sur un commerce ou sur un produit > voir le dossier _commerce ou _product -->
+        <!-- Affichage de la page enfant, quand on clique sur un commerce > voir le dossier _commerce -->
         <div
-        v-else-if="$route.name=='commerces-category-commerce' || $route.name=='commerces-category-commerce-product'">
-            <nuxt-child/>
+        v-else-if="$route.name=='commerces-category-commerce' || $route.name=='commerces-category-commerce-product'"> <!-- 2ème condition indispensable pour afficher l'enfant _product dans la page _commerce -->
+            <nuxt-child  :key="$route.params.commerce" />
         </div>
     </v-container>
 </template>
@@ -108,8 +108,10 @@
                         "shops": [
                             {
                             "name": "Au Boeuf Charolais",
-                            "category": ["Boucherie"],
-                            "slug_category": ["boucherie"],
+                            "slug": "au_boeuf_charolais",
+                            "category": "Boucherie",
+                            "slugCategory": "boucherie",
+                            "othersCategories": [],
                             "img": "https://static4.pagesjaunes.fr/media/ugc/reja_02901900_110714266",
                             "district": "Bellevue",
                             "city": "Brest",
