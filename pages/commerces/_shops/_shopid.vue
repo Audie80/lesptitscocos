@@ -23,7 +23,7 @@
 
             <!-- Liste des produits, ne s'affiche plus si on clique sur un produit en particulier -->
             <v-flex d-flex xs12
-            v-if="$route.name=='commerces-category-commerce'">
+            v-if="$route.name=='commerces-shops-shopid'">
                 <!-- A FAIRE mettre à zéro le paddingX de ce conteneur -->
                 <v-container grid-list-xl>
                     <v-layout row wrap>
@@ -55,9 +55,9 @@
 
             <!-- Affichage de la page enfant, quand on clique sur un produit > voir le dossier _product -->
             <div
-            v-else-if="$route.name=='commerces-category-commerce-product'">
+            v-else-if="$route.name=='commerces-shops-shopid-productid'">
                 <v-flex d-flex xs12>
-                    <nuxt-child :key="$route.params.product" />
+                    <nuxt-child :key="$route.params.productid" />
                 </v-flex>
             </div>
 
@@ -70,7 +70,7 @@
         name: 'ShopDescription',
         data: function() {
             return {
-                commerceName: this.$route.params.commerce,
+                commerceName: this.$route.params.shopid,
                 category: this.$route.params.category,
                 shop: {
                     "name": "La Fournée",
