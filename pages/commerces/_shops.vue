@@ -3,7 +3,7 @@
     <v-container fluid>
         <!-- Affichage de la page parent _category.vue -->
         <div
-        v-if="$route.name=='commerces-category'">
+        v-if="$route.name=='commerces-shops'">
             <v-layout row wrap align-start>
                 <!-- Titre de la catégorie -->
                 <v-flex d-flex xs12>
@@ -52,8 +52,8 @@
 
         <!-- Affichage de la page enfant, quand on clique sur un commerce > voir le dossier _commerce -->
         <div
-        v-else-if="$route.name=='commerces-category-commerce' || $route.name=='commerces-category-commerce-product'"> <!-- 2ème condition indispensable pour afficher l'enfant _product dans la page _commerce -->
-            <nuxt-child  :key="$route.params.commerce" />
+        v-else-if="$route.name=='commerces-shops-shopid' || $route.name=='commerces-shops-shopid-productid'"> <!-- 2ème condition indispensable pour afficher l'enfant _product dans la page _commerce -->
+            <nuxt-child  :key="$route.params.shops" />
         </div>
     </v-container>
 </template>
@@ -63,7 +63,7 @@
         name: 'ListShops',
         data: function() {
             return {
-                category: this.$route.params.category,
+                category: this.$route.params.shops,
                 shops: [
                     {
                         "content": "Nos boulangeries brestoises transmettent leur savoir-faire artisanal pour vous proposer les meilleurs pains et pâtisseries, dans le respect des producteurs locaux.",

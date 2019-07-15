@@ -22,9 +22,9 @@
         name: 'ProductDescription',
         data: function() {
             return {
-                commerceName: this.$route.params.commerce,
-                category: this.$route.params.category,
-                productName: this.$route.params.product,
+                commerceName: this.$route.params.shopid,
+                category: this.$route.params.shops,
+                productName: this.$route.params.productid,
                 product: {
                     "name": "Baguette",
                     "slug": "baguette",
