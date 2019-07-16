@@ -1,6 +1,6 @@
 <template>
 <!-- Header -->
-  <v-toolbar dense extended flat app>
+  <v-toolbar dense extended flat app class="yellow lighten-2">
     <!-- titre -->
     <v-toolbar-title><nuxt-link to="/">PTITCO</nuxt-link></v-toolbar-title>
     <v-spacer></v-spacer>
@@ -19,25 +19,40 @@
     <v-spacer></v-spacer>
 
     <!-- espace client -->
-    <v-toolbar-items class="hidden-sm-and-down">
-      <v-btn flat>Connectez-vous</v-btn>
-      <v-btn flat>Panier</v-btn>
-      <v-btn flat><v-icon color="orange">favorite_border</v-icon></v-btn>
+    <v-toolbar-items>
+      <v-btn flat class="orange--text text-capitalize">Connectez-vous</v-btn>
+      <v-btn flat icon color="orange"><v-icon>shopping_cart</v-icon></v-btn>   
+      <v-btn flat icon color="orange"><v-icon>favorite</v-icon></v-btn>
     </v-toolbar-items>
 
     <!-- 2ème ligne : menu de navigation -->
     <template v-slot:extension>
-        <v-toolbar-items>
-            <v-btn flat>Anti-Gaspi</v-btn>
-            <v-btn flat><nuxt-link to="/commerces/boulangerie">Boulangerie</nuxt-link></v-btn>
-            <v-btn flat><nuxt-link to="/commerces/boucherie">Boucherie</nuxt-link></v-btn>
-            <v-btn flat>Epicerie</v-btn>
-            <v-btn flat>Poissonnerie</v-btn>
+
+        <!-- menu pour ordis -->
+        <v-toolbar-items class="hidden-sm-and-down">
+          <v-btn flat class="text-capitalize" v-for="item in menu" :key="item.title" :to="item.link">{{ item.title}}</v-btn>
         </v-toolbar-items>
+        <!-- menu pour mobiles -->
+        <v-menu class="hidden-md-and-up">
+          <v-btn flat slot="activator" class="text-capitalize">
+            <span>Tous les produits</span>
+            <v-icon right>arrow_drop_down</v-icon>
+          </v-btn>
+          <v-list>
+            <v-list-tile v-for="item in menu" :key="item.title">
+              <v-list-tile-content>
+                <v-list-tile-title>{{ item.title }}</v-list-tile-title>
+              </v-list-tile-content>
+            </v-list-tile>
+          </v-list>
+        </v-menu>
+
         <v-spacer></v-spacer>
         <v-toolbar-items>
-            <v-btn flat>Nos valeurs</v-btn>
-            <v-btn flat>FAQ</v-btn>
+            <v-btn flat class="text-capitalize">Anti-Gaspi</v-btn>
+            <v-btn flat class="text-capitalize">Blog</v-btn>
+            <v-btn flat class="text-capitalize">Nos valeurs</v-btn>
+            <v-btn flat class="text-capitalize">FAQ</v-btn>
         </v-toolbar-items>
     </template>
   </v-toolbar>
@@ -48,7 +63,15 @@
         name: 'Header',
         data: function() {
           return {
-            inputSearch: ''
+            inputSearch: '',
+            shoppingCartNumber: "6",
+            menu: [
+              { title: "ma Boulangerie" },
+              { title: "ma Boucherie Charcuterie" },
+              { title: "mon Epicerie" },
+              { title: "ma Poissonnerie" },
+              { title: "mon Traiteur" }
+            ]
           }
         },
         methods: {
