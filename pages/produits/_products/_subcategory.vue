@@ -30,7 +30,7 @@
                                 <span>{{ product.description }}</span>
                             </v-card-text>
                             <v-card-actions>
-                                <v-btn flat color="orange" :href="'./' + productCategory.subcategories[0].slug + '/' + product.slug">fiche produit</v-btn>
+                                <v-btn flat color="orange" :href="'/produit/' + product.slug">fiche produit</v-btn>
                                 <v-spacer></v-spacer>
                                 <v-btn flat color="orange">
                                     <v-icon>shopping_cart</v-icon>
@@ -44,10 +44,10 @@
         </div>
 
         <!-- Affichage de la page enfant, quand on clique sur un produit > voir le dossier _subcategory -->
-        <div
+        <!-- <div
         v-else-if="$route.name=='produits-products-subcategory-productid'">
             <nuxt-child :key="$route.params.productid" />
-        </div>
+        </div> -->
     </div>
 </template>
 

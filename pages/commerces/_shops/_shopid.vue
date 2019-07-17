@@ -37,7 +37,7 @@
                         <span>{{ product.description }}</span>
                     </v-card-text>
                     <v-card-actions>
-                        <v-btn flat color="orange" :href="'./produit/' + product.slug">fiche produit</v-btn>
+                        <v-btn flat color="orange" :href="'/produit/' + product.slug">fiche produit</v-btn>
                         <v-spacer></v-spacer>
                         <v-btn flat color="orange">
                             <v-icon>shopping_cart</v-icon>
