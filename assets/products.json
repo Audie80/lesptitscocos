@@ -1,22 +1,42 @@
 [
     {
-        "name": "Baguette",
-        "slug": "baguette",
+        "id": "auto-increment",
+        "name": "Baguette Tradition 300g",
+        "slug": "baguette_tradition",
         "img": "https://staticmedia.fauchon.com/media/catalog/product/cache/1/image/480x/040ec09b1e35df139433887a97daa66f/1/0/1008690.jpg",
+        "description": "Une merveilleuse baguette dorée et à la croûte très croustillante.",
+        "balise_title": "La baguette tradition du Fournil de Pauline",
+        "balise_description": "La baguette tradition de la boulangerie brestoise du Fournil de Pauline est croustillante.",
         "weight": 0.3,
         "weightPrice": 3,
+        "price": 1,
+        "origin": "France",
+        "nutritional": "255 kcal pour 100 grammes",
+        "anti_wasting": false,
+        "stock": 40,
         "quantity": 10,
-        "labels": [],
-        "description": "Une merveilleuse baguette dorée et à la croûte très croustillante."
-    },
-    {
-        "name": "Croissant",
-        "slug": "croissant",
-        "img": "http://www.lesrecettesdecuisine.com/wp-content/uploads/2013/09/Croissant-PetrKratochvi.jpg",
-        "weight": 0.1,
-        "weightPrice": 9,
-        "quantity": 20,
-        "labels": [],
-        "description": "Miam !"
+        "labels": [
+            {
+                "name": "AB",
+                "logo": "https://lesmarches.reussir.fr/sites/les_marches/files/LQ13349787C__LMQ121_ESS7_B.jpg"
+            },
+            {
+                "name": "Label Rouge",
+                "logo": "https://upload.wikimedia.org/wikipedia/fr/thumb/a/a0/Label_Rouge.svg/1024px-Label_Rouge.svg.png"
+            }
+        ],
+        "category": {
+            "name": "ma Boulangerie",
+            "slug": "boulangerie"
+        },
+        "subcategory": {
+            "name": "Baguettes",
+            "slug": "baguettes"
+        },
+        "shop": {
+            "id": "shopid correspondant",
+            "name": "Le Fournil de Pauline",
+            "slug": "le_fournil_de_pauline"
+        }
     }
 ]

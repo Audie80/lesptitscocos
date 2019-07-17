@@ -1,0 +1,23 @@
+[
+    {
+        "id": "auto-increment",
+        "name": "Le Fournil de Pauline",
+        "slug": "le_fournil_de_pauline",
+        "img": "https://www.letelegramme.fr/images/2019/05/24/l-equipe-de-la-boulangerie-la-fournee-a-brest_4594751_660x370.jpg?v=1",
+        "description": "Une très belle boulangerie avec de beaux produits le pain est très bon et des gâteaux aussi.",
+        "balise_title": "La boulangerie brestoise Le Fournil de Pauline",
+        "balise_description": "La boulangerie brestoise Le Fournil de Pauline vous propose des pains, gâteaux et chocolats.",
+        "address": "118 Boulevard Montaigne",
+        "zipcode": "29200",
+        "district": "Saint-Luc",
+        "city": "Brest",
+        "tel": "0298462924",
+        "email": "contact@boulangerie-brest.com",
+        "facebook": "",
+        "website": "http://www.boulangerie-brest.com",
+        "category": {
+            "name": "ma Boulangerie",
+            "slug": "boulangerie"
+        }
+    }
+]
