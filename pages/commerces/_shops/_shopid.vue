@@ -37,7 +37,7 @@
                         <span>{{ product.description }}</span>
                     </v-card-text>
                     <v-card-actions>
-                        <v-btn flat color="orange" :href="'./' + commerceName + '/' + product.slug">fiche produit</v-btn>
+                        <v-btn flat color="orange" :href="'./produit/' + product.slug">fiche produit</v-btn>
                         <v-spacer></v-spacer>
                         <v-btn flat color="orange">
                             <v-icon>shopping_cart</v-icon>
@@ -48,10 +48,10 @@
         </v-layout>
 
         <!-- Affichage de la page enfant, quand on clique sur un produit > voir le dossier _product -->
-        <div
+        <!-- <div
         v-else-if="$route.name=='commerces-shops-shopid-productid'">
             <nuxt-child :key="$route.params.productid" />
-        </div>
+        </div> -->
 
     </v-container>
 </template>
