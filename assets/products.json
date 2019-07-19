@@ -37,6 +37,17 @@
             "id": "shopid correspondant",
             "name": "Le Fournil de Pauline",
             "slug": "le_fournil_de_pauline"
-        }
+        },
+        "favorite": [
+            {
+                "id": "userid correspondant"
+            }
+        ],
+        "shopping_cart": [
+            {
+                "id": "userid correspondant",
+                "quantity": 1
+            }
+        ]
     }
 ]

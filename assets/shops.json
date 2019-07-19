@@ -15,9 +15,20 @@
         "email": "contact@boulangerie-brest.com",
         "facebook": "",
         "website": "http://www.boulangerie-brest.com",
+        "delivery_location": "Brest Rive Gauche",
         "category": {
             "name": "ma Boulangerie",
             "slug": "boulangerie"
-        }
+        },
+        "products": [
+            {
+                "id": "productid correspondant"
+            }
+        ],
+        "favorite": [
+            {
+                "id": "userid correspondant"
+            }
+        ] 
     }
 ]
