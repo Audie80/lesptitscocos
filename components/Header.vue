@@ -1,6 +1,6 @@
 <template>
 <!-- Header -->
-  <v-toolbar dense extended app>
+  <v-toolbar dense extended app class="white">
 
     <!-- nous situer -->
     <v-btn flat icon color="amber darken-1"><v-icon>place</v-icon></v-btn>   
@@ -30,17 +30,18 @@
     </v-toolbar-items>
 
     <!-- 2ème ligne : menu de navigation -->
-    <template v-slot:extension class="amber lighten-2">
+    <template v-slot:extension>
+
       <!-- menu pour ordis -->
       <v-toolbar-items>
-          <v-btn flat round class="text-capitalize" color="indigo darken-4">Mes boutiques</v-btn>
+          <v-btn round class="text-capitalize indigo--text text--darken-4" color="amber darken-1">Mes boutiques</v-btn>
       </v-toolbar-items>
 
       <v-spacer></v-spacer>
       
       <v-toolbar-items class="hidden-sm-and-down">
         <v-menu offset-y>
-          <v-btn flat slot="activator" class="text-capitalize" v-for="item in menu" :key="item.title" :to="item.link">
+          <v-btn flat round slot="activator" class="text-capitalize amber--text text--darken-1" v-for="item in menu" :key="item.title" :to="item.link">
             {{ item.title}}
           </v-btn>
           <v-list>
@@ -89,8 +90,8 @@
       <v-spacer></v-spacer>
 
       <v-toolbar-items>
-          <v-btn flat round class="text-capitalize">Anti-Gaspi</v-btn>
-          <v-btn flat round class="text-capitalize">Blog</v-btn>
+          <v-btn round class="text-capitalize indigo--text text--darken-4" color="amber darken-1">Anti-Gaspi</v-btn>
+          <v-btn round class="text-capitalize indigo--text text--darken-4" color="amber darken-1">Blog</v-btn>
       </v-toolbar-items>
     </template>
   </v-toolbar>

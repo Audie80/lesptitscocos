@@ -1,74 +1,98 @@
+<!-- la page d'accueil index.vue utilise le layout default.vue -->
 <template>
-  <v-container fluid>
-    <div>
-      <logo />
-      <h1 class="title">
-        ptitco
-      </h1>
-      <h2 class="subtitle">
-        Mon petit commerce de proximité avec Nuxt.js
-      </h2>
-      <div class="links">
-        <a
-          href="https://github.com/Audie80/lesptitscocos/blob/master/README.md"
-          target="_blank"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/Audie80/lesptitscocos"
-          target="_blank"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-        <nuxt-link class="button--grey" to="/commerces/ma_boulangerie">Liste des boulangeries</nuxt-link>
-        <nuxt-link class="button--grey" to="/commerces/ma_boucherie">Liste des boucheries</nuxt-link>
-      </div>
-    </div>
+  <v-container fluid text-xs-center>
+    <v-layout row wrap>
+
+      <!-- Bandeau de titre -->
+      <v-flex xs12>
+      <h1>Ty Drive</h1>
+      <v-img :src=bandeauImg></v-img>
+      </v-flex>
+        
+      <!-- Mode d'emploi -->
+      <v-flex xs12>
+        <h2>Ty Drive ça marche comment ?</h2>
+        <v-layout row wrap>
+          <v-flex xs4>
+            <p>1. Connectez-vous sur le compte Ty Drive et sélectionnez les produits souhaités.</p>
+            <v-img :src=groceriesImg></v-img>
+          </v-flex>
+
+          <v-flex xs4>
+            <v-img :src=debitCardImg></v-img>
+            <p>2. Connectez-vous sur le compte Ty Drive et sélectionnez les produits souhaités.</p>
+          </v-flex>
+
+          <v-flex xs4>
+            <p>3. Connectez-vous sur le compte Ty Drive et sélectionnez les produits souhaités.</p>
+            <v-img :src=deliveryTruckImg></v-img>
+          </v-flex>
+        </v-layout>
+      </v-flex>
+
+      <!-- Catégories de commerces -->
+      <v-flex xs12>
+        <h2>Nos ptits commerces</h2>
+        <v-layout row wrap>
+          <v-flex xs3>
+            <nuxt-link class="button--amber" to="/commerces/ma_boulangerie">
+              ma Boulangerie
+            </nuxt-link>
+          </v-flex>
+
+          <v-flex xs3>
+            <nuxt-link class="button--amber" to="/commerces/ma_boucherie">
+              ma Boucherie
+            </nuxt-link>
+          </v-flex>
+        </v-layout>
+      </v-flex>
+
+      <!-- Valeurs -->
+      <v-flex xs12>
+        <h2>Nos valeurs</h2>
+        <v-layout row wrap>
+          <v-flex xs4>
+            <v-img :src=holdingHandsImg></v-img>
+            <p>Favoriser l'économie locale en développant les petits commerces.</p>
+          </v-flex>
+
+          <v-flex xs4>
+            <v-img :src=greenEarthImg></v-img>
+            <p>Des valeurs et une démarche écologique.</p>
+          </v-flex>
+
+          <v-flex xs4>
+            <v-img :src=groceriesNbImg></v-img>
+            <p>Des produits frais et disponibles sous 48h.</p>
+          </v-flex>
+        </v-layout>
+      </v-flex>
+
+      <!-- Carte GoogleMap -->
+      <v-flex xs12>
+        <h2>
+          Nous situer
+        </h2>
+      </v-flex>
+    </v-layout>
+
   </v-container>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
-
 export default {
-  components: {
-    Logo
+  data: function() {
+    return {
+      bandeauImg: require('@/assets/img/vince-lee-gwT4rs_xlUA-unsplash.jpg'),
+      debitCardImg: require('@/assets/img/debit-card.png'),
+      deliveryTruckImg: require('@/assets/img/delivery-truck.png'),
+      groceriesImg: require('@/assets/img/groceries.png'),
+      groceriesNbImg: require('@/assets/img/groceries-nb.png'),
+      greenEarthImg: require('@/assets/img/green-earth.png'),
+      holdingHandsImg: require('@/assets/img/holding-hands.png')
+    }
   }
 }
 </script>
 
-<style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-}
-</style>
