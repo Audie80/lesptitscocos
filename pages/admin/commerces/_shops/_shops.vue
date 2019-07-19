@@ -16,6 +16,14 @@
                 <th>Modifier</th>
                 <th>Supprimer</th>
             </thead>
+            <tr v-for="(shop, name, index) of exemples" :key="index">
+                <td>{{ index }}</td>
+                <td>{{ name }}</td>
+                <td>ref</td>
+                <td>€ / kg</td>
+                <td><nuxt-link>Modifier</nuxt-link></td>
+                <td><nuxt-link>Supprimer</nuxt-link></td>
+            </tr>
         </table>
     </div>
         
@@ -25,21 +33,43 @@
     export default {
         data: function() {
             return {
-                shops: [
+                shops: this.$route.params.shops,
+                exemples: [
                     {
                         name: "Première Boulangerie",
+                        categorie: "Ma_Boulangerie",
                         desc: "rive gauche"
                     },
                     {
                         name: "Deuxième boulangerie",
+                        categorie: "Ma_Boulangerie",
+                        desc: "rive droite"
+                    },
+                    {
+                        name: "PremièreBoucherie",
+                        categorie: "boucherie",
+                        desc: "rive gauche",
+                    },
+                    {
+                        name: "Deuxième catégorie",
+                        categorie: "boucherie",
                         desc: "rive droite"
                     }
                     
                 ]
             }
-            }
+        },
+        computed: {
+            relevantshops: exemples.filter(shop => shop.categorie===shops)
+        },
+        methods: {
+        
+            
+        }
+    }
+
             
          
-    }
+    
     </script>
     

@@ -2,6 +2,8 @@
     <v-container fluid>
         <h1>Admin</h1>
         <h2>Liste des types de commerces avec crud</h2>
+        <nuxt-link to="/admin/commerces/create">Créer un nouveau type de commerce</nuxt-link>
+        <nuxt-link to="/admin">Retour au tableau de bord</nuxt-link>
 
         <table>
             <tr>
@@ -11,19 +13,20 @@
                 <th>Supprimer</th>
             </tr>
             <tr v-for="(shopType, index) of shopsTypes" :key="index">
-                <nuxt-link to="/admin/commerces/:shops">
-                    <td>{{ index }}</td>
-                </nuxt-link>
-                <nuxt-link to="/admin/commerces/:shops">
-                    <td>Consulter tous les "{{ shopType.name }}"</td>
-                </nuxt-link>
+                <td> 
+                    <nuxt-link :to='"/admin/commerces/"+shopType.name'>{{ index }}</nuxt-link>
+                </td>
+                <td>
+                    <nuxt-link :to='"/admin/commerces/"+shopType.name'>Consulter tous les " {{ shopType.name }} "</nuxt-link>
+                </td>
+                
                     
-                <td><nuxt-link to="/admin/commerces/update/:shopid"><button>Modifier {{ shopType.name }}</button></nuxt-link></td>
-                <td><nuxt-link to="/admin/commerces/delete/:shopid"><button >Supprimer {{ shopType.name }}</button></nuxt-link></td>
+                <td><nuxt-link :to='"/admin/commerces/update/" + shops'><button>Modifier {{ shops }}</button></nuxt-link></td>
+                <td><nuxt-link :to='"/admin/commerces/delete/" + shops'><button >Supprimer {{ shops }}</button></nuxt-link></td>
             </tr>
         </table>
 
-        <nuxt-link to="/admin">Retour au tableau de bord</nuxt-link>
+
 
         
     </v-container>
@@ -33,7 +36,7 @@
 export default {
     data: function() {
             return {
-                category: this.$route.params.shops,
+                shops: "",
                 shopsTypes: [
                     {
                         name: "Ma Boulangerie",
@@ -45,7 +48,7 @@ export default {
                     }
                     
                 ],
-                shops: [
+                exemples: [
                     {
                         "content": "Nos boulangeries brestoises transmettent leur savoir-faire artisanal pour vous proposer les meilleurs pains et pâtisseries, dans le respect des producteurs locaux.",
                         "shops": [
