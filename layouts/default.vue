@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app class="white">
       <Header />
       <v-content>
         <nuxt />

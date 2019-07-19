@@ -8,7 +8,7 @@
         "balise_title": "La baguette tradition du Fournil de Pauline",
         "balise_description": "La baguette tradition de la boulangerie brestoise du Fournil de Pauline est croustillante.",
         "weight": 0.3,
-        "weightPrice": 3,
+        "weight_price": 3,
         "price": 1,
         "origin": "France",
         "nutritional": "255 kcal pour 100 grammes",

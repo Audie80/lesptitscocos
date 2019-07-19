@@ -1,9 +1,9 @@
 <template>
 <!-- Header -->
-  <v-toolbar dense extended flat app class="yellow lighten-2">
+  <v-toolbar dense extended app>
 
     <!-- nous situer -->
-    <v-btn flat icon color="orange"><v-icon>place</v-icon></v-btn>   
+    <v-btn flat icon color="amber darken-1"><v-icon>place</v-icon></v-btn>   
 
     <!-- champ de recherche -->
     <v-text-field
@@ -24,70 +24,74 @@
 
     <!-- espace client -->
     <v-toolbar-items>
-      <v-btn flat round class="orange--text text-capitalize"><v-icon left>account_circle</v-icon>Connexion</v-btn>
-      <v-btn flat round class="orange--text text-capitalize"><v-icon left>shopping_cart</v-icon>Panier</v-btn>   
-      <v-btn flat icon medium color="orange"><v-icon>favorite_border</v-icon></v-btn>
+      <v-btn flat round class="amber--text text--darken-1 text-capitalize"><v-icon left>account_circle</v-icon>Connexion</v-btn>
+      <v-btn flat round color="amber darken-1" class="text-capitalize"><v-icon left>shopping_cart</v-icon>Panier</v-btn>   
+      <v-btn flat icon medium color="amber darken-1"><v-icon>favorite_border</v-icon></v-btn>
     </v-toolbar-items>
 
     <!-- 2ème ligne : menu de navigation -->
-    <template v-slot:extension>
+    <template v-slot:extension class="amber lighten-2">
+      <!-- menu pour ordis -->
+      <v-toolbar-items>
+          <v-btn flat round class="text-capitalize" color="indigo darken-4">Mes boutiques</v-btn>
+      </v-toolbar-items>
 
-        <!-- menu pour ordis -->
-        <v-toolbar-items class="hidden-sm-and-down">
-          <v-menu offset-y>
-            <v-btn flat slot="activator" class="text-capitalize" v-for="item in menu" :key="item.title" :to="item.link">
-              {{ item.title}}
-            </v-btn>
-            <v-list>
-              <!-- A FAIRE boucle v-for pour afficher les sous-catégories + pour l'instant on est obligé de cliquer sur le bouton (pas de hold) -->
-              <v-list-tile>
-                <v-list-tile-content>
-                  <v-list-tile-title>
-                    <nuxt-link to="/produits/ma_boulangerie/pains">Pains</nuxt-link>
-                  </v-list-tile-title>
-                </v-list-tile-content>
-              </v-list-tile>
-              <v-list-tile>
-                <v-list-tile-content>
-                  <v-list-tile-title>
-                    <nuxt-link to="/produits/ma_boulangerie/viennoiseries">Viennoiseries</nuxt-link>
-                  </v-list-tile-title>
-                </v-list-tile-content>
-              </v-list-tile>
-              <v-list-tile>
-                <v-list-tile-content>
-                  <v-list-tile-title>
-                    <nuxt-link to="/produits/ma_boulangerie/patisseries">Pâtisseries</nuxt-link>
-                  </v-list-tile-title>
-                </v-list-tile-content>
-              </v-list-tile>
-            </v-list>
-          </v-menu>
-        </v-toolbar-items>
-        <!-- menu pour mobiles - A MODIFIER en Navigation Drawer-->
-        <v-menu offset-y class="hidden-md-and-up">
-          <v-btn flat slot="activator" class="text-capitalize">
-            <span>Tous les produits</span>
-            <v-icon right>arrow_drop_down</v-icon>
+      <v-spacer></v-spacer>
+      
+      <v-toolbar-items class="hidden-sm-and-down">
+        <v-menu offset-y>
+          <v-btn flat slot="activator" class="text-capitalize" v-for="item in menu" :key="item.title" :to="item.link">
+            {{ item.title}}
           </v-btn>
           <v-list>
-            <v-list-tile v-for="item in menu" :key="item.title">
+            <!-- A FAIRE boucle v-for pour afficher les sous-catégories + pour l'instant on est obligé de cliquer sur le bouton (pas de hold) -->
+            <v-list-tile>
               <v-list-tile-content>
                 <v-list-tile-title>
-                  <nuxt-link :to="item.link">{{ item.title }}</nuxt-link>
+                  <nuxt-link to="/produits/ma_boulangerie/pains">Pains</nuxt-link>
+                </v-list-tile-title>
+              </v-list-tile-content>
+            </v-list-tile>
+            <v-list-tile>
+              <v-list-tile-content>
+                <v-list-tile-title>
+                  <nuxt-link to="/produits/ma_boulangerie/viennoiseries">Viennoiseries</nuxt-link>
+                </v-list-tile-title>
+              </v-list-tile-content>
+            </v-list-tile>
+            <v-list-tile>
+              <v-list-tile-content>
+                <v-list-tile-title>
+                  <nuxt-link to="/produits/ma_boulangerie/patisseries">Pâtisseries</nuxt-link>
                 </v-list-tile-title>
               </v-list-tile-content>
             </v-list-tile>
           </v-list>
         </v-menu>
+      </v-toolbar-items>
+      <!-- menu pour mobiles - A MODIFIER en Navigation Drawer-->
+      <v-menu offset-y class="hidden-md-and-up">
+        <v-btn flat slot="activator" class="text-capitalize">
+          <span>Tous les produits</span>
+          <v-icon right>arrow_drop_down</v-icon>
+        </v-btn>
+        <v-list>
+          <v-list-tile v-for="item in menu" :key="item.title">
+            <v-list-tile-content>
+              <v-list-tile-title>
+                <nuxt-link :to="item.link">{{ item.title }}</nuxt-link>
+              </v-list-tile-title>
+            </v-list-tile-content>
+          </v-list-tile>
+        </v-list>
+      </v-menu>
 
-        <v-spacer></v-spacer>
-        <v-toolbar-items>
-            <v-btn flat round class="text-capitalize">Anti-Gaspi</v-btn>
-            <v-btn flat round class="text-capitalize">Blog</v-btn>
-            <v-btn flat round class="text-capitalize">Nos valeurs</v-btn>
-            <v-btn flat round class="text-capitalize">FAQ</v-btn>
-        </v-toolbar-items>
+      <v-spacer></v-spacer>
+
+      <v-toolbar-items>
+          <v-btn flat round class="text-capitalize">Anti-Gaspi</v-btn>
+          <v-btn flat round class="text-capitalize">Blog</v-btn>
+      </v-toolbar-items>
     </template>
   </v-toolbar>
 </template>
