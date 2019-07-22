@@ -1,11 +1,11 @@
-module.exports = (app) => {
-    const users = require('../controllers/users.controller.js');
+/*module.exports = (app) => {
+  const users = require('../controllers/users.controller.js');
 
     // Create a new Note
-    app.post('/users', users.create);
+    //app.post('/users', users.create);
 
     // Retrieve all Notes
-    app.get('/users', users.findAll);
+    //app.get('/users', users.findAll);
 
     // Retrieve a single Note with noteId
    // app.get('/category/:categoryId', notes.findOne);
@@ -15,4 +15,4 @@ module.exports = (app) => {
 
     // Delete a Note with noteId
    // app.delete('/notes/:noteId', notes.delete);
-}
+}*/

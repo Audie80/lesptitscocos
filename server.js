@@ -33,7 +33,8 @@ app.get('/', (req, res) => {
 
 require('./app/routes/category.routes.js')(app);
 
+
 // listen for requests
-app.listen(3001, () => {
-    console.log("Server is listening on port 3001");
+app.listen(8001, () => {
+    console.log("Server is listening on port 8000");
 });

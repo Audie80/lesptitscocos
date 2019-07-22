@@ -5,13 +5,18 @@ exports.create = (req, res) => {
 
    // Create a Note
     const shops = new Client({
-        nom: req.body.nom,
-        prenom: req.body.prenom,
-        telephone: req.body.telephone,
-        mail: req.body.mail,
-        num_client: req.body.num_client,
-        article_favori: req.body.article_favori,
-        boutique_favorite: req.body.boutique_favorite,
+        name: req.body.name,
+        slug: req.body.slug,
+        img: req.body.img,
+        description: req.body.description,
+        address: req.body.address,
+        city: req.body.city,
+        district: req.body.district,
+        tel: req.body.tel,
+        zipcode: req.body.zipcode,
+        email: req.body.email,
+        site: req.body.site,
+        facebook: req.body.facebook,
     });
 
     // Save Note in the database

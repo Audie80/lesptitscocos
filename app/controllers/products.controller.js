@@ -1,9 +1,11 @@
 const Products = require('../models/products.model.js');
 
+
+
 // Create and Save a new Note
 exports.create = (req, res) => {
 
-   // Create a Note
+   // creation d'une categorie //
     const products = new Products({
         name: req.body.name,
         slug: req.body.slug,
@@ -33,7 +35,9 @@ exports.create = (req, res) => {
     });
 }
 
-// Retrieve and return all notes from the database.
+
+
+// Recupere et montre toutes les categories de la BDD // 
 exports.findAll = (req, res) => {
         Products.find()
         .then(products => {
@@ -46,18 +50,59 @@ exports.findAll = (req, res) => {
     });
 };
 
-// Find a single note with a noteId
-//exports.findOne = (req, res) => {
 
-//};
+
+// Supprime les sous categorie avec l'id specifié //
+
+exports.delete = (req, res) => {
+    Category.findByIdAndRemove(req.params.sous_categories)
+    .then(categories => {
+        if(!categories) {
+            return res.status(404).send({
+                message: "Sous categorie non trouvé avec cet ID" + req.params.sous_categories
+            });
+        }
+        res.send({message: "Note deleted successfully!"});
+    }).catch(err => {
+        if(err.kind === 'ObjectId' || err.name === 'NotFound') {
+            return res.status(404).send({
+                message: "Sous categories avec l'id non trouvé " + req.params.sous_categories
+            });
+        }
+        return res.status(500).send({
+            message: "Impossible de supprimer la sous categorie avec cet id " + req.params.sous_categories
+        });
+    });
+
+};
+
+// Trouver un produit //
+
+exports.findAll = (req, res) => {
+    Category.findById(req.params.productsid)
+    then(categories => {
+        if(!categories) {
+            return res.status(404).send({
+                message: "produits not found with id " + req.params.productsid
+            });
+        }
+        res.send(note);
+    }).catch(err => {
+        if(err.kind === 'ObjectId') {
+            return res.status(404).send({
+                message: "Note not found with id " + req.params.productsid
+            });
+        }
+        return res.status(500).send({
+            message: "Error retrieving note with id " + req.params.productsid
+        });
+    });
+
+};
+
 
 // Update a note identified by the noteId in the request
-//exports.update = (req, res) => {
+exports.update = (req, res) => {
 
-//};
-
-// Delete a note with the specified noteId in the request
-//exports.delete = (req, res) => {
-
-//};
+};
 
