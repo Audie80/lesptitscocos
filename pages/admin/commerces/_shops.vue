@@ -1,5 +1,5 @@
-    <template>
-    <div>
+    <template> 
+    <div>A modifier
         <h1>Admin</h1>
         <h2>Liste des boulangeries</h2>
       

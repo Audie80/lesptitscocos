@@ -9,7 +9,7 @@
 
 <script>
 export default {
-    name: "Dashborad commerçant",
+    name: "Dashborad commercant",
     data: function(){
             return{
                 shopid: this.$route.params.shopid,
