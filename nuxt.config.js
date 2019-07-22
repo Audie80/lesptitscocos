@@ -38,7 +38,13 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
-    '@nuxtjs/vuetify'
+    ['@nuxtjs/vuetify', {
+      theme: {
+        primary: '#FD9800',
+        secondary: '#2DD799',
+        info: '#05004E'
+      }
+    }]
   ],
   /*
   ** Build configuration
