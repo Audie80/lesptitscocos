@@ -11,7 +11,7 @@ module.exports = (app) => {
     //app.post('/category', categories.create);
 
     // Affiche toutes les categories
-    app.get('/api/categories', categories.findOne({"name":name, "slug":slug}));
+    app.get('/api/categories', categories.findAll);
 
     // Affiche toutes les subcategories
     app.get('/api/categories/subcategories', categories.findAll);
