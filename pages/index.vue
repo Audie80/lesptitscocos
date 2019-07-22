@@ -6,7 +6,7 @@
       <!-- Bandeau de titre -->
       <v-flex xs12>
       <h1>Ty Drive</h1>
-      <v-img :src=bandeauImg></v-img>
+      <v-img :src=bandeauImg aspect-ratio=4></v-img>
       </v-flex>
         
       <!-- Mode d'emploi -->
@@ -15,17 +15,17 @@
         <v-layout row wrap>
           <v-flex xs4>
             <p>1. Connectez-vous sur le compte Ty Drive et sélectionnez les produits souhaités.</p>
-            <v-img :src=groceriesImg></v-img>
+            <v-img :src=groceriesImg height="200px" width="200px"></v-img>
           </v-flex>
 
           <v-flex xs4>
-            <v-img :src=debitCardImg></v-img>
+            <v-img :src=debitCardImg height="200px" width="200px"></v-img>
             <p>2. Connectez-vous sur le compte Ty Drive et sélectionnez les produits souhaités.</p>
           </v-flex>
 
           <v-flex xs4>
             <p>3. Connectez-vous sur le compte Ty Drive et sélectionnez les produits souhaités.</p>
-            <v-img :src=deliveryTruckImg></v-img>
+            <v-img :src=deliveryTruckImg height="200px" width="200px"></v-img>
           </v-flex>
         </v-layout>
       </v-flex>
@@ -53,17 +53,17 @@
         <h2>Nos valeurs</h2>
         <v-layout row wrap>
           <v-flex xs4>
-            <v-img :src=holdingHandsImg></v-img>
+            <v-img :src=holdingHandsImg height="200px" width="200px"></v-img>
             <p>Favoriser l'économie locale en développant les petits commerces.</p>
           </v-flex>
 
           <v-flex xs4>
-            <v-img :src=greenEarthImg></v-img>
+            <v-img :src=greenEarthImg height="200px" width="200px"></v-img>
             <p>Des valeurs et une démarche écologique.</p>
           </v-flex>
 
           <v-flex xs4>
-            <v-img :src=groceriesNbImg></v-img>
+            <v-img :src=groceriesNbImg height="200px" width="200px"></v-img>
             <p>Des produits frais et disponibles sous 48h.</p>
           </v-flex>
         </v-layout>
