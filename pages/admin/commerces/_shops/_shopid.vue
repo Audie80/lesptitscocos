@@ -33,7 +33,7 @@
     export default {
         data: function() {
             return {
-                shops: this.$route.params.shops,
+                shops: this.$route.params.shopid,
                 exemples: [
                     {
                         name: "Première Boulangerie",
@@ -60,7 +60,7 @@
             }
         },
         computed: {
-            relevantshops: exemples.filter(shop => shop.categorie===shops)
+            relevantshops: exemples.filter(exemple => exemple.categorie==="boucherie")
         },
         methods: {
         
