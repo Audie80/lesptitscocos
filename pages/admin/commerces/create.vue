@@ -1,8 +1,8 @@
 <template>
     <div>
         <h1>Admin</h1>
-        <h2>Création d'un type de commerce</h2>
-        ²
+        <h2>Création d'une nouvelle boutique</h2>
+        
     </div>
 </template>
 
