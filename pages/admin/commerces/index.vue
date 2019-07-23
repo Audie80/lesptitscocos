@@ -1,8 +1,9 @@
 <template>
     <v-container fluid>
         <h1>Admin</h1>
-        <h2>Liste des types de commerces avec crud</h2>
-        <nuxt-link to="/admin/commerces/create">Créer un nouveau type de commerce</nuxt-link>
+        <h2>Catégories de commerces</h2>
+        <nuxt-link to="/admin/commerces/create">Créer une nouvelle boutique</nuxt-link>
+        <nuxt-link to="">Créer une nouvelle catégorie de commerce</nuxt-link>
         <nuxt-link to="/admin">Retour au tableau de bord</nuxt-link>
 
         <table>
@@ -21,8 +22,8 @@
                 </td>
                 
                     
-                <td><nuxt-link :to='"/admin/commerces/update/" + shops'><button>Modifier {{ shops }}</button></nuxt-link></td>
-                <td><nuxt-link :to='"/admin/commerces/delete/" + shops'><button >Supprimer {{ shops }}</button></nuxt-link></td>
+                <td><nuxt-link :to='"/admin/commerces/update/" + shopType.name'><button>Modifier {{ shops }}</button></nuxt-link></td>
+                <td><nuxt-link :to='"/admin/commerces/delete/" + shopType.name'><button >Supprimer {{ shops }}</button></nuxt-link></td>
             </tr>
         </table>
 
