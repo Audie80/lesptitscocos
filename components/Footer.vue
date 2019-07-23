@@ -16,7 +16,7 @@
                     required
                     >
                 </v-text-field>
-                <v-btn color="info" @click="validate">
+                <v-btn color="info">
                     Inscription
                 </v-btn>
             </v-form>

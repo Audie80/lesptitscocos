@@ -20,8 +20,8 @@
       <!-- Mode d'emploi -->
       <v-flex xs12 md10 offset-md1>
         <h2 class="info--text display-1 font-weight-bold">Ty Drive ça marche comment ?</h2>
-        <v-layout align-content-space-between justify-space-around fill-height row wrap my-4>
-          <v-flex xs3 align-center>
+        <v-layout justify-space-between fill-height row wrap my-4>
+          <v-flex xs3>
             <span class="info--text headline font-weight-bold">1.</span>
             <span class="info--text body-1"> Connectez-vous sur le compte Ty Drive et sélectionnez les produits souhaités.</span>
             <v-img :src=groceriesImg max-height="150px" max-width="150px" style="margin: auto;"></v-img>
@@ -49,7 +49,7 @@
       <!-- Catégories de commerces -->
       <v-flex xs12 md10 offset-md1>
         <h2 class="info--text display-1 font-weight-bold">Nos Ty commerces</h2>
-        <v-layout align-content-space-between justify-space-around fill-height row wrap my-4>
+        <v-layout justify-space-between fill-height row wrap my-4>
           <v-flex xs3>
             <nuxt-link class="button--primary" to="/commerces/ma_boulangerie">
               ma Boulangerie
@@ -72,7 +72,7 @@
       <!-- Valeurs -->
       <v-flex xs12 md10 offset-md1>
         <h2 class="info--text display-1 font-weight-bold">Nos valeurs</h2>
-        <v-layout align-content-space-between justify-space-around fill-height row wrap my-4>
+        <v-layout justify-space-between fill-height row wrap my-4>
           <v-flex xs3>
             <v-img :src=holdingHandsImg max-height="150px" max-width="150px" style="margin: auto;"></v-img>
             <span class="primary--text body-1">Favoriser l'économie locale en développant les petits commerces.</span>
