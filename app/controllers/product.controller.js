@@ -1,4 +1,4 @@
-const Products = require('../models/products.model.js');
+const Product = require('../models/product.model.js');
 
 
 
@@ -6,7 +6,7 @@ const Products = require('../models/products.model.js');
 exports.create = (req, res) => {
 
    // creation d'une categorie //
-    const products = new Products({
+    const product = new Product({
         name: req.body.name,
         slug: req.body.slug,
         img: req.body.img,
@@ -21,11 +21,11 @@ exports.create = (req, res) => {
         stock: req.body.stock,
         labels: req.body.labels,
         category: req.body.category,
-        subcategory: req.body.subcategory,
+        subcategory: req.body.subcategory
     });
 
     // Save Note in the database
-    products.save()
+    product.save()
     .then(data => {
         res.send(data);
     }).catch(err => {
@@ -39,7 +39,7 @@ exports.create = (req, res) => {
 
 // Recupere et montre toutes les categories de la BDD // 
 exports.findAll = (req, res) => {
-        Products.find()
+        Product.find()
         .then(products => {
             res.send(products);
         }).catch(err => {
@@ -55,9 +55,9 @@ exports.findAll = (req, res) => {
 // Supprime les sous categorie avec l'id specifié //
 
 exports.delete = (req, res) => {
-    Category.findByIdAndRemove(req.params.sous_categories)
-    .then(categories => {
-        if(!categories) {
+    Product.findOne({'subcategory': req.params.sous_categories})
+    .then(product => {
+        if(!product) {
             return res.status(404).send({
                 message: "Sous categorie non trouvé avec cet ID" + req.params.sous_categories
             });
@@ -79,9 +79,9 @@ exports.delete = (req, res) => {
 // Trouver un produit //
 
 exports.findAll = (req, res) => {
-    Category.findById(req.params.productsid)
-    then(categories => {
-        if(!categories) {
+    Product.findById(req.params.productsid)
+    then(product => {
+        if(!product) {
             return res.status(404).send({
                 message: "produits not found with id " + req.params.productsid
             });

@@ -1,9 +1,15 @@
 module.exports = (app) => {
-    const products = require('../controllers/products.controller.js');
+    const products = require('../controllers/product.controller.js');
 
-    // find a new category
+    // test pour appeller bdd //
     app.get('/products', products.findAll);
-/*
+
+    // test pour creer sur la bdd// 
+
+    app.post('/api/products', products.create);
+
+
+
     // Retrieve all Notes
     app.get('/api/produits/:products', products.findAll);
 
@@ -21,7 +27,7 @@ module.exports = (app) => {
     app.get('/api/admin/produits/categories', products.findAll);
 
     // create a shops
-    app.create('/api/admin/produits/categories/create', products.create);
+    app.post('/api/admin/produits/categories/create', products.create);
 
     // update a shops
     app.put('/api/admin/produits/categories/update', products.update);
@@ -33,7 +39,7 @@ module.exports = (app) => {
     app.get('/api/admin/produits', products.findAll);
 
     // create a shops
-    app.create('/api/admin/produits/create', products.create);
+    app.post('/api/admin/produits/create', products.create);
 
     // update a shops
     app.put('/api/admin/produits/update', products.update);
@@ -48,23 +54,23 @@ module.exports = (app) => {
     app.post('/api/commercant', products.findAll);
 
     // Affiche toutes les subcategories
-    app.get('/api/categories/sous_categories', categories.findAll);
+    app.get('/api/categories/sous_categories', products.findAll);
 
     // Affiche toutes les subcategories
-    app.get('/api/categories/:products', categories.findAll);
+    app.get('/api/categories/:products', products.findAll);
 
     //
-    app.get('/api/admin/produits/categories/:sous_categories', categories.findAll);
+    app.get('/api/admin/produits/categories/:sous_categories', products.findAll);
 
     //
-    app.create('/api/admin/produits/categories/sous_categories/create', categories.create);
+    app.post('/api/admin/produits/categories/sous_categories/create', products.create);
 
     //
-    app.put('/api/admin/produits/categories/sous_categories/update', categories.update);
+    app.put('/api/admin/produits/categories/sous_categories/update', products.update);
 
     //
-    app.delete('/api/admin/produits/categories/sous_categories/delete', categories.delete);
-*/
+    app.post('/api/admin/produits/categories/:sous_categories/delete', products.delete);
+
 
 
 
