@@ -1,0 +1,38 @@
+[
+    {
+        "id": "auto-increment",
+        "firstname": "Aude",
+        "lastname": "Velly Menut",
+        "email": "audie.menut@gmail.com",
+        "password": "Motdepasse83+",
+        "tel": "0660335393",
+        "birthday": "30/03/1981",
+        "household_composition": {
+            "adults": 2,
+            "children": 0
+        },
+        "roles": [ "client", "merchant", "admin" ],
+        "favorite_shops": [
+            {
+                "id": "shopid correspondant",
+                "name": "Le Fournil de Pauline",
+                "slug": "le_fournil_de_pauline"
+            }
+        ],
+        "favorite_products": [
+            {
+                "id": "productid correspondant",
+                "name": "Baguette Tradition 300g",
+                "slug": "baguette_tradition"
+            }
+        ],
+        "shopping_cart": [
+            {
+                "id": "productid correspondant",
+                "name": "Baguette Tradition 300g",
+                "slug": "baguette_tradition",
+                "quantity": 1
+            }
+        ]
+    }
+]

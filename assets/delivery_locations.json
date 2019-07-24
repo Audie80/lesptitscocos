@@ -1,0 +1,32 @@
+[
+    {
+        "name": "Brest Rive Gauche",
+        "address": "route de Paris",
+        "zipcode": "29200",
+        "city": "Brest",
+        "tel": "0229000000",
+        "hours": "17h-21h",
+        "shops": [
+            {
+                "id": "shopid correspondant",
+                "name": "Le Fournil de Pauline",
+                "slug": "le_fournil_de_pauline"
+            },
+            {
+                "id": "shopid correspondant",
+                "name": "La Fournée",
+                "slug": "la_fournee"
+            },
+            {
+                "id": "shopid correspondant",
+                "name": "Le Four De Babel",
+                "slug": "le_four_de_babel"
+            },
+            {
+                "id": "shopid correspondant",
+                "name": "Au Boeuf Charolais",
+                "slug": "au_boeuf_charolais"
+            }
+        ]
+    }
+]

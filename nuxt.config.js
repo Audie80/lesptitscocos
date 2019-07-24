@@ -17,6 +17,22 @@ export default {
         rel: 'stylesheet',
         href:
           'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons'
+      },
+      {
+        rel: 'stylesheet',
+        href:
+          'https://fonts.googleapis.com/css?family=Fjalla+One&display=swap'
+      },
+      {
+        rel: 'stylesheet',
+        href:
+          'https://fonts.googleapis.com/css?family=Fredoka+One&display=swap'
+      },
+      {
+        rel: 'stylesheet',
+        type: 'text/css',
+        href:
+          '~assets/style/style.css'
       }
     ]
   },
@@ -38,7 +54,13 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
-    '@nuxtjs/vuetify'
+    ['@nuxtjs/vuetify', {
+      theme: {
+        primary: '#FD9800',
+        secondary: '#2DD799',
+        info: '#05004E'
+      }
+    }]
   ],
   /*
   ** Build configuration
