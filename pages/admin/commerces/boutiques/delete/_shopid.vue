@@ -8,6 +8,7 @@
 
 <script>
 export default {
+    layout: 'admin',
     data: function() {
         return {
             shopid: this.$route.params.shopid,
