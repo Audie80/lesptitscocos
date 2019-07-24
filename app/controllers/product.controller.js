@@ -76,7 +76,33 @@ exports.delete = (req, res) => {
 
 };
 
-// Trouver un produit //
+// Trouve un produit //
+
+exports.findAll = (req, res) => {
+    Product.findById(req.params.products)
+    then(product => {
+        if(!product) {
+            return res.status(404).send({
+                message: "produits not found with id " + req.params.products
+            });
+        }
+        res.send(note);
+    }).catch(err => {
+        if(err.kind === 'ObjectId') {
+            return res.status(404).send({
+                message: "Note not found with id " + req.params.products
+            });
+        }
+        return res.status(500).send({
+            message: "Error retrieving note with id " + req.params.products
+        });
+    });
+
+};
+
+
+
+// Trouver un produit par id //
 
 exports.findAll = (req, res) => {
     Product.findById(req.params.productsid)
@@ -99,6 +125,55 @@ exports.findAll = (req, res) => {
     });
 
 };
+
+// Trouve les produits par une sous categorie // 
+
+exports.findAll = (req, res) => {
+    Product.findAll(req.params.subcategory)
+    then(product => {
+        if(!product) {
+            return res.status(404).send({
+                message: "produits not found with id " + req.params.subcategory
+            });
+        }
+        res.send(note);
+    }).catch(err => {
+        if(err.kind === 'ObjectId') {
+            return res.status(404).send({
+                message: "Note not found with id " + req.params.subcategory
+            });
+        }
+        return res.status(500).send({
+            message: "Error retrieving note with id " + req.params.subcategory
+        });
+    });
+
+};
+
+// requete search //
+
+exports.findAll = (req, res) => {
+    Product.findAll(req.params.search)
+    then(product => {
+        if(!product) {
+            return res.status(404).send({
+                message: "produits not found with id " + req.params.search
+            });
+        }
+        res.send(note);
+    }).catch(err => {
+        if(err.kind === 'ObjectId') {
+            return res.status(404).send({
+                message: "Note not found with id " + req.params.search
+            });
+        }
+        return res.status(500).send({
+            message: "Error retrieving note with id " + req.params.search
+        });
+    });
+
+};
+
 
 
 // Update a note identified by the noteId in the request
