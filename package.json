@@ -5,6 +5,7 @@
   "author": "Les Ptits Cocos",
   "private": true,
   "scripts": {
+    "test": "jest",
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
