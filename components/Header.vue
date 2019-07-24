@@ -134,7 +134,7 @@
         <v-flex xs12 md4 text-xs-center>
           <v-toolbar-title>
             <nuxt-link to="/">
-              <span class="secondary--text text-uppercase display-2 font-weight-black">Ty Drive</span>
+              <span class="secondary--text text-uppercase display-2 font-weight-black" id="MainTitle">Ty Drive</span>
             </nuxt-link>
           </v-toolbar-title>
         </v-flex>
@@ -269,5 +269,7 @@
 </script>
 
 <style scoped>
-
+ .display-2 {
+   font-family: "Fredoka One", sans-serif !important;
+ }
 </style>

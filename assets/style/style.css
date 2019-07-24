@@ -1,0 +1,12 @@
+@font-face {
+ font-family: "Raleway";
+ src: url("~/assets/font/Raleway-Bold.ttf") format("truetype");
+}
+
+* {
+    font-family: "Fjalla One", sans-serif;
+}
+
+div #app .application {
+    font-family: "Fjalla One", sans-serif;
+}
