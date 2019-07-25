@@ -26,7 +26,7 @@
                 
                     
                 <td><nuxt-link :to='"/admin/commerces/update/" + shopType.name'><button>Modifier {{ shops }}</button></nuxt-link></td>
-                <td><nuxt-link :to='"/admin/commerces/deletecategory/" + shopType.name'><button >Supprimer {{ shops }}</button></nuxt-link></td>
+                <td><nuxt-link :to='"/admin/commerces/delete/" + shopType.name'><button >Supprimer {{ shops }}</button></nuxt-link></td>
             </tr>
         </table>
 
