@@ -1,7 +1,7 @@
 <template>
 <!-- Header -->
   <div>
-
+    
     <!-- menu pour mobiles -->
     <v-navigation-drawer v-model="drawer" app hideOverlay temporary>
       
