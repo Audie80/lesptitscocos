@@ -5,7 +5,6 @@
   "author": "Les Ptits Cocos",
   "private": true,
   "scripts": {
-    "test": "jest",
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
@@ -13,7 +12,7 @@
     "serve": "nodemon server.js"
   },
   "dependencies": {
-    "@nuxtjs/axios": "^5.5.4",
+    "@nuxtjs/axios": "~5.5.4",
     "@nuxtjs/vuetify": "~0.5.5",
     "body-parser": "~1.19.0",
     "eslint": "~6.0.1",
