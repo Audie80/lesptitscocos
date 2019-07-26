@@ -24,8 +24,8 @@ exports.create = (req, res) => {
 // Retrieve and return all notes from the database.
 exports.findAll = (req, res) => {
         Category.find()
-        .then(categories => {
-            res.send(categories);
+        .then(category => {
+            res.send(category);
         }).catch(err => {
             res.status(500).send({
                 message: err.message || "Some error occurred while retrieving notes."
@@ -33,6 +33,33 @@ exports.findAll = (req, res) => {
         });
     });
 };
+
+// Route delete une categorie // 
+
+exports.delete = (req, res) => {
+    Category.findOne({'slug': req.params.categories})
+        .then(category => {
+            if (!category) {
+                return res.status(404).send({
+                    message: "Sous categorie non trouvé avec cet ID" + req.params.categories
+                });
+            }
+            res.send({
+                message: "Note deleted successfully!"
+            });
+        }).catch(err => {
+            if (err.kind === 'ObjectId' || err.name === 'NotFound') {
+                return res.status(404).send({
+                    message: "Sous categories avec l'id non trouvé " + req.params.categories
+                });
+            }
+            return res.status(500).send({
+                message: "Impossible de supprimer la sous categorie avec cet id " + req.params.categories
+            });
+        });
+
+};
+
 
 // Update a note identified by the noteId in the request
 exports.update = (req, res) => {

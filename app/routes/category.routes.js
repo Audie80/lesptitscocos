@@ -7,7 +7,8 @@ module.exports = (app) => {
     // Affiche toutes les categories
     app.get('/api/categories', categories.findAll);
 
-
+    // Delete a Note with noteId
+    app.post('/api/categories/:categories', categories.delete);
 
     // Retrieve a single Note with noteId
    // app.get('/category/:categoryId', notes.findOne);
@@ -15,6 +16,5 @@ module.exports = (app) => {
     // Update a Note with noteId
     //app.put('/notes/:noteId', notes.update);
 
-    // Delete a Note with noteId
-   // app.delete('/notes/:noteId', notes.delete);
+
 }
