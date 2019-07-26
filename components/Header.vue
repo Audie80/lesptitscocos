@@ -12,7 +12,7 @@
           <template v-slot:activator>
             <v-list-tile>
               <v-list-tile-content>
-                <v-list-tile-title class="info--text">
+                <v-list-tile-title class="info--text fjalla-font">
                   Toutes mes boutiques
                 </v-list-tile-title>
               </v-list-tile-content>
@@ -20,7 +20,7 @@
           </template>
           <v-list-tile v-for="category in $store.state.shopCategories" :key="category._id" :to="`/produits/${category.slug}`">
             <v-list-tile-content>
-              <v-list-tile-title class="info--text">{{ category.name }}</v-list-tile-title>
+              <v-list-tile-title class="info--text raleway-font">{{ category.name }}</v-list-tile-title>
             </v-list-tile-content>
           </v-list-tile>
         </v-list-group>
@@ -30,7 +30,7 @@
           <template v-slot:activator>
             <v-list-tile>
               <v-list-tile-content>
-                <v-list-tile-title class="info--text">
+                <v-list-tile-title class="info--text fjalla-font">
                   Tous mes produits
                 </v-list-tile-title>
               </v-list-tile-content>
@@ -38,7 +38,7 @@
           </template>
           <v-list-tile v-for="item in menu" :key="item.title" :to="item.link">
             <v-list-tile-content>
-              <v-list-tile-title class="info--text">
+              <v-list-tile-title class="info--text raleway-font">
                 <!-- A FAIRE : ajouter une boucle pour les sous-catégories -->
                 {{ item.title }}
               </v-list-tile-title>
@@ -49,14 +49,14 @@
         <!-- anti-gaspi et blog -->
         <v-list-tile>
           <v-list-tile-content>
-            <v-list-tile-title class="info--text">
+            <v-list-tile-title class="info--text fjalla-font">
               Anti-gaspi
             </v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
         <v-list-tile>
           <v-list-tile-content>
-            <v-list-tile-title class="info--text">
+            <v-list-tile-title class="info--text fjalla-font">
               Blog
             </v-list-tile-title>
           </v-list-tile-content>
@@ -72,7 +72,7 @@
               <v-icon color="info">account_circle</v-icon>
             </v-list-tile-action>
             <v-list-tile-content>
-              <v-list-tile-title class="info--text">
+              <v-list-tile-title class="info--text raleway-font">
                 Connexion
               </v-list-tile-title>
             </v-list-tile-content>
@@ -82,7 +82,7 @@
               <v-icon color="info">shopping_cart</v-icon>
             </v-list-tile-action>
             <v-list-tile-content>
-              <v-list-tile-title class="info--text">
+              <v-list-tile-title class="info--text raleway-font">
                 Panier
               </v-list-tile-title>
             </v-list-tile-content>
@@ -92,7 +92,7 @@
               <v-icon color="info">favorite_border</v-icon>
             </v-list-tile-action>
             <v-list-tile-content>
-              <v-list-tile-title class="info--text">
+              <v-list-tile-title class="info--text raleway-font">
                 Favoris
               </v-list-tile-title>
             </v-list-tile-content>
@@ -125,6 +125,7 @@
             autofocus
             v-model.trim="inputSearch"
             @click:prepend-inner="sendSearch"
+            class="raleway-font"
           ></v-text-field>
         </v-flex>
         
@@ -134,7 +135,7 @@
         <v-flex xs12 md4 text-xs-center>
           <v-toolbar-title>
             <nuxt-link to="/">
-              <span class="secondary--text text-uppercase display-2 font-weight-black" id="MainTitle">Ty Drive</span>
+              <span class="secondary--text text-uppercase display-2 font-weight-black fredoka-font" id="MainTitle">Ty Drive</span>
             </nuxt-link>
           </v-toolbar-title>
         </v-flex>
@@ -144,11 +145,11 @@
         <!-- espace client -->
         <v-btn small round outline class="primary--text text-capitalize hidden-sm-and-down">
           <v-icon small left>account_circle</v-icon>
-          <span>Connexion</span>
+          <span class="raleway-font">Connexion</span>
         </v-btn>
         <v-btn small round outline class="primary--text text-capitalize hidden-sm-and-down">
           <v-icon small left>shopping_cart</v-icon>
-          <span>Panier</span>
+          <span class="raleway-font">Panier</span>
         </v-btn>   
         <v-btn flat round icon small outline class="primary hidden-sm-and-down">
           <v-icon small color="primary">favorite_border</v-icon>
@@ -169,6 +170,7 @@
             autofocus
             v-model.trim="inputSearch"
             @click:prepend-inner="sendSearch"
+            class="raleway-font"
           ></v-text-field>
         </v-flex>
 
@@ -181,26 +183,26 @@
         <!-- menu toutes les boutiques -->
         <v-menu open-on-hover down offset-y>
           <template v-slot:activator="{ on }">
-            <v-btn flat class="text-capitalize info--text" color="primary" v-on="on">
+            <v-btn flat class="text-capitalize info--text fjalla-font" color="primary" v-on="on">
               Toutes mes boutiques
             </v-btn>
           </template>
           <v-list>
             <v-list-tile v-for="category in $store.state.shopCategories" :key="category._id" :to="`/produits/${category.slug}`">
             <v-list-tile-content>
-              <v-list-tile-title class="info--text">{{ category.name }}</v-list-tile-title>
+              <v-list-tile-title class="info--text raleway-font">{{ category.name }}</v-list-tile-title>
             </v-list-tile-content>
           </v-list-tile>
           </v-list>
         </v-menu>
 
-        <v-divider class="mx-3" inset vertical></v-divider>
+        <v-divider inset vertical></v-divider>
 
         <v-spacer></v-spacer>
         
         <!-- menu des catégories et sous-catégories de produits -->
         <v-menu offset-y open-on-hover>
-          <v-btn outline slot="activator" class="text-capitalize white--text" color="primary" v-for="item in menu" :key="item.title" :to="item.link">
+          <v-btn outline slot="activator" class="text-capitalize white--text fredoka-font" color="primary" v-for="item in menu" :key="item.title" :to="item.link">
             {{ item.title}}
           </v-btn>
           <v-list>
@@ -231,10 +233,10 @@
 
         <v-spacer></v-spacer>
 
-        <v-divider class="mx-3" inset vertical></v-divider>
+        <v-divider inset vertical></v-divider>
 
-        <v-btn flat class="text-capitalize info--text" color="primary">Anti-Gaspi</v-btn>
-        <v-btn flat class="text-capitalize info--text" color="primary">Blog</v-btn>
+        <v-btn flat class="text-capitalize info--text fjalla-font" color="primary">Anti-Gaspi</v-btn>
+        <v-btn flat class="text-capitalize info--text fjalla-font" color="primary">Blog</v-btn>
 
       </v-layout>
      
@@ -279,9 +281,3 @@
         }
     }
 </script>
-
-<style scoped>
- /* .display-2 {
-   font-family: "Fredoka One", sans-serif !important;
- } */
-</style>

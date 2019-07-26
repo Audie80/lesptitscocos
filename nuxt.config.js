@@ -27,12 +27,6 @@ export default {
         rel: 'stylesheet',
         href:
           'https://fonts.googleapis.com/css?family=Fredoka+One&display=swap'
-      },
-      {
-        rel: 'stylesheet',
-        type: 'text/css',
-        href:
-          '~assets/style/style.css'
       }
     ]
   },
@@ -44,6 +38,7 @@ export default {
   ** Global CSS
   */
   css: [
+    '~/assets/style/style.css'
   ],
   /*
   ** Plugins to load before mounting the App

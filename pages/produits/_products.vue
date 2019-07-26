@@ -54,6 +54,11 @@
 <script>
     export default {
         name: 'ListProductsByCategory',
+        // Récupère les produits par catégorie de la BDD
+        // async asyncData({ $axios, route }) {
+        //     let products = await $axios.$get(`produits/${route.params.products}`)
+        //     return { products }
+        // },
         data: function() {
             return {
                 category: this.$route.params.products,

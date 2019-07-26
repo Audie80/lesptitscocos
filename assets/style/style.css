@@ -1,12 +1,19 @@
 @font-face {
  font-family: "Raleway";
- src: url("~/assets/font/Raleway-Bold.ttf") format("truetype");
+ src: url("~/assets/font/Raleway-Medium.ttf") format("truetype");
 }
 
-* {
-    font-family: "Fjalla One", sans-serif;
+/* Police importée, fichiers dans assets/font */
+.raleway-font {
+    font-family: "Raleway", sans-serif;
 }
 
-div #app .application {
-    font-family: "Fjalla One", sans-serif;
+/* Police GoogleFont, lien dans le fichier nuxt.config.js */
+.fredoka-font {
+    font-family: "Fredoka One", sans-serif !important;
+}
+
+/* Police GoogleFont, lien dans le fichier nuxt.config.js */
+.fjalla-font {
+    font-family: "Fjalla One", sans-serif !important;
 }
