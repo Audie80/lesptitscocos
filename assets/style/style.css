@@ -17,3 +17,8 @@
 .fjalla-font {
     font-family: "Fjalla One", sans-serif !important;
 }
+
+/* enlève le soulignage des liens */
+* {
+    text-decoration: none !important;
+}
