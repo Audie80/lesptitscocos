@@ -3,13 +3,13 @@
 
         <ul class="breadcrumb">
             <li><nuxt-link to="/admin">Tableau de bord Admin</nuxt-link><span> > </span></li>
-            <li><nuxt-link to="/admin/produitsCategories">Catégories de boutiques</nuxt-link><span> > </span></li>
-            <li><nuxt-link :to="'/admin/produitsCategories/'+category">Catégorie de boutiques {{ category }}</nuxt-link><span> > </span></li>
+            <li><nuxt-link to="/admin/produits">Catégories de boutiques</nuxt-link><span> > </span></li>
+            <li><nuxt-link :to="'/admin/produits/'+category">Catégorie de boutiques {{ category }}</nuxt-link><span> > </span></li>
             <li><span>{{ subcategory }}</span></li>
         </ul>
         <h1>Sous-catégorie {{ subcategory }}</h1>
-        <nuxt-link :to="'/admin/produitsCategories/'+category+'/update/'+subcategory">Modifier la sous-catégorie {{ subcategory }}</nuxt-link>                
-        <nuxt-link :to="'/admin/produitsCategories/'+category+'/delete/'+subcategory">Supprimer la sous-catégorie {{ subcategory }}</nuxt-link>
+        <nuxt-link :to="'/admin/produits/'+category+'/update/'+subcategory">Modifier la sous-catégorie {{ subcategory }}</nuxt-link>                
+        <nuxt-link :to="'/admin/produits/'+category+'/delete/'+subcategory">Supprimer la sous-catégorie {{ subcategory }}</nuxt-link>
     <h1>Liste de produits</h1>
     <table>
             <thead>

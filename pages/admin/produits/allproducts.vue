@@ -2,7 +2,7 @@
 <template>
     <div>
         <h1>Tous les produits</h1>
-        <nuxt-link to="/admin/produitsCategories">Voir les catégories</nuxt-link>
+        <nuxt-link to="/admin/produits">Voir les catégories</nuxt-link>
     </div>
 </template>
 

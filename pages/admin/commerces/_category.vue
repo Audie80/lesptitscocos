@@ -23,8 +23,8 @@
             </thead>
             <tr v-for="(shop, index) of shops" :key="index">
             
-                <td><nuxt-link :to="'/admin/commerces/boutiques/'+shop.name">{{ index }}</nuxt-link></td> 
-                <td><nuxt-link :to="'/admin/commerces/boutiques/'+shop.name">{{ shop.name }}</nuxt-link></td>
+                <td><nuxt-link :to="'/admin/commerces/'+category+'/'+shop.name">{{ index }}</nuxt-link></td> 
+                <td><nuxt-link :to="'/admin/commerces/'+shop.name">{{ shop.name }}</nuxt-link></td>
                 <td><nuxt-link :to="'/admin/commerces/boutiques/'+shop.name">Modifier</nuxt-link></td>              
                 <td><nuxt-link :to="'/admin/commerces/boutiques/delete/'+shop.name">Supprimer</nuxt-link></td>
             

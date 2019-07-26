@@ -3,11 +3,11 @@
         <div class="category" v-if="!subcategory">
         <ul class="breadcrumb">
             <li><nuxt-link to="/admin">Tableau de bord Admin</nuxt-link><span> > </span></li>
-            <li><nuxt-link to="/admin/produitsCategories">Toutes les catégories de boutiques</nuxt-link><span> > </span></li>
+            <li><nuxt-link to="/admin/produits">Toutes les catégories de boutiques</nuxt-link><span> > </span></li>
             <li><span>Catégorie de boutiques {{ category }}</span></li>
         </ul>
         
-        <nuxt-link to="/admin/produits">Voir tous les produits</nuxt-link>
+        <nuxt-link to="/admin/produits/allproducts">Voir tous les produits</nuxt-link>
         <nuxt-link to="/admin/produits/create">Créer un nouveau produits</nuxt-link>       
         
 
@@ -23,16 +23,16 @@
             </thead>
             <tr v-for="(subcategory, index) of subcategories" :key="index">
                 
-                <td><nuxt-link :to="'/admin/produitsCategories/'+category+'/'+subcategory.name">{{ index }}</nuxt-link></td>
+                <td><nuxt-link :to="'/admin/produits/'+category+'/'+subcategory.name">{{ index }}</nuxt-link></td>
             
             
-                <td><nuxt-link :to="'/admin/produitsCategories/'+category+'/'+subcategory.name">{{ subcategory.name }}</nuxt-link></td>
+                <td><nuxt-link :to="'/admin/produits/'+category+'/'+subcategory.name">{{ subcategory.name }}</nuxt-link></td>
             
             
-                <td><nuxt-link :to="'/admin/produitsCategories/'+category+'/'+subcategory.name">Modifier</nuxt-link></td>
+                <td><nuxt-link :to="'/admin/produits/'+category+'/'+subcategory.name">Modifier</nuxt-link></td>
             
             
-                <td><nuxt-link :to="'/admin/produitsCategories/'+category+'/delete/'+subcategory.name">Supprimer</nuxt-link></td>
+                <td><nuxt-link :to="'/admin/produits/'+category+'/delete/'+subcategory.name">Supprimer</nuxt-link></td>
             
             </tr>
         </table>

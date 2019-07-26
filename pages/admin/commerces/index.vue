@@ -1,12 +1,17 @@
 <template>
     <v-container fluid>
-        
+         <ul class="breadcrumb">
+            <li><nuxt-link to="/admin">Tableau de bord Admin</nuxt-link><span> > </span></li>
+            <li><span>Catégories de boutiques</span></li>
+        </ul>
+
         <nuxt-link to="/admin/commerces/allshops">Voir toutes les boutiques</nuxt-link>
-        <nuxt-link to="/admin/commerces/create">Créer une nouvelle boutique</nuxt-link>        
+        <nuxt-link to="/admin/commerces/create">Créer une nouvelle boutique</nuxt-link>   
+        <nuxt-link to="/admin/commerces/createCategory">Créer une nouvelle catégorie de boutiques</nuxt-link>      
         
         <h2>Catégories de boutiques</h2>
   
-        <nuxt-link to="/admin/commerces/createCategory">Créer une nouvelle catégorie de boutiques</nuxt-link>
+       
 
         
         <table>
