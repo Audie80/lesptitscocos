@@ -2,7 +2,7 @@ module.exports = (app) => {
     const products = require('../controllers/product.controller.js');
 
     // Retrieve all Notes
-    app.get('/api/produits/:products', products.findAll);
+    app.get('/api/produits/:products', products.findAllcategory);
 
     // Retrieve all Notes
     app.get('/api/produits/:productsid', products.findAll);
@@ -18,7 +18,7 @@ module.exports = (app) => {
     app.get('/api/admin/produits/categories', products.findAll);
 
     // create a shops
-    app.post('/api/admin/produits/:categories/create', products.create);
+    app.post('/api/admin/produits/categories/create', products.create);
 
     // update a shops
     app.put('/api/admin/produits/:categories/update', products.update);
@@ -30,7 +30,7 @@ module.exports = (app) => {
     app.get('/api/admin/produits', products.findAll);
 
     // create a shops
-    app.post('/api/admin/:produits/create', products.create);
+    app.post('/api/admin/produits/create', products.create);
 
     // update a shops
     app.put('/api/admin/:produits/update', products.update);
@@ -54,7 +54,7 @@ module.exports = (app) => {
     app.get('/api/admin/produits/categories/:sous_categories', products.findAll);
 
     //
-    app.post('/api/admin/produits/categories/:sous_categories/create', products.create);
+    app.post('/api/admin/produits/categories/sous_categories/create', products.create);
 
     //
     app.put('/api/admin/produits/categories/:sous_categories/update', products.update);

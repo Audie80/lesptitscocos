@@ -55,7 +55,7 @@ exports.findAll = (req, res) => {
 // Supprime les sous categorie avec l'id specifié //
 
 exports.delete = (req, res) => {
-    Product.findOne({'subcategory': req.params.sous_categories})
+    Product.deleteOne({'subcategory': req.params.sous_categories})
     .then(product => {
         if(!product) {
             return res.status(404).send({
@@ -74,19 +74,19 @@ exports.delete = (req, res) => {
         });
     });
 
-};
+}
 
 // Trouve un produit //
 
-exports.findAll = (req, res) => {
-    Product.findById(req.params.products)
-    then(product => {
+exports.findAllcategory = (req, res) => {
+    Product.find({'category':req.params.products})
+    .then(product => {
         if(!product) {
             return res.status(404).send({
                 message: "produits not found with id " + req.params.products
             });
         }
-        res.send(note);
+        res.send(product);
     }).catch(err => {
         if(err.kind === 'ObjectId') {
             return res.status(404).send({
@@ -104,9 +104,9 @@ exports.findAll = (req, res) => {
 
 // Trouver un produit par id //
 
-exports.findAll = (req, res) => {
+exports.findAllproductsid = (req, res) => {
     Product.findById(req.params.productsid)
-    then(product => {
+    .then(product => {
         if(!product) {
             return res.status(404).send({
                 message: "produits not found with id " + req.params.productsid
@@ -128,7 +128,7 @@ exports.findAll = (req, res) => {
 
 // Trouve les produits par une sous categorie // 
 
-exports.findAll = (req, res) => {
+exports.findAllsubcategory = (req, res) => {
     Product.findAll(req.params.subcategory)
     then(product => {
         if(!product) {
@@ -152,7 +152,7 @@ exports.findAll = (req, res) => {
 
 // requete search //
 
-exports.findAll = (req, res) => {
+exports.findAllsearch = (req, res) => {
     Product.findAll(req.params.search)
     then(product => {
         if(!product) {
