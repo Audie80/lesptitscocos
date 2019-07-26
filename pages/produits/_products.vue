@@ -10,7 +10,9 @@
 
                 <!-- Titre de la catégorie -->
                 <h2>{{ productCategory.name }}</h2>
-
+                <div>
+                    {{ productsByCategory }}
+                </div>
                 <!-- Affichage des cartes produits -->
                 <v-layout row wrap>
                     <v-flex
@@ -55,10 +57,10 @@
     export default {
         name: 'ListProductsByCategory',
         // Récupère les produits par catégorie de la BDD
-        // async asyncData({ $axios, route }) {
-        //     let products = await $axios.$get(`produits/${route.params.products}`)
-        //     return { products }
-        // },
+        async asyncData({ $axios, params }) {
+            let { productsByCategory } = await $axios.$get(`produits/${params.products}`)
+            return { productsByCategory }
+        },
         data: function() {
             return {
                 category: this.$route.params.products,
