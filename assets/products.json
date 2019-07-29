@@ -27,11 +27,11 @@
         ],
         "category": {
             "name": "ma Boulangerie",
-            "slug": "boulangerie"
-        },
-        "subcategory": {
-            "name": "Baguettes",
-            "slug": "baguettes"
+            "slug": "boulangerie",
+            "subcategory": {
+                "name": "Baguettes",
+                "slug": "baguettes"
+            }
         },
         "shop": {
             "id": "shopid correspondant",
