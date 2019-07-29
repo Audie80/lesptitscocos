@@ -74,15 +74,15 @@
         <h2 class="info--text display-1 font-weight-bold mt-1 mb-3 fredoka-font">Nos Ty commerces</h2>
         <v-layout justify-space-between fill-height row wrap>
           <v-flex xs3>
-            <nuxt-link class="button--primary" to="/commerces/ma_boulangerie">
+            <a href="/commerces/boulangerie">
               ma Boulangerie
-            </nuxt-link>
+            </a>
           </v-flex>
 
           <v-flex xs3>
-            <nuxt-link class="button--primary" to="/commerces/ma_boucherie">
+            <a href="/commerces/boucherie">
               ma Boucherie
-            </nuxt-link>
+            </a>
           </v-flex>
         </v-layout>
       </v-flex>

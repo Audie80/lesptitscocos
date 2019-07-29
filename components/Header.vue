@@ -18,9 +18,11 @@
               </v-list-tile-content>
             </v-list-tile>
           </template>
-          <v-list-tile v-for="category in $store.state.shopCategories" :key="category._id" :to="`/produits/${category.slug}`">
+          <v-list-tile v-for="category in $store.state.shopCategories" :key="category._id">
             <v-list-tile-content>
-              <v-list-tile-title class="info--text raleway-font">{{ category.name }}</v-list-tile-title>
+              <a :href="`/produits/${category.slug}`">
+                <v-list-tile-title class="info--text raleway-font">{{ category.name }}</v-list-tile-title>
+              </a>
             </v-list-tile-content>
           </v-list-tile>
         </v-list-group>
@@ -36,11 +38,11 @@
               </v-list-tile-content>
             </v-list-tile>
           </template>
-          <v-list-tile v-for="item in menu" :key="item.title" :to="item.link">
+          <v-list-tile v-for="item in menu" :key="item.title">
             <v-list-tile-content>
               <v-list-tile-title class="info--text raleway-font">
                 <!-- A FAIRE : ajouter une boucle pour les sous-catégories -->
-                {{ item.title }}
+                <a :href="`${item.link}`">{{ item.title }}</a>
               </v-list-tile-title>
             </v-list-tile-content>
           </v-list-tile>
@@ -134,9 +136,9 @@
         <!-- titre -->
         <v-flex xs12 md4 text-xs-center>
           <v-toolbar-title>
-            <nuxt-link to="/">
+            <a href="/">
               <span class="secondary--text text-uppercase display-2 font-weight-black fredoka-font" id="MainTitle">Ty Drive</span>
-            </nuxt-link>
+            </a>
           </v-toolbar-title>
         </v-flex>
 
@@ -188,9 +190,11 @@
             </v-btn>
           </template>
           <v-list>
-            <v-list-tile v-for="category in $store.state.shopCategories" :key="category._id" :to="`/produits/${category.slug}`">
+            <v-list-tile v-for="category in $store.state.shopCategories" :key="category._id">
             <v-list-tile-content>
-              <v-list-tile-title class="info--text raleway-font">{{ category.name }}</v-list-tile-title>
+              <a :href="`/commerces/${category.slug}`">
+                <v-list-tile-title class="info--text raleway-font">{{ category.name }}</v-list-tile-title>
+              </a>
             </v-list-tile-content>
           </v-list-tile>
           </v-list>
@@ -202,29 +206,29 @@
         
         <!-- menu des catégories et sous-catégories de produits -->
         <v-menu offset-y open-on-hover>
-          <v-btn outline slot="activator" class="text-capitalize white--text fredoka-font" color="primary" v-for="item in menu" :key="item.title" :to="item.link">
-            {{ item.title}}
+          <v-btn outline slot="activator" class="text-capitalize white--text fredoka-font" color="primary" v-for="item in menu" :key="item.title">
+            <a :href="`${item.link}`">{{ item.title}}</a>
           </v-btn>
           <v-list>
             <!-- A FAIRE boucle v-for pour afficher les sous-catégories + pour l'instant on est obligé de cliquer sur le bouton (pas de hold) -->
             <v-list-tile>
               <v-list-tile-content>
                 <v-list-tile-title>
-                  <nuxt-link to="/produits/ma_boulangerie/pains">Pains</nuxt-link>
+                  <a href="/produits/ma_boulangerie/pains">Pains</a>
                 </v-list-tile-title>
               </v-list-tile-content>
             </v-list-tile>
             <v-list-tile>
               <v-list-tile-content>
                 <v-list-tile-title>
-                  <nuxt-link to="/produits/ma_boulangerie/viennoiseries">Viennoiseries</nuxt-link>
+                  <a href="/produits/ma_boulangerie/viennoiseries">Viennoiseries</a>
                 </v-list-tile-title>
               </v-list-tile-content>
             </v-list-tile>
             <v-list-tile>
               <v-list-tile-content>
                 <v-list-tile-title>
-                  <nuxt-link to="/produits/ma_boulangerie/patisseries">Pâtisseries</nuxt-link>
+                  <a href="/produits/ma_boulangerie/patisseries">Pâtisseries</a>
                 </v-list-tile-title>
               </v-list-tile-content>
             </v-list-tile>
@@ -246,18 +250,10 @@
 </template>
 
 <script>
+import axios from 'axios'
+
     export default {
         name: 'Header',
-        // async asyncData({ $axios }) {
-        //   let shopCategories = await $axios.$get('categories')
-        //   return { shopCategories }
-        // },
-        // async getMenus ({ $axios }) {
-        //   await $axios.$get('categories')
-        //     .then((res) => {
-        //       this.shopCategories = res.data
-        //     })
-        // },
         data: function() {
           return {
             inputSearch: '',
