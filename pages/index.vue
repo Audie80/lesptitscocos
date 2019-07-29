@@ -17,7 +17,7 @@
         
       <!-- Barre de séparation -->
       <v-flex xs4 offset-xs4 my-2>
-        <v-sheet color="primary" height="5px"></v-sheet>
+        <v-sheet color="accent" height="5px"></v-sheet>
       </v-flex>
 
       <!-- Mode d'emploi -->
@@ -29,8 +29,8 @@
           <v-flex xs12 sm3 mb-1>
             <v-layout align-center row wrap>
               <v-flex xs6 sm12>
-                <span class="info--text headline font-weight-bold">1.</span>
-                <span class="info--text body-1"> Connectez-vous sur votre compte Ty Drive et sélectionnez les produits souhaités.</span>
+                <span class="primary--text headline font-weight-bold">1.</span>
+                <span class="primary--text body-1"> Connectez-vous sur votre compte Ty Drive et sélectionnez les produits souhaités.</span>
               </v-flex>
               <v-flex xs6 sm12>
                 <v-img :src=groceriesImg max-height="120px" max-width="120px" style="margin: auto;"></v-img>
@@ -53,8 +53,8 @@
           <v-flex xs12 sm3>
             <v-layout align-center row wrap>
               <v-flex xs6 sm12>
-                <span class="primary--text headline font-weight-bold">3.</span>
-                <span class="primary--text body-1"> Collectez vos produits directement au centre-ville de Brest et vous voilà ! Vous n'avez plus qu'à vous régaler avec des produits frais et locaux !</span>
+                <span class="info--text headline font-weight-bold">3.</span>
+                <span class="info--text body-1"> Collectez vos produits directement au centre-ville de Brest et vous voilà ! Vous n'avez plus qu'à vous régaler avec des produits frais et locaux !</span>
               </v-flex>
               <v-flex xs6 sm12>
                 <v-img :src=deliveryTruckImg max-height="120px" max-width="120px" style="margin: auto;"></v-img>
@@ -66,7 +66,7 @@
 
       <!-- Barre de séparation -->
       <v-flex xs4 offset-xs4 my-2>
-        <v-sheet color="secondary" height="5px"></v-sheet>
+        <v-sheet color="accent" height="5px"></v-sheet>
       </v-flex>
 
       <!-- Catégories de commerces -->
@@ -89,7 +89,7 @@
 
       <!-- Barre de séparation -->
       <v-flex xs4 offset-xs4 my-2>
-        <v-sheet color="info" height="5px"></v-sheet>
+        <v-sheet color="accent" height="5px"></v-sheet>
       </v-flex>
 
       <!-- Valeurs -->
@@ -135,7 +135,7 @@
 
       <!-- Barre de séparation -->
       <v-flex xs4 offset-xs4 my-2>
-        <v-sheet color="primary" height="5px"></v-sheet>
+        <v-sheet color="accent" height="5px"></v-sheet>
       </v-flex>
 
       <!-- Carte GoogleMap -->

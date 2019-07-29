@@ -105,7 +105,7 @@
 
     </v-navigation-drawer>
 
-    <v-toolbar extended app class="white">
+    <v-toolbar extended app class="success">
 
       <!-- Première ligne -->
       <v-layout align-center row mt-1>
@@ -137,7 +137,7 @@
         <v-flex xs12 md4 text-xs-center>
           <v-toolbar-title>
             <a href="/">
-              <span class="secondary--text text-uppercase display-2 font-weight-black fredoka-font" id="MainTitle">Ty Drive</span>
+              <span class="info--text text-uppercase display-2 font-weight-black fredoka-font" id="MainTitle">Ty</span> <span class="secondary--text text-uppercase display-2 font-weight-black fredoka-font" id="MainTitle">Drive</span>
             </a>
           </v-toolbar-title>
         </v-flex>
@@ -180,12 +180,12 @@
 
 
       <!-- 2ème ligne pour ordi : menu de navigation -->
-      <v-layout row slot="extension" class="primary hidden-sm-and-down">
+      <v-layout row slot="extension" class="accent hidden-sm-and-down">
 
         <!-- menu toutes les boutiques -->
         <v-menu open-on-hover down offset-y>
           <template v-slot:activator="{ on }">
-            <v-btn flat class="text-capitalize info--text fjalla-font" color="primary" v-on="on">
+            <v-btn flat class="text-capitalize info--text fjalla-font" v-on="on">
               Toutes mes boutiques
             </v-btn>
           </template>
@@ -205,30 +205,31 @@
         <v-spacer></v-spacer>
         
         <!-- menu des catégories et sous-catégories de produits -->
-        <v-menu offset-y open-on-hover>
-          <v-btn outline slot="activator" class="text-capitalize white--text fredoka-font" color="primary" v-for="item in menu" :key="item.title">
-            <a :href="`${item.link}`">{{ item.title}}</a>
+        <!-- A FAIRE mettre l'id en key -->
+        <v-menu offset-y open-on-hover v-for="item in menu" :key="item.title">
+          <v-btn outline slot="activator" class="text-capitalize success--text fredoka-font">
+            <a class="success--text" :href="`/produits/${item.slug}`">{{ item.title}}</a>
           </v-btn>
           <v-list>
             <!-- A FAIRE boucle v-for pour afficher les sous-catégories + pour l'instant on est obligé de cliquer sur le bouton (pas de hold) -->
             <v-list-tile>
               <v-list-tile-content>
                 <v-list-tile-title>
-                  <a href="/produits/ma_boulangerie/pains">Pains</a>
+                  <a href="/produits/boulangerie/pains">Pains</a>
                 </v-list-tile-title>
               </v-list-tile-content>
             </v-list-tile>
             <v-list-tile>
               <v-list-tile-content>
                 <v-list-tile-title>
-                  <a href="/produits/ma_boulangerie/viennoiseries">Viennoiseries</a>
+                  <a href="/produits/boulangerie/viennoiseries">Viennoiseries</a>
                 </v-list-tile-title>
               </v-list-tile-content>
             </v-list-tile>
             <v-list-tile>
               <v-list-tile-content>
                 <v-list-tile-title>
-                  <a href="/produits/ma_boulangerie/patisseries">Pâtisseries</a>
+                  <a href="/produits/boulangerie/patisseries">Pâtisseries</a>
                 </v-list-tile-title>
               </v-list-tile-content>
             </v-list-tile>
@@ -239,8 +240,8 @@
 
         <v-divider inset vertical></v-divider>
 
-        <v-btn flat class="text-capitalize info--text fjalla-font" color="primary">Anti-Gaspi</v-btn>
-        <v-btn flat class="text-capitalize info--text fjalla-font" color="primary">Blog</v-btn>
+        <v-btn flat class="text-capitalize info--text fjalla-font">Anti-Gaspi</v-btn>
+        <v-btn flat class="text-capitalize info--text fjalla-font">Blog</v-btn>
 
       </v-layout>
      
@@ -259,12 +260,12 @@ import axios from 'axios'
             inputSearch: '',
             drawer: false,
             menu: [
-              { title: "Boulangerie", link: "/produits/boulangerie" },
-              { title: "Boucherie", link: "/produits/boucherie" },
-              { title: "Epicerie", link: "/produits/epicerie" },
-              { title: "Poissonnerie", link: "/produits/poissonnerie" },
-              { title: "Traiteur", link: "/produits/traiteur" },
-              { title: "Primeur", link: "/produits/primeur" }
+              { title: "Boulangerie", slug: "boulangerie" },
+              { title: "Boucherie", slug: "boucherie" },
+              { title: "Epicerie", slug: "epicerie" },
+              { title: "Poissonnerie", slug: "poissonnerie" },
+              { title: "Caviste", slug: "caviste" },
+              { title: "Primeur", slug: "primeur" }
             ]
           }
         },

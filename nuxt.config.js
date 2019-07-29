@@ -55,9 +55,11 @@ export default {
     }],
     ['@nuxtjs/vuetify', {
       theme: {
-        primary: '#FD9800',
-        secondary: '#2DD799',
-        info: '#05004E'
+        primary: '#f9a11b',
+        secondary: '#ff7761',
+        info: '#471d02',
+        accent: "#ffe74c",
+        success: "#faffe8"
       }
     }]
   ],
