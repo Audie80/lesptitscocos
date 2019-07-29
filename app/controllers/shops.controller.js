@@ -4,7 +4,7 @@ const Shops = require('../models/shops.model.js');
 exports.create = (req, res) => {
 
    // Create a Note
-    const shops = new Client({
+    const shops = new Shops({
         name: req.body.name,
         slug: req.body.slug,
         img: req.body.img,
@@ -43,18 +43,149 @@ exports.findAll = (req, res) => {
     });
 };
 
-// Find a single note with a noteId
-//exports.findOne = (req, res) => {
 
-//};
+// Trouver un shop // 
 
-// Update a note identified by the noteId in the request
-//exports.update = (req, res) => {
+exports.findShops = (req, res) => {
+    Shops.find({'slug':req.params.shops})
+        .then(shop => {
+            if (!shop) {
+                return res.status(404).send({
+                    message: "shop not found with id " + req.params.shops
+                });
+            }
+            res.send(shop);
+        }).catch(err => {
+            if (err.kind === 'ObjectId') {
+                return res.status(404).send({
+                    message: "shops not found with id " + req.params.shops
+                });
+            }
+            return res.status(500).send({
+                message: "Error retrieving shops with id " + req.params.shops
+            });
+        });
 
-//};
+};
 
-// Delete a note with the specified noteId in the request
-//exports.delete = (req, res) => {
 
-//};
+// Trouver un par shopId // 
 
+exports.findShopsid = (req, res) => {
+    Shops.find({'slug': req.params.shopsid})
+        .then(shop => {
+            if (!shop) {
+                return res.status(404).send({
+                    message: "shop not found with id " + req.params.shopsid
+                });
+            }
+            res.send(shop);
+        }).catch(err => {
+            if (err.kind === 'ObjectId') {
+                return res.status(404).send({
+                    message: "shops not found with id " + req.params.shopsid
+                });
+            }
+            return res.status(500).send({
+                message: "Error retrieving shops with id " + req.params.shopsid
+            });
+        });
+
+};
+
+
+// update un type de commerce // 
+
+exports.update = (req, res) => {
+    Shops.updateOne(req.params.types_commerces)
+        .then(shop => {
+            if (!shop) {
+                return res.status(404).send({
+                    message: "shop not found with id " + req.params.types_commerces
+                });
+            }
+            res.send(shop);
+        }).catch(err => {
+            if (err.kind === 'ObjectId') {
+                return res.status(404).send({
+                    message: "shops not found with id " + req.params.types_commerces
+                });
+            }
+            return res.status(500).send({
+                message: "Error retrieving shops with id " + req.params.types_commerces
+            });
+        });
+
+};
+
+// delete un type de commerce//
+
+exports.delete = (req, res) => {
+    Shops.deleteOne(req.params.types_commerces)
+        .then(shop => {
+            if (!shop) {
+                return res.status(404).send({
+                    message: "shop not found with id " + req.params.types_commerces
+                });
+            }
+            res.send(shop);
+        }).catch(err => {
+            if (err.kind === 'ObjectId') {
+                return res.status(404).send({
+                    message: "shops not found with id " + req.params.types_commerces
+                });
+            }
+            return res.status(500).send({
+                message: "Error retrieving shops with id " + req.params.types_commerces
+            });
+        });
+
+};
+
+// update une boutique // 
+
+exports.update = (req, res) => {
+    Shops.updateOne(req.params.boutiques)
+        .then(shop => {
+            if (!shop) {
+                return res.status(404).send({
+                    message: "shop not found with id " + req.params.boutiques
+                });
+            }
+            res.send(shop);
+        }).catch(err => {
+            if (err.kind === 'ObjectId') {
+                return res.status(404).send({
+                    message: "shops not found with id " + req.params.boutiques
+                });
+            }
+            return res.status(500).send({
+                message: "Error retrieving shops with id " + req.params.boutiques
+            });
+        });
+
+};
+
+// delete une boutique//
+
+exports.delete = (req, res) => {
+    Shops.deleteOne({'slug':req.params.boutiques})
+        .then(shop => {
+            if (!shop) {
+                return res.status(404).send({
+                    message: "shop not found with id " + req.params.boutiques
+                });
+            }
+            res.send(shop);
+        }).catch(err => {
+            if (err.kind === 'ObjectId') {
+                return res.status(404).send({
+                    message: "shops not found with id " + req.params.boutiques
+                });
+            }
+            return res.status(500).send({
+                message: "Error retrieving shops with id " + req.params.boutiques
+            });
+        });
+
+};

@@ -35,8 +35,6 @@ exports.create = (req, res) => {
     });
 }
 
-
-
 // Recupere et montre toutes les categories de la BDD // 
 exports.findAll = (req, res) => {
         Product.find()
@@ -50,12 +48,284 @@ exports.findAll = (req, res) => {
     });
 };
 
+// Trouve un produit //
+
+exports.findProducts = (req, res) => {
+    Product.findById(req.params.products)
+    .then(product => {
+        if (!product) {
+            return res.status(404).send({
+                message: "produits not found with id " + req.params.products
+            });
+        }
+        res.send(product);
+    }).catch(err => {
+        if (err.kind === 'ObjectId') {
+            return res.status(404).send({
+                message: "Note not found with id " + req.params.products
+            });
+        }
+        return res.status(500).send({
+            message: "Error retrieving note with id " + req.params.products
+        });
+    });
+
+};
+
+// Trouver un produit par id //
+
+exports.findProductsid = (req, res) => {
+    Product.findById(req.params.productsid)
+    .then(product => {
+        if (!product) {
+            return res.status(404).send({
+                message: "produits not found with id " + req.params.productsid
+            });
+        }
+        res.send(product);
+    }).catch(err => {
+        if (err.kind === 'ObjectId') {
+            return res.status(404).send({
+                message: "Note not found with id " + req.params.productsid
+            });
+        }
+        return res.status(500).send({
+            message: "Error retrieving note with id " + req.params.productsid
+        });
+    });
+
+};
+
+// Trouve les produits par une sous categorie // 
+
+exports.findSubcategory = (req, res) => {
+    Product.findAll(req.params.subcategory)
+    .then(product => {
+        if (!product) {
+            return res.status(404).send({
+                message: "produits not found with id " + req.params.subcategory
+            });
+        }
+        res.send(product);
+    }).catch(err => {
+        if (err.kind === 'ObjectId') {
+            return res.status(404).send({
+                message: "Note not found with id " + req.params.subcategory
+            });
+        }
+        return res.status(500).send({
+            message: "Error retrieving note with id " + req.params.subcategory
+        });
+    });
+
+};
+
+// requete search //
+
+exports.findSearch = (req, res) => {
+    Product.findAll(req.params.search)
+    .then(product => {
+        if (!product) {
+            return res.status(404).send({
+                message: "produits not found with id " + req.params.search
+            });
+        }
+        res.send(product);
+    }).catch(err => {
+        if (err.kind === 'ObjectId') {
+            return res.status(404).send({
+                message: "Note not found with id " + req.params.search
+            });
+        }
+        return res.status(500).send({
+            message: "Error retrieving note with id " + req.params.search
+        });
+    });
+
+};
+
+// Update d'une categorie //
+
+exports.update = (req, res) => {
+    Product.updateOne(req.params.categories)
+    .then(product => {
+        if (!product) {
+            return res.status(404).send({
+                message: "produits not found with id " + req.params.categories
+            });
+        }
+        res.send(note);
+    }).catch(err => {
+        if (err.kind === 'ObjectId') {
+            return res.status(404).send({
+                message: "Note not found with id " + req.params.categories
+            });
+        }
+        return res.status(500).send({
+            message: "Error retrieving note with id " + req.params.categories
+        });
+    });
+
+};
+
+// Supprime une categorie avec l'id specifié //
+
+exports.delete = (req, res) => {
+    Product.deleteOne(req.params.categories)
+        .then(product => {
+            if (!product) {
+                return res.status(404).send({
+                    message: "Sous categorie non trouvé avec cet ID" + req.params.categories
+                });
+            }
+            res.send({
+                message: "Note deleted successfully!"
+            });
+        }).catch(err => {
+            if (err.kind === 'ObjectId' || err.name === 'NotFound') {
+                return res.status(404).send({
+                    message: "Sous categories avec l'id non trouvé " + req.params.categories
+                });
+            }
+            return res.status(500).send({
+                message: "Impossible de supprimer la sous categorie avec cet id " + req.params.categories
+            });
+        });
+
+};
+
+// Update d'un produit //
+
+exports.update = (req, res) => {
+    Product.updateOne(req.params.produits)
+    .then(product => {
+        if (!product) {
+            return res.status(404).send({
+                message: "produits not found with id " + req.params.produits
+            });
+        }
+        res.send(product);
+    }).catch(err => {
+        if (err.kind === 'ObjectId') {
+            return res.status(404).send({
+                message: "Note not found with id " + req.params.produits
+            });
+        }
+        return res.status(500).send({
+            message: "Error retrieving note with id " + req.params.produits
+        });
+    });
+
+};
+
+// Supprime un produit avec l'id specifié //
+
+exports.delete = (req, res) => {
+    Product.deleteOne(req.params.produits)
+        .then(product => {
+            if (!product) {
+                return res.status(404).send({
+                    message: "Sous categorie non trouvé avec cet ID" + req.params.produits
+                });
+            }
+            res.send({
+                message: "Note deleted successfully!"
+            });
+        }).catch(err => {
+            if (err.kind === 'ObjectId' || err.name === 'NotFound') {
+                return res.status(404).send({
+                    message: "Sous categories avec l'id non trouvé " + req.params.produits
+                });
+            }
+            return res.status(500).send({
+                message: "Impossible de supprimer la sous categorie avec cet id " + req.params.produits
+            });
+        });
+
+};
+
+// FInd product d'une categorie //
+
+exports.findProductscat = (req, res) => {
+    Product.findAll(req.params.products)
+    .then(product => {
+        if (!product) {
+            return res.status(404).send({
+                message: "produits not found with id " + req.params.products
+            });
+        }
+        res.send(product);
+    }).catch(err => {
+        if (err.kind === 'ObjectId') {
+            return res.status(404).send({
+                message: "Note not found with id " + req.params.products
+            });
+        }
+        return res.status(500).send({
+            message: "Error retrieving note with id " + req.params.products
+        });
+    });
+
+};
+
+// FInd sous categorie //
+
+exports.findSous_categories = (req, res) => {
+    Product.findAll(req.params.sous_categories)
+    .then(product => {
+        if (!product) {
+            return res.status(404).send({
+                message: "produits not found with id " + req.params.sous_categories
+            });
+        }
+        res.send(product);
+    }).catch(err => {
+        if (err.kind === 'ObjectId') {
+            return res.status(404).send({
+                message: "Note not found with id " + req.params.sous_categories
+            });
+        }
+        return res.status(500).send({
+            message: "Error retrieving note with id " + req.params.sous_categories
+        });
+    });
+
+};
+
+
+// Update les sous categorie avec l'id specifié //
+
+exports.update = (req, res) => {
+    Product.updateOne({
+            'subcategory': req.params.sous_categories
+        })
+        .then(product => {
+            if (!product) {
+                return res.status(404).send({
+                    message: "Sous categorie non trouvé avec cet ID" + req.params.sous_categories
+                });
+            }
+            res.send({
+                message: "Note deleted successfully!"
+            });
+        }).catch(err => {
+            if (err.kind === 'ObjectId' || err.name === 'NotFound') {
+                return res.status(404).send({
+                    message: "Sous categories avec l'id non trouvé " + req.params.sous_categories
+                });
+            }
+            return res.status(500).send({
+                message: "Impossible de supprimer la sous categorie avec cet id " + req.params.sous_categories
+            });
+        });
+
+};
 
 
 // Supprime les sous categorie avec l'id specifié //
 
 exports.delete = (req, res) => {
-    Product.findOne({'subcategory': req.params.sous_categories})
+    Product.deleteOne({'subcategory': req.params.sous_categories})
     .then(product => {
         if(!product) {
             return res.status(404).send({
@@ -76,108 +346,12 @@ exports.delete = (req, res) => {
 
 };
 
-// Trouve un produit //
-
-exports.findAll = (req, res) => {
-    Product.findById(req.params.products)
-    then(product => {
-        if(!product) {
-            return res.status(404).send({
-                message: "produits not found with id " + req.params.products
-            });
-        }
-        res.send(note);
-    }).catch(err => {
-        if(err.kind === 'ObjectId') {
-            return res.status(404).send({
-                message: "Note not found with id " + req.params.products
-            });
-        }
-        return res.status(500).send({
-            message: "Error retrieving note with id " + req.params.products
-        });
-    });
-
-};
 
 
 
-// Trouver un produit par id //
-
-exports.findAll = (req, res) => {
-    Product.findById(req.params.productsid)
-    then(product => {
-        if(!product) {
-            return res.status(404).send({
-                message: "produits not found with id " + req.params.productsid
-            });
-        }
-        res.send(note);
-    }).catch(err => {
-        if(err.kind === 'ObjectId') {
-            return res.status(404).send({
-                message: "Note not found with id " + req.params.productsid
-            });
-        }
-        return res.status(500).send({
-            message: "Error retrieving note with id " + req.params.productsid
-        });
-    });
-
-};
-
-// Trouve les produits par une sous categorie // 
-
-exports.findAll = (req, res) => {
-    Product.findAll(req.params.subcategory)
-    then(product => {
-        if(!product) {
-            return res.status(404).send({
-                message: "produits not found with id " + req.params.subcategory
-            });
-        }
-        res.send(note);
-    }).catch(err => {
-        if(err.kind === 'ObjectId') {
-            return res.status(404).send({
-                message: "Note not found with id " + req.params.subcategory
-            });
-        }
-        return res.status(500).send({
-            message: "Error retrieving note with id " + req.params.subcategory
-        });
-    });
-
-};
-
-// requete search //
-
-exports.findAll = (req, res) => {
-    Product.findAll(req.params.search)
-    then(product => {
-        if(!product) {
-            return res.status(404).send({
-                message: "produits not found with id " + req.params.search
-            });
-        }
-        res.send(note);
-    }).catch(err => {
-        if(err.kind === 'ObjectId') {
-            return res.status(404).send({
-                message: "Note not found with id " + req.params.search
-            });
-        }
-        return res.status(500).send({
-            message: "Error retrieving note with id " + req.params.search
-        });
-    });
-
-};
 
 
 
-// Update a note identified by the noteId in the request
-exports.update = (req, res) => {
 
-};
+
 
