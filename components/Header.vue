@@ -1,7 +1,7 @@
 <template>
 <!-- Header -->
   <div>
-    
+
     <!-- menu pour mobiles -->
     <v-navigation-drawer v-model="drawer" app hideOverlay temporary>
       
@@ -18,9 +18,9 @@
               </v-list-tile-content>
             </v-list-tile>
           </template>
-          <v-list-tile v-for="category in $store.state.shopCategories" :key="category._id" :to="`/produits/${category.slug}`">
+          <v-list-tile v-for="item in menu" :key="item.title" :to="item.link">
             <v-list-tile-content>
-              <v-list-tile-title class="info--text">{{ category.name }}</v-list-tile-title>
+              <v-list-tile-title class="info--text">{{ item.title }}</v-list-tile-title>
             </v-list-tile-content>
           </v-list-tile>
         </v-list-group>
@@ -186,11 +186,9 @@
             </v-btn>
           </template>
           <v-list>
-            <v-list-tile v-for="category in $store.state.shopCategories" :key="category._id" :to="`/produits/${category.slug}`">
-            <v-list-tile-content>
-              <v-list-tile-title class="info--text">{{ category.name }}</v-list-tile-title>
-            </v-list-tile-content>
-          </v-list-tile>
+            <v-list-tile v-for="item in menu" :key="item.title" :to="item.link">
+              <v-list-tile-title>{{ item.title }}</v-list-tile-title>
+            </v-list-tile>
           </v-list>
         </v-menu>
 
@@ -246,16 +244,6 @@
 <script>
     export default {
         name: 'Header',
-        // async asyncData({ $axios }) {
-        //   let shopCategories = await $axios.$get('categories')
-        //   return { shopCategories }
-        // },
-        // async getMenus ({ $axios }) {
-        //   await $axios.$get('categories')
-        //     .then((res) => {
-        //       this.shopCategories = res.data
-        //     })
-        // },
         data: function() {
           return {
             inputSearch: '',
@@ -281,7 +269,7 @@
 </script>
 
 <style scoped>
- /* .display-2 {
+ .display-2 {
    font-family: "Fredoka One", sans-serif !important;
- } */
+ }
 </style>

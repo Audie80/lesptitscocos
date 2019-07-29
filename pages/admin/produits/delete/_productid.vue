@@ -1,7 +1,7 @@
 <template>
     <div>
-        <h1>Supprimer {{ productid }}?</h1>
         <nuxt-link :to="'/admin/produits/'+productid">Retourner à la fiche produit</nuxt-link>
+        <h1>Supprimer {{ productid }}?</h1>
     </div>
 </template>
 
