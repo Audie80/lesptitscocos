@@ -33,7 +33,7 @@ app.get('/', (req, res) => {
 
 require('./app/routes/category.routes.js')(app);
 require('./app/routes/product.routes.js')(app);
-
+require('./app/routes/shops.routes.js')(app);
 // listen for requests
 app.listen(8001, () => {
     console.log("Server is listening on port 8001");

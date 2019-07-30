@@ -1,18 +1,25 @@
 module.exports = (app) => {
     const products = require('../controllers/product.controller.js');
 
+    // test //
+    //app.get('/api', products.findAll);
+
     // Retrieve all Notes
+<<<<<<< HEAD
     app.get('/api/produits/:products', products.findAllcategory);
+=======
+    app.get('/api/produits/:products', products.findProducts);
+>>>>>>> 80da059f8e5cd0fd1cb08ee7cd2ddf277431357a
 
     // Retrieve all Notes
-    app.get('/api/produits/:productsid', products.findAll);
+    app.get('/api/produits/:productsid', products.findProductsid);
 
 
     // Retrieve all Notes
-    app.get('/api/produits/:subcategory', products.findAll);
+    app.get('/api/produits/:subcategory', products.findSubcategory);
 
 
-    app.get( "/api/recherche/:search", products.findAll);
+    app.get( "/api/recherche/:search", products.findSearch);
 
     // find all shops
     app.get('/api/admin/produits/categories', products.findAll);
@@ -47,11 +54,11 @@ module.exports = (app) => {
     // Affiche toutes les subcategories
     app.get('/api/categories/sous_categories', products.findAll);
 
-    // Affiche toutes les subcategories
-    app.get('/api/categories/:products', products.findAll);
+    // Trouver un produit par ID
+    app.get('/api/categories/:products', products.findProductscat);
 
     //
-    app.get('/api/admin/produits/categories/:sous_categories', products.findAll);
+    app.get('/api/admin/produits/categories/:sous_categories', products.findSous_categories);
 
     //
     app.post('/api/admin/produits/categories/sous_categories/create', products.create);
