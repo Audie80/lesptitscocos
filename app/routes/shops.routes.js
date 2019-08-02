@@ -8,7 +8,7 @@ module.exports = (app) => {
     app.get('/api/commerces/:shops', shops.findShops);
 
     // Retrieve all Notes
-    app.get('/api/commerces/:shopid', shops.findShopsid);
+    app.get('/api/commerces/:shops/:shopid', shops.findShopid);
 
 
     // Retrieve all Notes

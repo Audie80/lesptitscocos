@@ -5,18 +5,14 @@ module.exports = (app) => {
     //app.get('/api', products.findAll);
 
     // Retrieve all Notes
-<<<<<<< HEAD
-    app.get('/api/produits/:products', products.findAllcategory);
-=======
     app.get('/api/produits/:products', products.findProducts);
->>>>>>> 80da059f8e5cd0fd1cb08ee7cd2ddf277431357a
 
     // Retrieve all Notes
-    app.get('/api/produit/:productsid', products.findProductsid);
+    app.get('/api/produit/:productid', products.findProductid);
 
 
     // Retrieve all Notes
-    app.get('/api/produits/:subcategory', products.findSubcategory);
+    app.get('/api/produits/:category/:subcategory', products.findSubcategory);
 
 
     app.get( "/api/recherche/:search", products.findSearch);

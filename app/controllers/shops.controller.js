@@ -71,23 +71,23 @@ exports.findShops = (req, res) => {
 
 // Trouver un commerce par shopId // 
 
-exports.findShopsid = (req, res) => {
-    Shops.findById(req.params.shopsid)
+exports.findShopid = (req, res) => {
+    Shops.findById(req.params.shopid)
         .then(shop => {
             if (!shop) {
                 return res.status(404).send({
-                    message: "shop not found with id " + req.params.shopsid
+                    message: "shop not found with id " + req.params.shopid
                 });
             }
             res.send(shop);
         }).catch(err => {
             if (err.kind === 'ObjectId') {
                 return res.status(404).send({
-                    message: "shops not found with id " + req.params.shopsid
+                    message: "shops not found with id " + req.params.shopid
                 });
             }
             return res.status(500).send({
-                message: "Error retrieving shops with id " + req.params.shopsid
+                message: "Error retrieving shops with id " + req.params.shopid
             });
         });
 

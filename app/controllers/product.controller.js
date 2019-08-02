@@ -78,23 +78,23 @@ exports.findProducts = (req, res) => {
 
 // Trouver un produit par id //
 
-exports.findProductsid = (req, res) => {
-    Product.find({'slug':req.params.productsid})
+exports.findProductid = (req, res) => {
+    Product.findById(req.params.productid)
     .then(product => {
         if (!product) {
             return res.status(404).send({
-                message: "produits not found with id " + req.params.productsid
+                message: "produits not found with id " + req.params.productid
             });
         }
         res.send(product);
     }).catch(err => {
         if (err.kind === 'ObjectId') {
             return res.status(404).send({
-                message: "Note not found with id " + req.params.productsid
+                message: "Note not found with id " + req.params.productid
             });
         }
         return res.status(500).send({
-            message: "Error retrieving note with id " + req.params.productsid
+            message: "Error retrieving note with id " + req.params.productid
         });
     });
 
