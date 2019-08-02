@@ -11,6 +11,8 @@ exports.create = (req, res) => {
         slug: req.body.slug,
         img: req.body.img,
         description: req.body.description,
+        balise_title: req.body.balise_title,
+        balise_description: req.body.balise_description,
         weight: req.body.weight,
         weight_price: req.body.weight_price,
         price: req.body.price,
@@ -21,7 +23,9 @@ exports.create = (req, res) => {
         stock: req.body.stock,
         labels: req.body.labels,
         category: req.body.category,
-        subcategory: req.body.subcategory
+        shop: req.body.shop,
+        favorite: req.body.favorite,
+        shopping_cart: req.body.shopping_cart
     });
 
     // Save Note in the database
@@ -51,7 +55,7 @@ exports.findAll = (req, res) => {
 // Trouve un produit //
 
 exports.findProducts = (req, res) => {
-    Product.findById(req.params.products)
+    Product.find({'category.slug': req.params.products})
     .then(product => {
         if (!product) {
             return res.status(404).send({
@@ -75,7 +79,7 @@ exports.findProducts = (req, res) => {
 // Trouver un produit par id //
 
 exports.findProductsid = (req, res) => {
-    Product.findById(req.params.productsid)
+    Product.find({'slug':req.params.productsid})
     .then(product => {
         if (!product) {
             return res.status(404).send({
@@ -99,7 +103,7 @@ exports.findProductsid = (req, res) => {
 // Trouve les produits par une sous categorie // 
 
 exports.findSubcategory = (req, res) => {
-    Product.findAll(req.params.subcategory)
+   Product.find({'category.subcategory.slug': req.params.subcategory})
     .then(product => {
         if (!product) {
             return res.status(404).send({
@@ -123,7 +127,7 @@ exports.findSubcategory = (req, res) => {
 // requete search //
 
 exports.findSearch = (req, res) => {
-    Product.findAll(req.params.search)
+    Product.find({'name':x})
     .then(product => {
         if (!product) {
             return res.status(404).send({

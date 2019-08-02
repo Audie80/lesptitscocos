@@ -8,7 +8,7 @@ module.exports = (app) => {
     app.get('/api/produits/:products', products.findProducts);
 
     // Retrieve all Notes
-    app.get('/api/produits/:productsid', products.findProductsid);
+    app.get('/api/produit/:productsid', products.findProductsid);
 
 
     // Retrieve all Notes

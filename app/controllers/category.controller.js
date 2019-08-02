@@ -60,13 +60,47 @@ exports.delete = (req, res) => {
 
 };
 
-
-// Update a note identified by the noteId in the request
-exports.update = (req, res) => {
-
-
+exports.findCategory = (req, res) => {
+    Category.find({'slug':req.params.category})
+        .then(category => {
+            if (!category) {
+                return res.status(404).send({
+                    message: "shop not found with id " + req.params.category
+                });
+            }
+            res.send(category);
+        }).catch(err => {
+            if (err.kind === 'ObjectId') {
+                return res.status(404).send({
+                    message: "shops not found with id " + req.params.category
+                });
+            }
+            return res.status(500).send({
+                message: "Error retrieving shops with id " + req.params.category
+            });
+        });
 
 };
+
+exports.findSubcategories = (req, res) => {
+    Category.find()
+        .then(category => {
+            res.send(category);
+        }).catch(err => {
+            res.status(500).send({
+                message: err.message || "Some error occurred while retrieving notes."
+
+            });
+        });
+};
+
+
+// Update a note identified by the noteId in the request
+//exports.update = (req, res) => {
+
+
+
+//};
 
 
 
