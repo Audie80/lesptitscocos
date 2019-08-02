@@ -8,11 +8,11 @@ module.exports = (app) => {
     app.get('/api/commerces/:shops', shops.findShops);
 
     // Retrieve all Notes
-    app.get('/api/commerces/shops/:shopid', shops.findShopsid);
+    app.get('/api/commerces/:shopid', shops.findShopsid);
 
 
     // Retrieve all Notes
-    app.get('/api/admin/commerces/types_commerces', shops.findAll);
+    app.get('/api/admin/commerces', shops.findAll);
 
     // Create a new Note
     app.post('/api/admin/commerces/types_commerces/create', shops.create);

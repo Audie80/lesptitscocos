@@ -12,7 +12,7 @@ module.exports = (app) => {
 >>>>>>> 80da059f8e5cd0fd1cb08ee7cd2ddf277431357a
 
     // Retrieve all Notes
-    app.get('/api/produits/:productsid', products.findProductsid);
+    app.get('/api/produit/:productsid', products.findProductsid);
 
 
     // Retrieve all Notes

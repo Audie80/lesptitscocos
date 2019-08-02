@@ -47,7 +47,7 @@ exports.findAll = (req, res) => {
 // Trouver un shop // 
 
 exports.findShops = (req, res) => {
-    Shops.find({'slug':req.params.shops})
+    Shops.find({'category.slug': req.params.shops})
         .then(shop => {
             if (!shop) {
                 return res.status(404).send({
@@ -69,10 +69,10 @@ exports.findShops = (req, res) => {
 };
 
 
-// Trouver un par shopId // 
+// Trouver un commerce par shopId // 
 
 exports.findShopsid = (req, res) => {
-    Shops.find({'slug': req.params.shopsid})
+    Shops.findById(req.params.shopsid)
         .then(shop => {
             if (!shop) {
                 return res.status(404).send({

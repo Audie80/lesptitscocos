@@ -11,6 +11,8 @@ exports.create = (req, res) => {
         slug: req.body.slug,
         img: req.body.img,
         description: req.body.description,
+        balise_title: req.body.balise_title,
+        balise_description: req.body.balise_description,
         weight: req.body.weight,
         weight_price: req.body.weight_price,
         price: req.body.price,
@@ -21,7 +23,9 @@ exports.create = (req, res) => {
         stock: req.body.stock,
         labels: req.body.labels,
         category: req.body.category,
-        subcategory: req.body.subcategory
+        shop: req.body.shop,
+        favorite: req.body.favorite,
+        shopping_cart: req.body.shopping_cart
     });
 
     // Save Note in the database
@@ -48,47 +52,12 @@ exports.findAll = (req, res) => {
     });
 };
 
-<<<<<<< HEAD
-
-
-// Supprime les sous categorie avec l'id specifié //
-
-exports.delete = (req, res) => {
-    Product.deleteOne({'subcategory': req.params.sous_categories})
-    .then(product => {
-        if(!product) {
-            return res.status(404).send({
-                message: "Sous categorie non trouvé avec cet ID" + req.params.sous_categories
-            });
-        }
-        res.send({message: "Note deleted successfully!"});
-    }).catch(err => {
-        if(err.kind === 'ObjectId' || err.name === 'NotFound') {
-            return res.status(404).send({
-                message: "Sous categories avec l'id non trouvé " + req.params.sous_categories
-            });
-        }
-        return res.status(500).send({
-            message: "Impossible de supprimer la sous categorie avec cet id " + req.params.sous_categories
-        });
-    });
-
-}
-
-// Trouve un produit //
-
-exports.findAllcategory = (req, res) => {
-    Product.find({'category':req.params.products})
-    .then(product => {
-        if(!product) {
-=======
 // Trouve un produit //
 
 exports.findProducts = (req, res) => {
-    Product.findById(req.params.products)
+    Product.find({'category.slug': req.params.products})
     .then(product => {
         if (!product) {
->>>>>>> 80da059f8e5cd0fd1cb08ee7cd2ddf277431357a
             return res.status(404).send({
                 message: "produits not found with id " + req.params.products
             });
@@ -109,17 +78,10 @@ exports.findProducts = (req, res) => {
 
 // Trouver un produit par id //
 
-<<<<<<< HEAD
-exports.findAllproductsid = (req, res) => {
-    Product.findById(req.params.productsid)
-    .then(product => {
-        if(!product) {
-=======
 exports.findProductsid = (req, res) => {
-    Product.findById(req.params.productsid)
+    Product.find({'slug':req.params.productsid})
     .then(product => {
         if (!product) {
->>>>>>> 80da059f8e5cd0fd1cb08ee7cd2ddf277431357a
             return res.status(404).send({
                 message: "produits not found with id " + req.params.productsid
             });
@@ -140,12 +102,8 @@ exports.findProductsid = (req, res) => {
 
 // Trouve les produits par une sous categorie // 
 
-<<<<<<< HEAD
-exports.findAllsubcategory = (req, res) => {
-=======
 exports.findSubcategory = (req, res) => {
->>>>>>> 80da059f8e5cd0fd1cb08ee7cd2ddf277431357a
-    Product.findAll(req.params.subcategory)
+   Product.find({'category.subcategory.slug': req.params.subcategory})
     .then(product => {
         if (!product) {
             return res.status(404).send({
@@ -168,12 +126,8 @@ exports.findSubcategory = (req, res) => {
 
 // requete search //
 
-<<<<<<< HEAD
-exports.findAllsearch = (req, res) => {
-=======
 exports.findSearch = (req, res) => {
->>>>>>> 80da059f8e5cd0fd1cb08ee7cd2ddf277431357a
-    Product.findAll(req.params.search)
+    Product.find({'name':x})
     .then(product => {
         if (!product) {
             return res.status(404).send({

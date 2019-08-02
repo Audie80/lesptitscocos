@@ -10,11 +10,11 @@ module.exports = (app) => {
     // Delete a Note with noteId
     app.post('/api/categories/:categories', categories.delete);
 
-    // Retrieve a single Note with noteId
-   // app.get('/category/:categoryId', notes.findOne);
+    // Liste les infos d'une categorie //
+    app.get('/api/categories/:category', categories.findCategory);
 
-    // Update a Note with noteId
-    //app.put('/notes/:noteId', notes.update);
+    // Liste toutes les categories et leurs sous-categorie //
+    app.get('/api/categories/subcategories', categories.findSubcategories);
 
 
 }
