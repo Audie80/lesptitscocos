@@ -284,12 +284,3 @@ import axios from 'axios'
         }
     }
 </script>
-<<<<<<< HEAD
-
-<style scoped>
- .display-2 {
-   font-family: "Fredoka One", sans-serif !important;
- }
-</style>
-=======
->>>>>>> b910675481db952b03bf12d68965a7579b7fc2f9
