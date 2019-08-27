@@ -18,17 +18,14 @@
               </v-list-tile-content>
             </v-list-tile>
           </template>
-<<<<<<< HEAD
-          <v-list-tile v-for="item in menu" :key="item.title" :to="item.link">
+          <!-- <v-list-tile v-for="item in menu" :key="item.title" :to="item.link">
             <v-list-tile-content>
-              <v-list-tile-title class="info--text">{{ item.title }}</v-list-tile-title>
-=======
+              <v-list-tile-title class="info--text">{{ item.title }}</v-list-tile-title> -->
           <v-list-tile v-for="category in $store.state.shopCategories" :key="category._id">
             <v-list-tile-content>
               <a :href="`/produits/${category.slug}`">
                 <v-list-tile-title class="info--text raleway-font">{{ category.name }}</v-list-tile-title>
               </a>
->>>>>>> b910675481db952b03bf12d68965a7579b7fc2f9
             </v-list-tile-content>
           </v-list-tile>
         </v-list-group>
@@ -196,11 +193,9 @@
             </v-btn>
           </template>
           <v-list>
-<<<<<<< HEAD
-            <v-list-tile v-for="item in menu" :key="item.title" :to="item.link">
+            <!-- <v-list-tile v-for="item in menu" :key="item.title" :to="item.link">
               <v-list-tile-title>{{ item.title }}</v-list-tile-title>
-            </v-list-tile>
-=======
+            </v-list-tile> -->
             <v-list-tile v-for="category in $store.state.shopCategories" :key="category._id">
             <v-list-tile-content>
               <a :href="`/commerces/${category.slug}`">
@@ -208,7 +203,6 @@
               </a>
             </v-list-tile-content>
           </v-list-tile>
->>>>>>> b910675481db952b03bf12d68965a7579b7fc2f9
           </v-list>
         </v-menu>
 
