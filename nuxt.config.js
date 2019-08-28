@@ -49,6 +49,10 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
+    // Options pour Axios, notamment l'URL du serveur
+    ['@nuxtjs/axios', {
+      baseURL: process.env.API_URL || 'http://localhost:8001/api/'
+    }],
     ['@nuxtjs/vuetify', {
       theme: {
         primary: '#f9a11b',
