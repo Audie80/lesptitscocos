@@ -14,10 +14,8 @@
     "test": "jest",
     "dev": "nuxt",
     "build": "nuxt build",
-    "start": "nuxt",
-    "oldstart": "nuxt start",
-    "generate": "nuxt generate",
-    "serve": "nodemon server.js"
+    "start": "nuxt start",
+    "generate": "nuxt generate"
   },
   "dependencies": {
     "@nuxtjs/vuetify": "~0.5.5",
