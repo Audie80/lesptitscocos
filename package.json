@@ -14,8 +14,8 @@
     "test": "jest",
     "dev": "nuxt",
     "build": "nuxt build",
-    "start": "nuxt",
-    "oldstart": "nuxt start",
+    "newstart": "nuxt",
+    "start": "nuxt start",
     "generate": "nuxt generate"
   },
   "dependencies": {
