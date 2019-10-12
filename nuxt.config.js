@@ -1,6 +1,10 @@
 
 export default {
   mode: 'universal',
+  server: {
+    port: 8080, // default: 3000
+    host: '0.0.0.0', // default: localhost
+  },
   /*
   ** Headers of the page
   */
@@ -51,7 +55,7 @@ export default {
   modules: [
     // Options pour Axios, notamment l'URL du serveur
     ['@nuxtjs/axios', {
-      baseURL: process.env.API_URL || 'http://localhost:8080/api/'
+      baseURL: process.env.API_URL || 'http://app_aed543e9-6268-45f3-bf81-c08d6fd69165.cleverapps.io/api/' || 'http://localhost:8080/api/'
     }],
     ['@nuxtjs/vuetify', {
       theme: {
