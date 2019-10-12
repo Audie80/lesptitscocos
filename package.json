@@ -19,9 +19,10 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
-    "@nuxtjs/vuetify": "~0.5.5",
     "@nuxtjs/axios": "latest",
+    "@nuxtjs/vuetify": "~0.5.5",
     "body-parser": "~1.19.0",
+    "core-js": "^2.6.9",
     "eslint": "~6.0.1",
     "nuxt": "~2.0.0",
     "vuetify-loader": "~1.2.2"
