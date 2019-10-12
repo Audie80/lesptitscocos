@@ -20,10 +20,10 @@
             </tr>
             <tr v-for="(category, index) of categories" :key="index">
                 <td> 
-                    <nuxt-link :to='"/admin/produits/"+category.name'>{{ index }}</nuxt-link>
+                    <nuxt-link :to='"/admin/produitsCategories/"+category.name'>{{ index }}</nuxt-link>
                 </td>
                 <td>
-                    <nuxt-link :to='"/admin/produits/"+category.name'>Voir les sous-carégories de  " {{ category.name }} "</nuxt-link>
+                    <nuxt-link :to='"/admin/produitsCategories/"+category.name'>Voir les sous-carégories de  " {{ category.name }} "</nuxt-link>
                 </td>
             </tr>
             

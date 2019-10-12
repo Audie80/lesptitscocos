@@ -27,12 +27,6 @@ export default {
         rel: 'stylesheet',
         href:
           'https://fonts.googleapis.com/css?family=Fredoka+One&display=swap'
-      },
-      {
-        rel: 'stylesheet',
-        type: 'text/css',
-        href:
-          '~assets/style/style.css'
       }
     ]
   },
@@ -44,6 +38,7 @@ export default {
   ** Global CSS
   */
   css: [
+    '~/assets/style/style.css'
   ],
   /*
   ** Plugins to load before mounting the App
@@ -54,11 +49,17 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
+    // Options pour Axios, notamment l'URL du serveur
+    ['@nuxtjs/axios', {
+      baseURL: process.env.API_URL || 'http://localhost:8080/api/'
+    }],
     ['@nuxtjs/vuetify', {
       theme: {
-        primary: '#FD9800',
-        secondary: '#2DD799',
-        info: '#05004E'
+        primary: '#f9a11b',
+        secondary: '#ff7761',
+        info: '#471d02',
+        accent: "#ffe74c",
+        success: "#faffe8"
       }
     }]
   ],

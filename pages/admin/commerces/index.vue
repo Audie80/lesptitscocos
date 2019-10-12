@@ -1,11 +1,14 @@
 <template>
     <v-container fluid>
-        <h1>Admin</h1>
-        <h2>Catégories de commerces</h2>
-        <nuxt-link to="/admin/commerces/create">Créer une nouvelle boutique</nuxt-link>
-        <nuxt-link to="">Créer une nouvelle catégorie de commerce</nuxt-link>
-        <nuxt-link to="/admin">Retour au tableau de bord</nuxt-link>
+        
+        <nuxt-link to="/admin/commerces/allshops">Voir toutes les boutiques</nuxt-link>
+        <nuxt-link to="/admin/commerces/create">Créer une nouvelle boutique</nuxt-link>        
+        
+        <h2>Catégories de boutiques</h2>
+  
+        <nuxt-link to="/admin/commerces/createCategory">Créer une nouvelle catégorie de boutiques</nuxt-link>
 
+        
         <table>
             <tr>
                 <th>#</th>
@@ -35,6 +38,7 @@
 
 <script>
 export default {
+    layout: 'admin',
     data: function() {
             return {
                 shops: "",
@@ -114,3 +118,4 @@ export default {
 <style>
 
 </style>
+

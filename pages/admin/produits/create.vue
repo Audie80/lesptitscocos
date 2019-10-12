@@ -1,7 +1,7 @@
 <template>
     <div>
         
-        <h1>Créer une nouvelle boutique</h1>
+        <h1>Créer un nouveau produit</h1>
     </div>
 </template>
 
