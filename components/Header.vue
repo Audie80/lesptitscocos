@@ -140,7 +140,7 @@
         <v-flex xs12 md4 text-xs-center>
           <v-toolbar-title>
             <a href="/">
-              <span class="info--text text-uppercase display-2 font-weight-black fredoka-font" id="MainTitle">Ty</span> <span class="secondary--text text-uppercase display-2 font-weight-black fredoka-font" id="MainTitle">Drive</span>
+              <span class="info--text text-uppercase display-2 font-weight-black fredoka-font" id="MainTitle">Ty</span> <span class="primary--text text-uppercase display-2 font-weight-black fredoka-font" id="MainTitle">Drive</span>
             </a>
           </v-toolbar-title>
         </v-flex>
@@ -183,7 +183,7 @@
 
 
       <!-- 2ème ligne pour ordi : menu de navigation -->
-      <v-layout row slot="extension" class="accent hidden-sm-and-down">
+      <v-layout row slot="extension" class="secondary hidden-sm-and-down">
 
         <!-- menu toutes les boutiques -->
         <v-menu open-on-hover down offset-y>
@@ -213,8 +213,8 @@
         <!-- menu des catégories et sous-catégories de produits -->
         <!-- A FAIRE mettre l'id en key -->
         <v-menu offset-y open-on-hover v-for="item in menu" :key="item.title">
-          <v-btn outline slot="activator" class="text-capitalize success--text fredoka-font">
-            <a class="success--text" :href="`/produits/${item.slug}`">{{ item.title}}</a>
+          <v-btn outline slot="activator" class="text-capitalize info--text fredoka-font">
+            <a class="info--text" :href="`/produits/${item.slug}`">{{ item.title}}</a>
           </v-btn>
           <v-list>
             <!-- A FAIRE boucle v-for pour afficher les sous-catégories + pour l'instant on est obligé de cliquer sur le bouton (pas de hold) -->

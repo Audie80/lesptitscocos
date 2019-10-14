@@ -60,10 +60,10 @@ export default {
     ['@nuxtjs/vuetify', {
       theme: {
         primary: '#f9a11b',
-        secondary: '#ff7761',
-        info: '#471d02',
-        accent: "#ffe74c",
-        success: "#faffe8"
+        secondary: '#ffe74c',
+        info: '#4c191b',
+        accent: "#c4b7cb",
+        success: "#eaf7cf"
       }
     }]
   ],
