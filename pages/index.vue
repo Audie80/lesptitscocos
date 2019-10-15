@@ -7,10 +7,10 @@
       <v-flex xs12>
         <v-img :src=bandeauImg aspect-ratio=4>
           <br class="primary hidden-sm-and-down"><br class="primary hidden-sm-and-down">
-          <h1 class="success--text text-uppercase display-2 font-weight-black fredoka-font">Ty Drive</h1>
-          <h2 class="success--text headline font-weight-bold fredoka-font">Mes commerces de proximité</h2>
+          <h1 class="success--text text-uppercase display-2 font-weight-black fredoka-font border-text">Ty Drive</h1>
+          <h2 class="success--text headline font-weight-bold fredoka-font border-text">Mes commerces de proximité</h2>
           <v-flex xs10 offset-xs1 sm4 offset-sm4 mt-4>
-            <p class="success--text body-1 font-weight-bold raleway-font">Venez faire vos courses sur TY drive, le drive local 100% commerçant. Faire ses courses sur Ty drive c'est la certitude de consommer local et frais tous les jours.</p>
+            <p class="success--text body-1 font-weight-bold raleway-font border-text">Venez faire vos courses sur TY drive, le drive local 100% commerçant. Faire ses courses sur Ty drive c'est la certitude de consommer local et frais tous les jours.</p>
           </v-flex>
         </v-img>
       </v-flex>
@@ -115,7 +115,7 @@
                 <v-img :src=greenEarthImg max-height="120px" max-width="120px" style="margin: auto;"></v-img>
               </v-flex>
               <v-flex xs6 sm12>
-                <span class="info--text body-1">Adopter une démarche plus respectueuse de l'environnement et créer du lien social au coeur de nos villes.</span>
+                <span class="primary--text body-1">Adopter une démarche plus respectueuse de l'environnement et créer du lien social au coeur de nos villes.</span>
               </v-flex>
             </v-layout>
           </v-flex>
@@ -179,3 +179,8 @@ export default {
 }
 </script>
 
+<style scoped>
+  .border-text {
+    text-shadow: -1px 0 #4c191b, 0 1px #4c191b, 1px 0 #4c191b, 0 -1px #4c191b;
+  }
+</style>

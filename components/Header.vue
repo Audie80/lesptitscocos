@@ -212,13 +212,20 @@
         
         <!-- menu des catégories et sous-catégories de produits -->
         <!-- A FAIRE mettre l'id en key -->
-        <v-menu offset-y open-on-hover v-for="item in menu" :key="item.title">
+        <v-menu offset-y open-on-hover v-for="productCategory in $store.state.productCategories" :key="productCategory._id">
           <v-btn outline slot="activator" class="text-capitalize info--text fredoka-font">
-            <a class="info--text" :href="`/produits/${item.slug}`">{{ item.title}}</a>
+            <a class="info--text" :href="`/produits/${productCategory.slug}`">{{ productCategory.name }}</a>
           </v-btn>
           <v-list>
             <!-- A FAIRE boucle v-for pour afficher les sous-catégories + pour l'instant on est obligé de cliquer sur le bouton (pas de hold) -->
-            <v-list-tile>
+            <v-list-tile v-for="subcategory in productCategory.subcategories" :key="subcategory.slug">
+              <v-list-tile-content>
+                
+                  <v-list-tile-title class="info--text raleway-font"><a :href="`/produits/${productCategory.slug}/${subcategory.slug}`">{{ subcategory.name }}</a></v-list-tile-title>
+                
+              </v-list-tile-content>
+            </v-list-tile>
+            <!-- <v-list-tile>
               <v-list-tile-content>
                 <v-list-tile-title>
                   <a href="/produits/boulangerie/pains">Pains</a>
@@ -238,7 +245,7 @@
                   <a href="/produits/boulangerie/patisseries">Pâtisseries</a>
                 </v-list-tile-title>
               </v-list-tile-content>
-            </v-list-tile>
+            </v-list-tile> -->
           </v-list>
         </v-menu>
 
@@ -257,7 +264,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+//import axios from 'axios'
 
     export default {
         name: 'Header',
@@ -284,3 +291,9 @@ import axios from 'axios'
         }
     }
 </script>
+
+<style scoped>
+  .border-text {
+    text-shadow: -1px 0 #4c191b, 0 1px #4c191b, 1px 0 #4c191b, 0 -1px #4c191b;
+  }
+</style>
