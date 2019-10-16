@@ -4,18 +4,11 @@
   "description": "Mon petit commerce de proximité avec Nuxt.js",
   "author": "Les Ptits Cocos",
   "private": true,
-  "config": {
-    "nuxt": {
-      "host": "0.0.0.0",
-      "port": "8080"
-    }
-  },
   "scripts": {
     "test": "jest",
     "dev": "nuxt",
     "build": "nuxt build",
-    "start": "nuxt",
-    "oldstart": "nuxt start",
+    "start": "nuxt start",
     "generate": "nuxt generate"
   },
   "dependencies": {
