@@ -1,6 +1,6 @@
 <template>
     <v-card>
-        <v-card-title style="height: 60px; padding-top: 2%;">
+        <v-card-title style="height: 60px;">
             <h3>{{ product.name }}</h3>
             <v-spacer></v-spacer>
             <v-btn flat color="orange" icon><v-icon color="orange">favorite_border</v-icon></v-btn>
@@ -15,20 +15,10 @@
 <script>
     export default {
         name: 'ProductDescription',
-        data: function() {
-            return {
-                productSlug: this.$route.params.productid,
-                product: {
-                    "name": "Baguette",
-                    "slug": "baguette",
-                    "img": "https://staticmedia.fauchon.com/media/catalog/product/cache/1/image/480x/040ec09b1e35df139433887a97daa66f/1/0/1008690.jpg",
-                    "weight": 0.3,
-                    "weightPrice": 3,
-                    "quantity": 10,
-                    "labels": [],
-                    "description": "Une merveilleuse baguette dorée et à la croûte très croustillante."
-                }
-            }
+        // Récupère la description du produit de la BDD
+        async asyncData({ $axios, params }) {
+            let product = await $axios.$get(`produit/${params.productid}`)
+            return { product }
         }
     }
 </script>
