@@ -9,30 +9,35 @@
             <v-container fluid grid-list-xl>
 
                 <!-- Titre de la catégorie -->
-                <h2 class="info--text">{{ products[0].category.name }}</h2>
+                <div>
+                    <span class="caption info--text">Vous êtes ici à : </span>
+                    <a :href="`/produits/${category}`"><h2 class="info--text d-inline">{{ products[0].category.name }}</h2></a>
+                </div>
 
                 <!-- Affichage des cartes produits -->
                 <v-layout row wrap>
                     <v-flex
                     v-for="product of products" :key="product._id" xs12 sm6 md4 lg3> <!-- Boucle qui parcourt toutes les cartes produits / xs12 sm6 md4 lg3 change le nombre de cards affichées en largeur selon le responsive -->
-                        <v-card color="success">
+                        <v-card>
                             <v-card-title class="info--text" style="height: 60px; padding-top: 2%;">
                                 <h3>{{ product.name }}</h3>
                                 <v-spacer></v-spacer>
-                                <!-- icône favori, affichage lié à la BDD, data à true ou à false -->
-                                <v-btn outline color="primary" icon>
-                                    <v-icon v-if="product.favorite !== []">favorite_border</v-icon>
-                                    <v-icon v-if="product.favorite == []">favorite</v-icon>
+                                <!-- icône favori, affichage lié à la BDD à faire, data à true ou à false -->
+                                <v-btn outline color="primary" icon v-on:click="product.favorite = !product.favorite">
+                                    <v-icon v-if="product.favorite == false">favorite_border</v-icon>
+                                    <v-icon v-if="product.favorite == true">favorite</v-icon>
                                 </v-btn>
                             </v-card-title>
                             <v-img :src="product.img" :alt="product.name" aspect-ratio="2.25" mx-2></v-img>
-                            <v-card-text class="info--text" style="height: 100px; overflow-Y: auto;" v-if="product.shop">
-                                <span>Provenance : {{ product.shop.name }}</span>
+                            <v-card-text class="info--text" style="height: 100px; overflow-Y: auto; padding-top: 2%;">
+                                <a :href="`/commerces/${category}/${product.shop.slug}`" v-if="product.shop"><span class="caption">Elaboré avec amour par : {{ product.shop.name }}</span></a>
+                                <br>
+                                <span>{{ product.description }}</span>
                             </v-card-text>
                             <v-card-actions>
-                                <v-btn outline class="text-capitalize fredoka-font" color="primary" :href="`/produit/${product.slug}`">fiche produit</v-btn>
+                                <v-btn primary class="text-capitalize fredoka-font" color="primary" :href="`/produit/${product.slug}`">fiche produit</v-btn>
                                 <v-spacer></v-spacer>
-                                <v-btn round color="primary">{{ product.price }} €</v-btn>
+                                <v-btn outline round color="primary">{{ product.price }} €</v-btn>
                                 <v-btn outline color="primary" icon>
                                     <v-icon>shopping_cart</v-icon>
                                 </v-btn>

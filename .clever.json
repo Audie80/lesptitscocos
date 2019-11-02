@@ -1,1 +1,1 @@
-{"apps":[{"app_id":"app_e88c35d1-6483-43ea-8d56-573b12549a84","deploy_url":"https://github.com/Audie80/lesptitscocos.git","name":"PtitCo Front","alias":"PtitCo-Front"}]}
+{"apps":[{"app_id":"app_e88c35d1-6483-43ea-8d56-573b12549a84","deploy_url":"https://github.com/Audie80/lesptitscocos.git","name":"PtitCo Front","alias":"PtitCo-Front"},{"app_id":"app_330c86dc-f8fd-45e2-8319-c506f5500618","deploy_url":"https://push-par-clevercloud-customers.services.clever-cloud.com/app_330c86dc-f8fd-45e2-8319-c506f5500618.git","name":"TyDrive-Front","alias":"tydrive"}]}

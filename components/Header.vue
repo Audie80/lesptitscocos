@@ -18,12 +18,9 @@
               </v-list-tile-content>
             </v-list-tile>
           </template>
-          <!-- <v-list-tile v-for="item in menu" :key="item.title" :to="item.link">
-            <v-list-tile-content>
-              <v-list-tile-title class="info--text">{{ item.title }}</v-list-tile-title> -->
           <v-list-tile v-for="category in $store.state.shopCategories" :key="category._id">
             <v-list-tile-content>
-              <a :href="`/produits/${category.slug}`">
+              <a :href="`/commerces/${category.slug}`">
                 <v-list-tile-title class="info--text raleway-font">{{ category.name }}</v-list-tile-title>
               </a>
             </v-list-tile-content>
@@ -41,14 +38,12 @@
               </v-list-tile-content>
             </v-list-tile>
           </template>
-          <v-list-tile v-for="item in menu" :key="item.title">
-            <v-list-tile-content>
-              <v-list-tile-title class="info--text raleway-font">
+          <v-list-tile v-for="productCategory in $store.state.productCategories" :key="productCategory._id">
+              <v-list-tile-content>
                 <!-- A FAIRE : ajouter une boucle pour les sous-catégories -->
-                <a :href="`${item.link}`">{{ item.title }}</a>
-              </v-list-tile-title>
-            </v-list-tile-content>
-          </v-list-tile>
+                  <v-list-tile-title class="info--text raleway-font"><a :href="`/produits/${productCategory.slug}`">{{ productCategory.name }}</a></v-list-tile-title>
+              </v-list-tile-content>
+            </v-list-tile>
         </v-list-group>
 
         <!-- anti-gaspi et blog -->
@@ -193,9 +188,6 @@
             </v-btn>
           </template>
           <v-list>
-            <!-- <v-list-tile v-for="item in menu" :key="item.title" :to="item.link">
-              <v-list-tile-title>{{ item.title }}</v-list-tile-title>
-            </v-list-tile> -->
             <v-list-tile v-for="category in $store.state.shopCategories" :key="category._id">
             <v-list-tile-content>
               <a :href="`/commerces/${category.slug}`">
@@ -211,41 +203,16 @@
         <v-spacer></v-spacer>
         
         <!-- menu des catégories et sous-catégories de produits -->
-        <!-- A FAIRE mettre l'id en key -->
         <v-menu offset-y open-on-hover v-for="productCategory in $store.state.productCategories" :key="productCategory._id">
           <v-btn outline slot="activator" class="text-capitalize info--text fredoka-font">
             <a class="info--text" :href="`/produits/${productCategory.slug}`">{{ productCategory.name }}</a>
           </v-btn>
           <v-list>
-            <!-- A FAIRE boucle v-for pour afficher les sous-catégories + pour l'instant on est obligé de cliquer sur le bouton (pas de hold) -->
             <v-list-tile v-for="subcategory in productCategory.subcategories" :key="subcategory.slug">
               <v-list-tile-content>
-                
                   <v-list-tile-title class="info--text raleway-font"><a :href="`/produits/${productCategory.slug}/${subcategory.slug}`">{{ subcategory.name }}</a></v-list-tile-title>
-                
               </v-list-tile-content>
             </v-list-tile>
-            <!-- <v-list-tile>
-              <v-list-tile-content>
-                <v-list-tile-title>
-                  <a href="/produits/boulangerie/pains">Pains</a>
-                </v-list-tile-title>
-              </v-list-tile-content>
-            </v-list-tile>
-            <v-list-tile>
-              <v-list-tile-content>
-                <v-list-tile-title>
-                  <a href="/produits/boulangerie/viennoiseries">Viennoiseries</a>
-                </v-list-tile-title>
-              </v-list-tile-content>
-            </v-list-tile>
-            <v-list-tile>
-              <v-list-tile-content>
-                <v-list-tile-title>
-                  <a href="/produits/boulangerie/patisseries">Pâtisseries</a>
-                </v-list-tile-title>
-              </v-list-tile-content>
-            </v-list-tile> -->
           </v-list>
         </v-menu>
 
@@ -257,29 +224,17 @@
         <v-btn flat class="text-capitalize info--text fjalla-font">Blog</v-btn>
 
       </v-layout>
-     
     </v-toolbar>
-
   </div>
 </template>
 
 <script>
-//import axios from 'axios'
-
     export default {
         name: 'Header',
         data: function() {
           return {
             inputSearch: '',
-            drawer: false,
-            menu: [
-              { title: "Boulangerie", slug: "boulangerie" },
-              { title: "Boucherie", slug: "boucherie" },
-              { title: "Epicerie", slug: "epicerie" },
-              { title: "Poissonnerie", slug: "poissonnerie" },
-              { title: "Caviste", slug: "caviste" },
-              { title: "Primeur", slug: "primeur" }
-            ]
+            drawer: false
           }
         },
         methods: {
