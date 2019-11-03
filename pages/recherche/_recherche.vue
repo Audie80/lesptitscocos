@@ -1,18 +1,18 @@
-<!-- Page listant les produits par catégorie -->
+<!-- Page listant les résultats de la recherche -->
 <template>
     <div>
-        <!-- Affichage de la page parent _products.vue -->
-        <div
-        v-if="$route.name=='produits-products'">
 
             <!-- Liste des produits -->
-            <v-container fluid grid-list-xl>
-
-                <!-- Titre de la catégorie -->
+            <v-container fluid grid-list-xl v-if="$route.name=='recherche-recherche'">
+            
+                <!-- Titre de la recherche -->
                 <div>
-                    <span class="caption info--text">Vous êtes ici à : </span>
-                    <a :href="`/produits/${category}`"><h2 class="info--text d-inline">{{ products[0].category.name }}</h2></a>
+                    <span class="caption info--text">Vous avez recherché : </span>
+                    <h2 class="info--text d-inline">{{ search }}</h2>
                 </div>
+
+                <!-- Message si recherche vide -->
+                <p class="info--text" v-if="products==''">Votre recherche n'a donné aucun résultat</p>
 
                 <!-- Affichage des cartes produits -->
                 <v-layout row wrap>
@@ -63,26 +63,19 @@
 
             </v-container>
         </div>
-
-        <!-- Affichage de la page enfant, quand on clique sur une sous-catégorie > voir le dossier _products -->
-        <div
-        v-else-if="$route.name=='produits-products-subcategory'">
-            <nuxt-child  :key="$route.params.products" />
-        </div>
-    </div>
 </template>
 
 <script>
     export default {
-        name: 'ListProductsByCategory',
-        // Récupère les produits par catégorie de la BDD
+        name: 'ListProductsBySearch',
+        // Récupère les produits de la BDD grâce au champ de recherche
         async asyncData({ $axios, params }) {
-            let products = await $axios.$get(`produits/${params.products}`)
+            let products = await $axios.$get(`recherche/${params.recherche}`)
             return { products }
         },
         data: function() {
             return {
-                category: this.$route.params.products
+                search: this.$route.params.recherche
             }
         }
     }

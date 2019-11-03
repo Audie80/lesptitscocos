@@ -1,11 +1,10 @@
 {
-  "name": "ptitco",
-  "version": "1.0.0",
-  "description": "Mon petit commerce de proximité avec Nuxt.js",
+  "name": "TyDrive",
+  "version": "1.1.0",
+  "description": "Mes commerces de proximité accessibles en drive !",
   "author": "Les Ptits Cocos",
-  "private": true,
+  "private": false,
   "scripts": {
-    "test": "jest",
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
@@ -15,7 +14,7 @@
     "@nuxtjs/axios": "latest",
     "@nuxtjs/vuetify": "~0.5.5",
     "body-parser": "~1.19.0",
-    "core-js": "^2.6.9",
+    "core-js": "~2.6.9",
     "eslint": "~6.0.1",
     "nuxt": "~2.0.0",
     "vuetify-loader": "~1.2.2"

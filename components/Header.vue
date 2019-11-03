@@ -112,22 +112,28 @@
         <v-toolbar-side-icon class="info hidden-md-and-up" @click="drawer = !drawer"></v-toolbar-side-icon>
 
         <!-- nous situer -->
-        <v-btn flat round icon small outline class="primary hidden-sm-and-down">
-          <a href="/#googleMap"><v-icon small color="primary">place</v-icon></a>
-        </v-btn>   
-
+        <v-tooltip bottom>
+          <template v-slot:activator="{ on }">
+            <v-btn flat round icon small outline class="primary--text hidden-sm-and-down" v-on="on">
+              <a href="/#googleMap"><v-icon small color="primary">place</v-icon></a>
+            </v-btn>
+          </template>
+          <span>Nous situer</span>
+        </v-tooltip>
+          
         <!-- champ de recherche -->
         <v-flex xs2 mt-2 ml-2 class="hidden-sm-and-down">
           <v-text-field
             placeholder="Recherchez un produit"
-            prepend-inner-icon="search"
             color="primary"
             autofocus
             v-model.trim="inputSearch"
-            @click:prepend-inner="sendSearch"
             class="raleway-font"
           ></v-text-field>
         </v-flex>
+        <v-btn flat round icon small outline class="primary--text hidden-sm-and-down">
+          <a :href="`/recherche/${this.inputSearch}`"><v-icon small color="primary">search</v-icon></a>
+        </v-btn>
         
         <v-spacer></v-spacer>
 
@@ -150,11 +156,15 @@
         <v-btn small round outline class="primary--text text-capitalize hidden-sm-and-down">
           <v-icon small left>shopping_cart</v-icon>
           <span class="raleway-font">Panier</span>
-        </v-btn>   
-        <v-btn flat round icon small outline class="primary hidden-sm-and-down">
-          <v-icon small color="primary">favorite_border</v-icon>
         </v-btn>
-
+        <v-tooltip bottom>
+          <template v-slot:activator="{ on }">
+            <v-btn flat round icon small outline class="primary--text hidden-sm-and-down" v-on="on">
+              <v-icon small color="primary">favorite_border</v-icon>
+            </v-btn>
+          </template>
+          <span>Mes favoris</span>
+        </v-tooltip>
       </v-layout>
 
 
@@ -165,14 +175,15 @@
         <v-flex xs10 sm8 offset-xs1 offset-sm2>
           <v-text-field
             placeholder="Recherchez un produit"
-            prepend-inner-icon="search"
             color="info"
             autofocus
             v-model.trim="inputSearch"
-            @click:prepend-inner="sendSearch"
             class="raleway-font"
           ></v-text-field>
         </v-flex>
+        <v-btn flat round icon outline class="primary--text hidden-md-and-up">
+          <a :href="`/recherche/${this.inputSearch}`"><v-icon color="primary">search</v-icon></a>
+        </v-btn>
 
       </v-layout>
 
@@ -240,8 +251,7 @@
         methods: {
           //Méthode du champ de recherche qui amène à la page des résultats et qui vide le champ
           sendSearch: function() {
-            this.$router.push({ name: 'index' })
-            this.inputSearch = ''
+            this.$router.push(`/produits/boulangerie/${this.inputSearch}`)
           }
         }
     }
