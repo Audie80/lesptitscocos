@@ -103,7 +103,7 @@
 
     </v-navigation-drawer>
 
-    <v-toolbar extended app class="success">
+    <v-toolbar extended app class="success" style="height: 120px;">
 
       <!-- Première ligne -->
       <v-layout align-center row mt-1>
@@ -246,12 +246,6 @@
           return {
             inputSearch: '',
             drawer: false
-          }
-        },
-        methods: {
-          //Méthode du champ de recherche qui amène à la page des résultats et qui vide le champ
-          sendSearch: function() {
-            this.$router.push(`/produits/boulangerie/${this.inputSearch}`)
           }
         }
     }

@@ -15,8 +15,8 @@
 
 ## Pour démarrer l'application
 
-npm run serve pour le Back
-npm run dev pour le Front puis http://localhost:3000/
+npm run start pour le Back
+npm run dev pour le Front puis http://192.168.1.51:8080/
 <!--stackedit_data:
 eyJoaXN0b3J5IjpbNzIwMTg2MzMxLDE3NzEyMzYxNjJdfQ==
 -->

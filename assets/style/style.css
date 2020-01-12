@@ -1,6 +1,6 @@
 @font-face {
  font-family: "Raleway";
- src: url("~/assets/font/Raleway-Medium.ttf") format("truetype");
+ src: url("../font/Raleway-Medium.ttf") format("truetype");
 }
 
 /* Police importée, fichiers dans assets/font */
