@@ -25,14 +25,20 @@ const store = () => {
             },
             // axios...
             async setShopCategories({ commit }) {
-                const { data } = await this.$axios.get('categories')
-                commit('SET_SHOPCAT', data)
-                
+                try {
+                    const { data } = await this.$axios.get('categories')
+                    commit('SET_SHOPCAT', data)
+                } catch (error) {
+                    commit('SET_SHOPCAT', [])
+                }
             },
             async setProductCategories({ commit }) {
-                const { data } = await this.$axios.get('categoriesproduits')
-                commit('SET_PRODUCTCAT', data)
-
+                try {
+                    const { data } = await this.$axios.get('categoriesproduits')
+                    commit('SET_PRODUCTCAT', data)
+                } catch (error) {
+                    commit('SET_PRODUCTCAT', [])
+                }
             },
         },
     })
