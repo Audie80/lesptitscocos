@@ -61,13 +61,7 @@
     </v-layout>
 </template>
 
-<script>
-export default {
-    data: function() {
-        return {
-            facebookIcon: require('@/assets/img/facebook.png'),
-            linkedInIcon: require('@/assets/img/linkedin.png')
-        }
-    }
-}
+<script setup>
+import facebookIcon from '@/assets/img/facebook.png'
+import linkedInIcon from '@/assets/img/linkedin.png'
 </script>

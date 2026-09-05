@@ -1,8 +1,8 @@
 <template>
     <div>
         <h1>Administrateur</h1>
-        <nuxt-link to="/login" class="right">Connexion</nuxt-link>
-        <nuxt-link to="/admin">Retour au tableau de bord</nuxt-link>
+        <NuxtLink to="/login" class="right">Connexion</NuxtLink>
+        <NuxtLink to="/admin">Retour au tableau de bord</NuxtLink>
         
         <hr>
 

@@ -132,7 +132,7 @@
           ></v-text-field>
         </v-flex>
         <v-btn flat round icon small outline class="primary--text hidden-sm-and-down">
-          <a :href="`/recherche/${this.inputSearch}`"><v-icon small color="primary">search</v-icon></a>
+          <a :href="`/recherche/${inputSearch}`"><v-icon small color="primary">search</v-icon></a>
         </v-btn>
         
         <v-spacer></v-spacer>
@@ -182,7 +182,7 @@
           ></v-text-field>
         </v-flex>
         <v-btn flat round icon outline class="primary--text hidden-md-and-up">
-          <a :href="`/recherche/${this.inputSearch}`"><v-icon color="primary">search</v-icon></a>
+          <a :href="`/recherche/${inputSearch}`"><v-icon color="primary">search</v-icon></a>
         </v-btn>
 
       </v-layout>
@@ -191,41 +191,33 @@
       <!-- 2ème ligne pour ordi : menu de navigation -->
       <v-layout row slot="extension" class="secondary hidden-sm-and-down">
 
-        <!-- menu toutes les boutiques -->
-        <v-menu open-on-hover down offset-y>
-          <template v-slot:activator="{ on }">
-            <v-btn flat class="text-capitalize info--text fjalla-font" v-on="on">
-              Toutes mes boutiques
-            </v-btn>
-          </template>
-          <v-list>
-            <v-list-tile v-for="category in $store.state.shopCategories" :key="category._id">
-            <v-list-tile-content>
-              <a :href="`/commerces/${category.slug}`">
-                <v-list-tile-title class="info--text raleway-font">{{ category.name }}</v-list-tile-title>
-              </a>
-            </v-list-tile-content>
-          </v-list-tile>
-          </v-list>
-        </v-menu>
+        <!-- menu toutes les boutiques (simple fallback until Vuetify is configured) -->
+        <div class="menu dropdown">
+          <button class="menu-btn text-capitalize info--text fjalla-font">Toutes mes boutiques</button>
+          <ul class="menu-list">
+            <li v-for="category in $store.state.shopCategories" :key="category._id">
+              <a :href="`/commerces/${category.slug}`" class="info--text raleway-font">{{ category.name }}</a>
+            </li>
+          </ul>
+        </div>
 
         <v-divider inset vertical></v-divider>
 
         <v-spacer></v-spacer>
         
-        <!-- menu des catégories et sous-catégories de produits -->
-        <v-menu offset-y open-on-hover v-for="productCategory in $store.state.productCategories" :key="productCategory._id">
-          <v-btn outline slot="activator" class="text-capitalize info--text fredoka-font">
-            <a class="info--text" :href="`/produits/${productCategory.slug}`">{{ productCategory.name }}</a>
-          </v-btn>
-          <v-list>
-            <v-list-tile v-for="subcategory in productCategory.subcategories" :key="subcategory.slug">
-              <v-list-tile-content>
-                  <v-list-tile-title class="info--text raleway-font"><a :href="`/produits/${productCategory.slug}/${subcategory.slug}`">{{ subcategory.name }}</a></v-list-tile-title>
-              </v-list-tile-content>
-            </v-list-tile>
-          </v-list>
-        </v-menu>
+        <!-- menu des catégories et sous-catégories (simple fallback) -->
+        <div class="menu-group">
+          <div v-for="productCategory in $store.state.productCategories" :key="productCategory._id" class="menu dropdown">
+            <button class="menu-btn outline text-capitalize info--text fredoka-font">
+              <a class="info--text" :href="`/produits/${productCategory.slug}`">{{ productCategory.name }}</a>
+            </button>
+            <ul class="menu-list">
+              <li v-for="subcategory in productCategory.subcategories" :key="subcategory.slug">
+                <a :href="`/produits/${productCategory.slug}/${subcategory.slug}`" class="info--text raleway-font">{{ subcategory.name }}</a>
+              </li>
+            </ul>
+          </div>
+        </div>
 
         <v-spacer></v-spacer>
 

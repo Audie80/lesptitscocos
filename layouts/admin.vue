@@ -4,11 +4,9 @@
         <Reference />
         <Boutique />
 
-        <v-content>
-
-        <nuxt/>
-        </v-content>
-        
+        <div>
+          <NuxtPage />
+        </div>
     </div>
 </template>
 

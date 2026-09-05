@@ -67,23 +67,14 @@
         <!-- Affichage de la page enfant, quand on clique sur une sous-catégorie > voir le dossier _products -->
         <div
         v-else-if="$route.name=='produits-products-subcategory'">
-            <nuxt-child  :key="$route.params.products" />
+            <NuxtPage  :key="$route.params.products" />
         </div>
     </div>
 </template>
 
-<script>
-    export default {
-        name: 'ListProductsByCategory',
-        // Récupère les produits par catégorie de la BDD
-        async asyncData({ $axios, params }) {
-            let products = await $axios.$get(`produits/${params.products}`)
-            return { products }
-        },
-        data: function() {
-            return {
-                category: this.$route.params.products
-            }
-        }
-    }
+<script setup>
+const route = useRoute()
+const config = useRuntimeConfig()
+const { data: products } = await useAsyncData(`products-${route.params.products}`, () => $fetch(`${config.public.API_URL}produits/${route.params.products}`))
+const category = route.params.products
 </script>

@@ -2,13 +2,13 @@
     <div>
         <div class="boutique" v-if="$route.name!=`admin-commerces-boutiques-shopid-produits`">
             <ul class="breadcrumb">
-            <li><nuxt-link to="/admin">Tableau de bord Admin</nuxt-link><span> > </span></li>
-            <li><nuxt-link to="/admin/commerces">Boutiques</nuxt-link><span> > </span></li>
-            <li><nuxt-link :to="'/admin/commerces/'+category">{{ category }}</nuxt-link><span> > </span></li>
+            <li><NuxtLink to="/admin">Tableau de bord Admin</NuxtLink><span> > </span></li>
+            <li><NuxtLink to="/admin/commerces">Boutiques</NuxtLink><span> > </span></li>
+            <li><NuxtLink :to="'/admin/commerces/'+category">{{ category }}</NuxtLink><span> > </span></li>
             <li><span>Modifier</span></li>
         </ul>
-        <nuxt-link :to="'/admin/commerces/boutiques/delete/'+shopid">Supprimer la boutique</nuxt-link>
-        <nuxt-link :to="'/admin/commerces/boutiques/'+shopid+'/produits'">Voir les produits</nuxt-link>
+        <NuxtLink :to="'/admin/commerces/boutiques/delete/'+shopid">Supprimer la boutique</NuxtLink>
+        <NuxtLink :to="'/admin/commerces/boutiques/'+shopid+'/produits'">Voir les produits</NuxtLink>
 
         <h2>Modif de la boutique  {{ shopid }} (Ma boulangerie etc...)</h2>
         <h3>Ce qui est en rouge peut être modifié</h3>
@@ -53,7 +53,7 @@
         </div>
 
         <div class="produits" v-if="$route.name==`admin-commerces-boutiques-shopid-produits`">
-            <nuxt-child/>
+            <NuxtPage/>
         </div>
         
         

@@ -2,8 +2,8 @@
     <div>
         <div class="category" v-if="!subcategory">
             <ul class="breadcrumb">
-                <li><nuxt-link :to="'/ma_boutique/'+shopid">Tableau de bord {{ shopid }}</nuxt-link><span> > </span></li>
-                <li><nuxt-link :to="'/ma_boutique/produits/'+shopid">Mes produits</nuxt-link><span> > </span></li>
+                <li><NuxtLink :to="'/ma_boutique/'+shopid">Tableau de bord {{ shopid }}</NuxtLink><span> > </span></li>
+                <li><NuxtLink :to="'/ma_boutique/produits/'+shopid">Mes produits</NuxtLink><span> > </span></li>
                 <li><span>{{ category }}</span></li>
             </ul>
             
@@ -11,13 +11,13 @@
             
             <h1>Le commerce {{ shopid }} vend des produits de la catégorie {{ category }} : </h1>
         <ul>
-            <li><nuxt-link :to="'/ma_boutique/produits/'+shopid+'/'+category+'/sscat1'">premiere ss categ de {{ category }}</nuxt-link></li>
-            <li><nuxt-link :to="'/ma_boutique/produits/'+shopid+'/'+category+'/sscat2'">deuxième ss-categ de {{ category }}</nuxt-link></li>
+            <li><NuxtLink :to="'/ma_boutique/produits/'+shopid+'/'+category+'/sscat1'">premiere ss categ de {{ category }}</NuxtLink></li>
+            <li><NuxtLink :to="'/ma_boutique/produits/'+shopid+'/'+category+'/sscat2'">deuxième ss-categ de {{ category }}</NuxtLink></li>
         </ul>
         </div>
         
         <div v-if="subcategory">
-            <nuxt-child/>
+            <NuxtPage/>
         </div>
         
         

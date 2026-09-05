@@ -1,38 +1,35 @@
 <template>
     <v-container fluid>
         
-        <nuxt-link to="/admin/commerces/allshops">Voir toutes les boutiques</nuxt-link>
-        <nuxt-link to="/admin/commerces/create">Créer une nouvelle boutique</nuxt-link>        
+        <NuxtLink to="/admin/commerces/allshops">Voir toutes les boutiques</NuxtLink>
+        <NuxtLink to="/admin/commerces/create">Créer une nouvelle boutique</NuxtLink>        
         
         <h2>Catégories de boutiques</h2>
   
-        <nuxt-link to="/admin/commerces/createCategory">Créer une nouvelle catégorie de boutiques</nuxt-link>
+        <NuxtLink to="/admin/commerces/createCategory">Créer une nouvelle catégorie de boutiques</NuxtLink>
 
-        
         <table>
-            <tr>
-                <th>#</th>
-                <th>Type de commerce</th>
-                <th>Modifier</th>
-                <th>Supprimer</th>
-            </tr>
-            <tr v-for="(shopType, index) of shopsTypes" :key="index">
-                <td> 
-                    <nuxt-link :to='"/admin/commerces/"+shopType.name'>{{ index }}</nuxt-link>
-                </td>
-                <td>
-                    <nuxt-link :to='"/admin/commerces/"+shopType.name'>Consulter tous les " {{ shopType.name }} "</nuxt-link>
-                </td>
-                
-                    
-                <td><nuxt-link :to='"/admin/commerces/update/" + shopType.name'><button>Modifier {{ shops }}</button></nuxt-link></td>
-                <td><nuxt-link :to='"/admin/commerces/delete/" + shopType.name'><button >Supprimer {{ shops }}</button></nuxt-link></td>
-            </tr>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Type de commerce</th>
+                    <th>Modifier</th>
+                    <th>Supprimer</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="(shopType, index) of shopsTypes" :key="index">
+                    <td> 
+                        <NuxtLink :to='"/admin/commerces/"+shopType.name'>{{ index }}</NuxtLink>
+                    </td>
+                    <td>
+                        <NuxtLink :to='"/admin/commerces/"+shopType.name'>Consulter tous les " {{ shopType.name }} "</NuxtLink>
+                    </td>
+                    <td><NuxtLink :to='"/admin/commerces/update/" + shopType.name'><button>Modifier {{ shops }}</button></NuxtLink></td>
+                    <td><NuxtLink :to='"/admin/commerces/delete/" + shopType.name'><button >Supprimer {{ shops }}</button></NuxtLink></td>
+                </tr>
+            </tbody>
         </table>
-
-
-
-        
     </v-container>
 </template>
 

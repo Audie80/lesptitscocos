@@ -41,15 +41,10 @@
     </v-container>
 </template>
 
-<script>
-    export default {
-        name: 'ProductDescription',
-        // Récupère la description du produit de la BDD
-        async asyncData({ $axios, params }) {
-            let product = await $axios.$get(`produit/${params.productid}`)
-            return { product }
-        }
-    }
+<script setup>
+const route = useRoute()
+const config = useRuntimeConfig()
+const { data: product } = await useAsyncData(`product-${route.params.productid}`, () => $fetch(`${config.public.API_URL}produit/${route.params.productid}`))
 </script>
 
 <style scoped>

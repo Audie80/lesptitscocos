@@ -153,30 +153,21 @@
   </v-container>
 </template>
 
-<script>
-export default {
-  data: function() {
-    return {
-      bandeauImg: require('@/assets/img/vince-lee-gwT4rs_xlUA-unsplash.jpg'),
-      debitCardImg: require('@/assets/img/debit-card.png'),
-      deliveryTruckImg: require('@/assets/img/delivery-truck.png'),
-      groceriesImg: require('@/assets/img/groceries.png'),
-      groceriesNbImg: require('@/assets/img/groceries-nb.png'),
-      greenEarthImg: require('@/assets/img/green-earth.png'),
-      holdingHandsImg: require('@/assets/img/holding-hands.png')
-    }
-  },
-  // La méthode head() définit les balises méta de la page
-  head () {
-    return {
-      title: 'TY drive - Le drive local 100% commerçants brestois',
-      meta: [
-        // hid est utiliser comme identifiant unique. N'utilisez pas `vmid` car ça ne fonctionnera pas
-        { hid: 'accueil', name: 'accueil', content: 'Venez faire vos courses sur TY drive, le drive local 100% commerçant. Faire ses courses sur Ty drive c\'est la certitude de consommer local et frais tous les jours.' }
-      ]
-    }
-  }
-}
+<script setup>
+import bandeauImg from '@/assets/img/vince-lee-gwT4rs_xlUA-unsplash.jpg'
+import debitCardImg from '@/assets/img/debit-card.png'
+import deliveryTruckImg from '@/assets/img/delivery-truck.png'
+import groceriesImg from '@/assets/img/groceries.png'
+import groceriesNbImg from '@/assets/img/groceries-nb.png'
+import greenEarthImg from '@/assets/img/green-earth.png'
+import holdingHandsImg from '@/assets/img/holding-hands.png'
+
+useHead({
+  title: 'TY drive - Le drive local 100% commerçants brestois',
+  meta: [
+    { name: 'accueil', content: "Venez faire vos courses sur TY drive, le drive local 100% commerçant. Faire ses courses sur Ty drive c'est la certitude de consommer local et frais tous les jours." }
+  ]
+})
 </script>
 
 <style scoped>

@@ -68,19 +68,10 @@
     </div>
 </template>
 
-<script>
-    export default {
-        name: 'ListProductsBySubCategory',
-        // Récupère les produits par sous-catégorie de la BDD
-        async asyncData({ $axios, params }) {
-            let products = await $axios.$get(`produits/${params.category}/${params.subcategory}`)
-            return { products }
-        },
-        data: function() {
-            return {
-                category: this.$route.params.products,
-                subCategory: this.$route.params.subcategory
-            }
-        }
-    }
+<script setup>
+const route = useRoute()
+const config = useRuntimeConfig()
+const { data: products } = await useAsyncData(`products-${route.params.category}-${route.params.subcategory}`, () => $fetch(`${config.public.API_URL}produits/${route.params.category}/${route.params.subcategory}`))
+const category = route.params.products
+const subCategory = route.params.subcategory
 </script>

@@ -3,7 +3,7 @@
     <div>
         <!-- Affichage de la page parent _category.vue -->
         <div
-        v-if="$route.name=='commerces-shops'">
+        v-show="$route.name=='commerces-shops'">
 
             <!-- Liste des commerces -->
             <v-container fluid grid-list-xl>
@@ -54,22 +54,17 @@
             </v-container>
         </div>
 
-        <!-- Affichage de la page enfant, quand on clique sur un commerce > voir le dossier _commerce -->
-        <div
-        v-else-if="$route.name=='commerces-shops-shopid' || $route.name=='commerces-shops-shopid-productid'"> <!-- 2ème condition indispensable pour afficher l'enfant _product dans la page _commerce -->
-            <nuxt-child  :key="$route.params.shops" />
-        </div>
+        <!-- Affichage de la page enfant -->
+        <NuxtPage :key="$route.params.shops" />
     </div>
 </template>
 
-<script>
-    export default {
-        name: 'ListShops',
-        // Récupère les commerces par catégorie et les infos de la catégorie de la BDD
-        async asyncData({ $axios, params }) {
-            let shops = await $axios.$get(`commerces/${params.shops}`)
-            let categoryInfo = await $axios.$get(`categories/${params.shops}`)
-            return { shops, categoryInfo }
-        }
-    }
+<script setup>
+const route = useRoute()
+const config = useRuntimeConfig()
+const shopsKey = `shops-${route.params.shops}`
+const categoryKey = `category-${route.params.shops}`
+
+const { data: shops } = await useAsyncData(shopsKey, () => $fetch(`${config.public.API_URL}commerces/${route.params.shops}`))
+const { data: categoryInfo } = await useAsyncData(categoryKey, () => $fetch(`${config.public.API_URL}categories/${route.params.shops}`))
 </script>

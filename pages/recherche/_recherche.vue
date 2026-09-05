@@ -65,18 +65,9 @@
         </div>
 </template>
 
-<script>
-    export default {
-        name: 'ListProductsBySearch',
-        // Récupère les produits de la BDD grâce au champ de recherche
-        async asyncData({ $axios, params }) {
-            let products = await $axios.$get(`recherche/${params.recherche}`)
-            return { products }
-        },
-        data: function() {
-            return {
-                search: this.$route.params.recherche
-            }
-        }
-    }
+<script setup>
+const route = useRoute()
+const config = useRuntimeConfig()
+const { data: products } = await useAsyncData(`search-${route.params.recherche}`, () => $fetch(`${config.public.API_URL}recherche/${route.params.recherche}`))
+const search = route.params.recherche
 </script>

@@ -123,14 +123,12 @@
     </div>
 </template>
 
-<script>
-    export default {
-        name: 'ShopDescription',
-        // Récupère la description du commerce de la BDD, ainsi que ses produits
-        async asyncData({ $axios, params }) {
-            let shop = await $axios.$get(`commerces/${params.category}/${params.shopid}`)
-            let products = await $axios.$get(`commerces/${params.category}/${params.shopid}/produits`)
-            return { shop, products }
-        }
-    }
+<script setup>
+const route = useRoute()
+const config = useRuntimeConfig()
+const shopKey = `shop-${route.params.shopid}`
+const productsKey = `products-${route.params.shopid}`
+
+const { data: shop } = await useAsyncData(shopKey, () => $fetch(`${config.public.API_URL}commerces/${route.params.category}/${route.params.shopid}`))
+const { data: products } = await useAsyncData(productsKey, () => $fetch(`${config.public.API_URL}commerces/${route.params.category}/${route.params.shopid}/produits`))
 </script>
