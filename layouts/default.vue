@@ -1,11 +1,11 @@
 <template>
-  <div class="app success">
+  <v-app class="app success">
       <Header />
-      <main>
+      <v-main>
         <NuxtPage />
-      </main>
+      </v-main>
       <Footer />
-  </div>
+  </v-app>
 </template>
 
 <script>

@@ -14,10 +14,10 @@
         <h3>Ce qui est en rouge peut être modifié</h3>
         
         <form action="" method="POST">
-            <v-layout row wrap>
+            <v-row row wrap>
 
                 <!-- Description du commerce -->
-                <v-flex d-flex xs12>
+                <v-col d-flex cols="12">
                     <v-card>
                         <v-card-title>
                             <h3><input class="modif" type="text" :value="shop.name"></h3>
@@ -44,8 +44,8 @@
                             <span><textarea class="modif" :value="shop.resume"></textarea></span>
                         </v-card-text>
                     </v-card>
-                </v-flex>
-            </v-layout>
+                </v-col>
+            </v-row>
             <button type="submit" class="modif">Valider les changements</button>
 
         </form>

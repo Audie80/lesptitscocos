@@ -12,16 +12,15 @@
                 <h2 class="info--text">{{ categoryInfo.name }}</h2>
 
                 <!-- Affichage des cartes commerces -->
-                <v-layout row wrap>
-                    <v-flex
-                    v-for="shop of shops" :key="shop._id" xs12 sm6 md4 lg3> <!-- Boucle qui parcourt toutes les cartes commerces / xs12 sm6 md4 lg3 change le nombre de cards affichées en largeur selon le responsive -->
+                <v-row row wrap>
+                    <v-col v-for="shop of shops" :key="shop._id" cols="12" sm="6" md="4" lg="3"> <!-- Boucle qui parcourt toutes les cartes commerces / xs12 sm6 md4 lg3 change le nombre de cards affichées en largeur selon le responsive -->
                         <v-card>
                             <v-card-title class="info--text" style="height: 66px; padding-top: 2%;">
-                                <v-layout row>
-                                    <v-flex xs9>
+                                <v-row row>
+                                    <v-col cols="9">
                                         <h3>{{ shop.name }}</h3>
-                                    </v-flex>
-                                    <v-flex xs3>
+                                    </v-col>
+                                    <v-col cols="3">
                                         <v-tooltip bottom>
                                             <template v-slot:activator="{ on }">
                                                 <v-btn outline color="primary" icon v-on="on" v-on:click="shop.favorite = !shop.favorite">
@@ -31,8 +30,8 @@
                                             </template>
                                             <span>Ajouter à mes favoris</span>
                                         </v-tooltip>
-                                    </v-flex>
-                                </v-layout>  
+                                    </v-col>
+                                </v-row>  
                             </v-card-title>
                             <v-img :src="shop.img" :alt="shop.name" aspect-ratio="2.75"></v-img>
                             <v-card-text style="height: 150px; overflow-Y: auto;">
@@ -45,8 +44,8 @@
                                 <v-btn primary class="text-capitalize fredoka-font" color="primary" :href="`/commerces/${categoryInfo.slug}/${shop.slug}`">Voir la boutique</v-btn>
                             </v-card-actions>
                         </v-card>
-                    </v-flex>
-                </v-layout>
+                    </v-col>
+                </v-row>
 
                 <!-- Contenu descriptif de la catégorie -->
                 <p>{{ categoryInfo.description }}</p>

@@ -1,10 +1,12 @@
 
 export default defineNuxtConfig({
+  pages: true,
   ssr: true,
   server: {
     port: 8080,
     host: '0.0.0.0'
   },
+  components: true,
   /*
   ** Headers of the page
   */
@@ -31,14 +33,14 @@ export default defineNuxtConfig({
   /*
   ** Global CSS
   */
-  css: ['~/assets/style/style.css'],
+  css: [
+    'vuetify/styles',
+    '~/assets/style/style.css'
+  ],
   /*
   ** Plugins to load before mounting the App
   */
-  plugins: [],
-  /*
-  ** Nuxt.js modules
-  */
+  plugins: ['~/plugins/vuetify.ts'],
   runtimeConfig: {
     public: {
       API_URL: process.env.API_URL || 'http://localhost:8001/api/'
@@ -48,6 +50,6 @@ export default defineNuxtConfig({
   ** Build configuration
   */
   build: {
-    transpile: []
+    transpile: ['vuetify']
   }
 })

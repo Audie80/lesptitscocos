@@ -1,7 +1,7 @@
 describe('Page d\'accueil', () => {
   it('affiche le hero principal et le titre du site', () => {
-    cy.contains('Ty Drive').should('be.visible');
-    cy.contains('Mes commerces de proximité').should('be.visible');
+    cy.get('h1').should('contain', 'Ty Drive').and('be.visible');
+    cy.get('h2').should('contain', 'Mes commerces de proximité').and('be.visible');
     cy.contains('Ty Drive ça marche comment ?').should('be.visible');
   });
 

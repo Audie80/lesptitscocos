@@ -2,12 +2,12 @@
     <v-container fluid>
         <v-card>
             <v-container>
-                <v-layout row wrap>
-                    <v-flex md6 xs12>
+                <v-row row wrap>
+                    <v-col md="6" cols="12">
                         <v-img :src="product.img" :alt="product.name"></v-img>
-                    </v-flex>
+                    </v-col>
 
-                    <v-flex md6 xs12>
+                    <v-col md="6" cols="12">
                         <v-card-title class="info--text">
                             <h2>{{ product.name }}</h2>
                             <v-spacer></v-spacer>
@@ -34,8 +34,8 @@
                                 <v-icon>shopping_cart</v-icon>
                             </v-btn>
                         </v-card-actions>
-                    </v-flex>
-                </v-layout>
+                    </v-col>
+                </v-row>
             </v-container>
         </v-card>
     </v-container>
