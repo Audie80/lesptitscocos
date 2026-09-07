@@ -15,28 +15,27 @@
                 </div>
 
                 <!-- Affichage des cartes produits -->
-                <v-layout row wrap>
-                    <v-flex
-                    v-for="product of products" :key="product._id" xs12 sm6 md4 lg3> <!-- Boucle qui parcourt toutes les cartes produits / xs12 sm6 md4 lg3 change le nombre de cards affichées en largeur selon le responsive -->
+                <v-row row wrap>
+                    <v-col v-for="product of products" :key="product._id" cols="12" sm="6" md="4" lg="3"> <!-- Boucle qui parcourt toutes les cartes produits / xs12 sm6 md4 lg3 change le nombre de cards affichées en largeur selon le responsive -->
                         <v-card>
                             <v-card-title class="info--text" style="height: 66px; padding-top: 2%;">
-                                <v-layout row>
-                                    <v-flex xs9>
+                                <v-row row>
+                                    <v-col cols="9">
                                         <h3>{{ product.name }}</h3>
-                                    </v-flex>
-                                    <v-flex xs3>
+                                    </v-col>
+                                    <v-col cols="3">
                                         <!-- icône favori, affichage lié à la BDD à faire, data à true ou à false -->
-                                        <v-tooltip bottom>
-                                            <template v-slot:activator="{ on }">
-                                                <v-btn outline color="primary" icon v-on="on" v-on:click="product.favorite = !product.favorite">
+                                                <v-tooltip bottom>
+                                                    <template v-slot:activator="{ props }">
+                                                        <v-btn outline color="primary" icon v-bind="props" v-on:click="product.favorite = !product.favorite">
                                                     <v-icon v-if="product.favorite == false">favorite_border</v-icon>
                                                     <v-icon v-if="product.favorite == true">favorite</v-icon>
                                                 </v-btn>
                                             </template>
                                             <span>Ajouter à mes favoris</span>
                                         </v-tooltip>
-                                    </v-flex>
-                                </v-layout>
+                                    </v-col>
+                                </v-row>
                             </v-card-title>
                             <v-img :src="product.img" :alt="product.name" aspect-ratio="2.25" mx-2></v-img>
                             <v-card-text class="info--text" style="height: 150px; overflow-Y: auto; padding-top: 2%;">
@@ -49,8 +48,8 @@
                                 <v-spacer></v-spacer>
                                 <v-btn outline round color="primary">{{ product.price }} €</v-btn>
                                 <v-tooltip bottom>
-                                    <template v-slot:activator="{ on }">
-                                        <v-btn outline color="primary" icon v-on="on">
+                                    <template v-slot:activator="{ props }">
+                                        <v-btn outline color="primary" icon v-bind="props">
                                             <v-icon>shopping_cart</v-icon>
                                         </v-btn>
                                     </template>
@@ -58,8 +57,8 @@
                                 </v-tooltip>
                             </v-card-actions>
                         </v-card>
-                    </v-flex>
-                </v-layout>
+                    </v-col>
+                </v-row>
 
             </v-container>
         </div>
@@ -67,23 +66,14 @@
         <!-- Affichage de la page enfant, quand on clique sur une sous-catégorie > voir le dossier _products -->
         <div
         v-else-if="$route.name=='produits-products-subcategory'">
-            <nuxt-child  :key="$route.params.products" />
+            <NuxtPage  :key="$route.params.products" />
         </div>
     </div>
 </template>
 
-<script>
-    export default {
-        name: 'ListProductsByCategory',
-        // Récupère les produits par catégorie de la BDD
-        async asyncData({ $axios, params }) {
-            let products = await $axios.$get(`produits/${params.products}`)
-            return { products }
-        },
-        data: function() {
-            return {
-                category: this.$route.params.products
-            }
-        }
-    }
+<script setup>
+const route = useRoute()
+const config = useRuntimeConfig()
+const { data: products } = await useAsyncData(`products-${route.params.products}`, () => $fetch(`${config.public.API_URL}produits/${route.params.products}`))
+const category = route.params.products
 </script>

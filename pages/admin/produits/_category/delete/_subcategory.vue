@@ -1,10 +1,10 @@
 <template>
     <div>
         <ul class="breadcrumb">
-            <li><nuxt-link to="/admin">Tableau de bord Admin</nuxt-link><span> > </span></li>
-            <li><nuxt-link to="/admin/produitsCategories">Toutes les catégories de boutiques</nuxt-link><span> > </span></li>
-            <li><nuxt-link :to="'/admin/produitsCategories/'+category">Catégorie de boutiques {{ category }}</nuxt-link><span> > </span></li>
-            <li><nuxt-link :to="'/admin/produitsCategories/'+category+'/'+subcategory">Sous-catégorie {{ subcategory }}</nuxt-link><span> > </span></li>
+            <li><NuxtLink to="/admin">Tableau de bord Admin</NuxtLink><span> > </span></li>
+            <li><NuxtLink to="/admin/produitsCategories">Toutes les catégories de boutiques</NuxtLink><span> > </span></li>
+            <li><NuxtLink :to="'/admin/produitsCategories/'+category">Catégorie de boutiques {{ category }}</NuxtLink><span> > </span></li>
+            <li><NuxtLink :to="'/admin/produitsCategories/'+category+'/'+subcategory">Sous-catégorie {{ subcategory }}</NuxtLink><span> > </span></li>
             <li><span>supprimer</span></li>
         </ul>
 

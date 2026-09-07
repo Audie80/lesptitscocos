@@ -1,13 +1,13 @@
 <template>
     <div>
             <ul class="breadcrumb">
-            <li><nuxt-link to="/admin">Tableau de bord Admin</nuxt-link><span> > </span></li>
-            <li><nuxt-link to="/admin/produitsCategories">Toutes les catégories de boutiques</nuxt-link><span> > </span></li>
-            <li><nuxt-link :to="'/admin/produitsCategories/'+category">Catégorie de boutiques {{ category }}</nuxt-link><span> > </span></li>
-            <li><nuxt-link :to="'/admin/produitsCategories/'+category+'/'+subcategory">Sous-catégorie {{ subcategory }}</nuxt-link><span> > </span></li>
+            <li><NuxtLink to="/admin">Tableau de bord Admin</NuxtLink><span> > </span></li>
+            <li><NuxtLink to="/admin/produitsCategories">Toutes les catégories de boutiques</NuxtLink><span> > </span></li>
+            <li><NuxtLink :to="'/admin/produitsCategories/'+category">Catégorie de boutiques {{ category }}</NuxtLink><span> > </span></li>
+            <li><NuxtLink :to="'/admin/produitsCategories/'+category+'/'+subcategory">Sous-catégorie {{ subcategory }}</NuxtLink><span> > </span></li>
             <li><span>modifier</span></li>
         </ul>
-        <nuxt-link :to="'/admin/produitsCategories/'+category+'/delete/'+subcategory">Supprimer la sous-catégorie {{ subcategory }}</nuxt-link>
+        <NuxtLink :to="'/admin/produitsCategories/'+category+'/delete/'+subcategory">Supprimer la sous-catégorie {{ subcategory }}</NuxtLink>
         <h1>Modifier la sous-catégorie {{ subcategory }}</h1>
 
     </div>

@@ -1,9 +1,10 @@
 <template>
-  <v-app class="success">
+  <v-app class="app success">
       <Header />
-      <v-content>
-        <nuxt />
-      </v-content>
+      <div class="v-overlay-container"></div>
+      <v-main>
+        <NuxtPage />
+      </v-main>
       <Footer />
   </v-app>
 </template>

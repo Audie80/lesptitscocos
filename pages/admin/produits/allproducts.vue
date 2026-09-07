@@ -1,7 +1,7 @@
 <template>
     <div>
         <h1>Tous les produits</h1>
-        <nuxt-link to="/admin/produitsCategories">Voir les catégories</nuxt-link>
+        <NuxtLink to="/admin/produitsCategories">Voir les catégories</NuxtLink>
     </div>
 </template>
 

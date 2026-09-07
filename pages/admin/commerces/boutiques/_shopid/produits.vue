@@ -1,6 +1,6 @@
 <template>
     <div>
-        <nuxt-link :to="'/admin/commerces/boutiques/'+shopid"> retour à la boutique </nuxt-link>
+        <NuxtLink :to="'/admin/commerces/boutiques/'+shopid"> retour à la boutique </NuxtLink>
         <h1>Tous les produits de la boutique {{ shopid }}</h1>
     </div>
 </template>

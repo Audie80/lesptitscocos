@@ -3,23 +3,27 @@
         <!-- Sert à lister des produits -->
         <table>
             <thead>
-                <th>#</th>
-                <th>Nom</th>
-                <th>Référence</th>
-                <th>Quantité</th>
-                <th>Stock</th>
-                <th>Modifier</th>
-                <th>Supprimer</th>
+                <tr>
+                    <th>#</th>
+                    <th>Nom</th>
+                    <th>Référence</th>
+                    <th>Quantité</th>
+                    <th>Stock</th>
+                    <th>Modifier</th>
+                    <th>Supprimer</th>
+                </tr>
             </thead>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
         </table>
 
     </div>
