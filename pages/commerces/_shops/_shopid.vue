@@ -16,8 +16,8 @@
                                 <v-spacer></v-spacer>
                                 <!-- icône favori, affichage lié à la BDD à faire, data à true ou à false -->
                                 <v-tooltip bottom>
-                                    <template v-slot:activator="{ on }">
-                                        <v-btn outline color="primary" icon v-on="on" v-on:click="shop.favorite = !shop.favorite">
+                                    <template v-slot:activator="{ props }">
+                                        <v-btn outline color="primary" icon v-bind="props" v-on:click="shop.favorite = !shop.favorite">
                                             <v-icon v-if="shop.favorite == false">favorite_border</v-icon>
                                             <v-icon v-if="shop.favorite == true">favorite</v-icon>
                                         </v-btn>
@@ -37,11 +37,11 @@
                                 </p>
                                 <p style="margin-bottom: 0;">Tel : {{ shop.tel }}</p>
                             </v-card-text>
-                            <v-card-actions>
+                                <v-card-actions>
                                 <v-spacer></v-spacer>
                                 <v-tooltip bottom>
-                                    <template v-slot:activator="{ on }">
-                                        <v-btn outline color="primary" icon v-on="on"
+                                    <template v-slot:activator="{ props }">
+                                        <v-btn outline color="primary" icon v-bind="props"
                                         v-if="shop.email">
                                             <a :href="shop.email" target="_blank"><v-icon>email</v-icon></a>
                                         </v-btn>
@@ -49,8 +49,8 @@
                                     <span>E-mail</span>
                                 </v-tooltip>
                                 <v-tooltip bottom>
-                                    <template v-slot:activator="{ on }">
-                                        <v-btn outline color="primary" icon v-on="on"
+                                    <template v-slot:activator="{ props }">
+                                        <v-btn outline color="primary" icon v-bind="props"
                                         v-if="shop.website">
                                         <a :href="shop.website" target="_blank"><v-icon>laptop_windows</v-icon></a>
                                         </v-btn>
@@ -58,8 +58,8 @@
                                     <span>Site Internet</span>
                                 </v-tooltip>
                                 <v-tooltip bottom>
-                                    <template v-slot:activator="{ on }">
-                                        <v-btn outline color="primary" icon v-on="on"
+                                    <template v-slot:activator="{ props }">
+                                        <v-btn outline color="primary" icon v-bind="props"
                                         v-if="shop.facebook">
                                         <a :href="shop.facebook" target="_blank"><v-icon>thumb_up_alt</v-icon></a>
                                         </v-btn>
@@ -87,8 +87,8 @@
                                 <v-col cols="3">
                                     <!-- icône favori, affichage lié à la BDD à faire, data à true ou à false -->
                                     <v-tooltip bottom>
-                                        <template v-slot:activator="{ on }">
-                                            <v-btn outline color="primary" icon v-on="on" v-on:click="product.favorite = !product.favorite">
+                                        <template v-slot:activator="{ props }">
+                                            <v-btn outline color="primary" icon v-bind="props" v-on:click="product.favorite = !product.favorite">
                                                 <v-icon v-if="product.favorite == false">favorite_border</v-icon>
                                                 <v-icon v-if="product.favorite == true">favorite</v-icon>
                                             </v-btn>
@@ -107,8 +107,8 @@
                             <v-spacer></v-spacer>
                             <v-btn outline round color="primary">{{ product.price }} €</v-btn>
                             <v-tooltip bottom>
-                                <template v-slot:activator="{ on }">
-                                    <v-btn outline color="primary" icon v-on="on">
+                                <template v-slot:activator="{ props }">
+                                    <v-btn outline color="primary" icon v-bind="props">
                                         <v-icon>shopping_cart</v-icon>
                                     </v-btn>
                                 </template>

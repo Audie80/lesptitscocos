@@ -1,3 +1,4 @@
+import { defineNuxtPlugin, useRuntimeConfig } from 'nuxt/app'
 import { reactive } from 'vue'
 
 export default defineNuxtPlugin(async (nuxtApp) => {

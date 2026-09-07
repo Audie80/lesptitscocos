@@ -93,8 +93,8 @@
 
         <!-- nous situer -->
         <v-tooltip bottom>
-          <template v-slot:activator="{ on }">
-            <v-btn flat round icon small outline class="primary--text hidden-sm-and-down" v-on="on">
+          <template v-slot:activator="{ props }">
+            <v-btn flat round icon small outline class="primary--text hidden-sm-and-down" v-bind="props">
               <a href="/#googleMap"><v-icon small color="primary">place</v-icon></a>
             </v-btn>
           </template>
@@ -138,8 +138,8 @@
           <span class="raleway-font">Panier</span>
         </v-btn>
         <v-tooltip bottom>
-          <template v-slot:activator="{ on }">
-            <v-btn flat round icon small outline class="primary--text hidden-sm-and-down" v-on="on">
+          <template v-slot:activator="{ props }">
+            <v-btn flat round icon small outline class="primary--text hidden-sm-and-down" v-bind="props">
               <v-icon small color="primary">favorite_border</v-icon>
             </v-btn>
           </template>

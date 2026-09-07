@@ -1,6 +1,7 @@
 <template>
   <v-app class="app success">
       <Header />
+      <div class="v-overlay-container"></div>
       <v-main>
         <NuxtPage />
       </v-main>

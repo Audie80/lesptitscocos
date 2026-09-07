@@ -6,6 +6,7 @@ export default defineNuxtConfig({
     port: 8080,
     host: '0.0.0.0'
   },
+  compatibilityDate: '2026-09-07',
   components: true,
   /*
   ** Headers of the page

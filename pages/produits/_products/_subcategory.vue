@@ -28,8 +28,8 @@
                                     <v-col cols="3">
                                         <!-- icône favori, affichage lié à la BDD à faire, data à true ou à false -->
                                         <v-tooltip bottom>
-                                            <template v-slot:activator="{ on }">
-                                                <v-btn outline color="primary" icon v-on="on" v-on:click="product.favorite = !product.favorite">
+                                            <template v-slot:activator="{ props }">
+                                                <v-btn outline color="primary" icon v-bind="props" v-on:click="product.favorite = !product.favorite">
                                                     <v-icon v-if="product.favorite == false">favorite_border</v-icon>
                                                     <v-icon v-if="product.favorite == true">favorite</v-icon>
                                                 </v-btn>
@@ -50,8 +50,8 @@
                                 <v-spacer></v-spacer>
                                 <v-btn outline round color="primary">{{ product.price }} €</v-btn>
                                 <v-tooltip bottom>
-                                    <template v-slot:activator="{ on }">
-                                        <v-btn outline color="primary" icon v-on="on">
+                                    <template v-slot:activator="{ props }">
+                                        <v-btn outline color="primary" icon v-bind="props">
                                             <v-icon>shopping_cart</v-icon>
                                         </v-btn>
                                     </template>

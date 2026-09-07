@@ -22,8 +22,8 @@
                                     </v-col>
                                     <v-col cols="3">
                                         <v-tooltip bottom>
-                                            <template v-slot:activator="{ on }">
-                                                <v-btn outline color="primary" icon v-on="on" v-on:click="shop.favorite = !shop.favorite">
+                                            <template v-slot:activator="{ props }">
+                                                <v-btn outline color="primary" icon v-bind="props" v-on:click="shop.favorite = !shop.favorite">
                                                     <v-icon v-if="shop.favorite == false">favorite_border</v-icon>
                                                     <v-icon v-if="shop.favorite == true">favorite</v-icon>
                                                 </v-btn>
