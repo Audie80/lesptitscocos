@@ -22,7 +22,7 @@
     "babel-eslint": "~10.1.0",
     "cypress": "^16.0.0",
     "stylus": "~0.64.0",
-    "stylus-loader": "~3.0.2",
+    "stylus-loader": "~9.0.0",
     "vuetify": "^4.2.1",
     "vuetify-nuxt-module": "^1.0.0-rc.5"
   }
