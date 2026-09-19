@@ -24,6 +24,6 @@
     "stylus": "~0.64.0",
     "stylus-loader": "~9.0.0",
     "vuetify": "^4.2.1",
-    "vuetify-nuxt-module": "^1.0.0-rc.5"
+    "vuetify-nuxt-module": "^1.0.0-rc.6"
   }
 }
