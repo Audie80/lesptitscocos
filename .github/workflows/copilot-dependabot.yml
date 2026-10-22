@@ -1,0 +1,125 @@
+name: Copilot on Dependabot PR
+
+on:
+  workflow_dispatch:
+    inputs:
+      pr_number:
+        description: "Dependabot PR number to process"
+        required: true
+        type: number
+
+permissions:
+  contents: write
+  pull-requests: read
+
+jobs:
+  copilot:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Get PR source branch
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          BRANCH=$(gh pr view "${{ inputs.pr_number }}" \
+            --repo "${{ github.repository }}" \
+            --json headRefName \
+            --jq '.headRefName')
+
+          if [ -z "$BRANCH" ]; then
+            echo "Could not determine PR source branch."
+            exit 1
+          fi
+
+          echo "PR source branch: $BRANCH"
+          echo "PR_BRANCH=$BRANCH" >> "$GITHUB_ENV"
+
+      - name: Checkout PR source branch
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ env.PR_BRANCH }}
+          fetch-depth: 0
+          persist-credentials: true
+
+      - name: Show Git state
+        run: |
+          echo "Current branch:"
+          git branch --show-current
+
+          echo "Current commit:"
+          git log -1 --oneline
+
+          echo "Remote:"
+          git remote -v
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+
+      - name: Install Copilot CLI
+        run: npm install -g @github/copilot
+
+      - name: Run Copilot
+        env:
+          COPILOT_GITHUB_TOKEN: ${{ secrets.COPILOT_GITHUB_TOKEN }}
+          PR_BRANCH: ${{ env.PR_BRANCH }}
+        run: |
+          copilot -p "
+          You are working on Dependabot pull request #${{ inputs.pr_number }}.
+
+          The source branch of this pull request is:
+          ${PR_BRANCH}
+
+          Your task is to make this dependency update ready to merge.
+
+          First inspect the current repository state and the changes already
+          present in this branch.
+
+          Then:
+          1. Understand exactly what Dependabot is updating.
+          2. Inspect package.json and package-lock.json.
+          3. Run the project's relevant tests and build.
+          4. Fix issues caused by the dependency update.
+          5. Do not make unrelated changes.
+          6. Do not change application behavior unless necessary for compatibility.
+          7. When everything passes, commit the necessary changes.
+          8. Push the commit explicitly with:
+             git push origin HEAD:${PR_BRANCH}
+          9. Verify that the push succeeded and that the pushed commit is
+             present on the remote branch.
+          10. Do not merge the pull request.
+          11. Do not close the pull request.
+          12. Do not modify any other branches.
+
+          Work autonomously until the task is complete.
+          " \
+          --allow-tool='shell(git:*)' \
+          --allow-tool='shell(npm:*)' \
+          --allow-tool='shell(npx:*)' \
+          --allow-tool=write \
+          --no-ask-user
+
+      - name: Verify remote branch
+        env:
+          PR_BRANCH: ${{ env.PR_BRANCH }}
+        run: |
+          echo "Fetching latest remote state..."
+          git fetch origin "$PR_BRANCH"
+
+          LOCAL_COMMIT=$(git rev-parse HEAD)
+          REMOTE_COMMIT=$(git rev-parse "origin/$PR_BRANCH")
+
+          echo "Local commit:  $LOCAL_COMMIT"
+          echo "Remote commit: $REMOTE_COMMIT"
+
+          if [ "$LOCAL_COMMIT" != "$REMOTE_COMMIT" ]; then
+            echo "ERROR: The local commit was not pushed to the PR branch."
+            exit 1
+          fi
+
+          echo "SUCCESS: The PR branch contains the Copilot commit."
+
+          echo
+          echo "Final repository state:"
+          git status --short --branch
