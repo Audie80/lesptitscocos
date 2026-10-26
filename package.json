@@ -12,17 +12,11 @@
     "e2e:run": "cypress run"
   },
   "dependencies": {
-    "body-parser": "~2.3.0",
-    "core-js": "~3.51.0",
     "eslint": "~10.13.0",
     "nuxt": "^4.6.2"
   },
   "devDependencies": {
-    "babel-core": "~7.0.0-bridge.0",
-    "babel-eslint": "~10.1.0",
     "cypress": "^16.2.0",
-    "stylus": "~0.64.0",
-    "stylus-loader": "~9.0.0",
     "vuetify": "^4.3.0",
     "vuetify-nuxt-module": "^1.0.0-rc.6"
   }
