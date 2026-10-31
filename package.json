@@ -16,7 +16,7 @@
     "nuxt": "^4.6.3"
   },
   "devDependencies": {
-    "cypress": "^16.2.0",
+    "cypress": "^16.2.1",
     "vuetify": "^4.3.0",
     "vuetify-nuxt-module": "^1.0.0-rc.6"
   }
